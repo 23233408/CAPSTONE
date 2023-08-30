@@ -4,8 +4,9 @@ torch>=1.8.0
 rdkit>=2022.03.4
 scikit-learn>=0.24.2
 networkx>=2.6.3
-pandas>=2.0.3
+pandas>=2.1.0
 tqdm
 pyhealth
 sweetviz
-psycopg2
+psycopg2==2.9.7
+fastparquet==2023.7.0
