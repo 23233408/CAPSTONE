@@ -11,6 +11,18 @@ CREATE INDEX labevents_transform_subject_id_idx ON labevents_transform (subject_
 CREATE INDEX labevents_transform_hadm_id_idx ON labevents_transform (hadm_id);
 CREATE INDEX labevents_transform_charttime_idx ON labevents_transform (charttime);
 
+create table demographic (
+  id serial not null,
+  row_key varchar(255) not null unique,
+  subject_id integer not null,
+  hadm_id integer,
+  is_sepsis integer,
+  primary key (id)
+);
+CREATE INDEX demograhic_subjectid_idx ON labevents_transform (subject_id);
+CREATE INDEX demograhic_hadmid_idx ON labevents_transform (hadm_id);
+CREATE INDEX demograhic_issepsis_idx ON labevents_transform (is_sepsis);
+
 create view v_labevents_transform as
 select id, row_key, subject_id, hadm_id, charttime, 
   (item_values -> '50800' ->> 'value') ITEM_50800, (item_values -> '50800' ->> 'flag') FLAG_50800,
