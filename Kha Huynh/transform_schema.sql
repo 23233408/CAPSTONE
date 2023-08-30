@@ -16,10 +16,12 @@ create table demographic (
   row_key varchar(255) not null unique,
   subject_id integer not null,
   hadm_id integer,
-  is_sepsis bool,
+  is_sepsis integer,
   primary key (id)
 );
-CREATE INDEX demograhic_subjectid_hadmid_idx ON demographic (subject_id, hadm_id);
+CREATE INDEX demograhic_subjectid_idx ON labevents_transform (subject_id);
+CREATE INDEX demograhic_hadmid_idx ON labevents_transform (hadm_id);
+CREATE INDEX demograhic_issepsis_idx ON labevents_transform (is_sepsis);
 
 create view v_labevents_transform as
 select id, row_key, subject_id, hadm_id, charttime, 
