@@ -2,18 +2,25 @@ import os
 import pandas as pd
 from datetime import datetime
 
-output_dir = '/home/labadmin/work/data-science-capstone-project/data/labevents_transform_sepsis_parquet'
-file_name = 'labevents_transform_sepsis'
-print(str(datetime.now()) + ' Start')
+output_dir = '/home/labadmin/work/data-science-capstone-project/data/labevents_transform_parquet'
+file_name = 'labevents_transform'
 
 # List all Parquet files in the output folder
-parquet_files = [f'{output_dir}/{file}' for file in os.listdir(output_dir) if file.endswith('.parquet')]
+parquet_files = sorted([f'{output_dir}/{file}' for file in os.listdir(output_dir) if file.endswith('.parquet')])
 
-# Read all Parquet files into a list of DataFrames
-dfs = [pd.read_parquet(file) for file in parquet_files]
+print(str(datetime.now()) + ' Start')
 
-# Concatenate the list of DataFrames into a single DataFrame
-df = pd.concat(dfs, ignore_index=True)
-print(len(df))
+# Read all Parquet files and concatenate the list of DataFrames into a single DataFrame
+df = None
+for idx in range(10):
+  file = parquet_files[idx]
+  df_i = pd.read_parquet(file, 'fastparquet')
+  print(str(datetime.now()) + ' ' + file)
+  if df is None:
+    df = df_i
+  else:
+    df = pd.concat([df, df_i], ignore_index = True)
+
 print(str(datetime.now()) + ' End')
-print(df)
+
+print(len(df))
