@@ -3,12 +3,12 @@ from datetime import datetime
 from sqlalchemy import create_engine
 
 
-chunksize = 50000
-output_dir = '/home/labadmin/work/data-science-capstone-project/data/labevents_transform_parquet'
-file_name = 'labevents_transform'
+chunksize = 25000
+output_dir = '/home/labadmin/work/data-science-capstone-project/data/labevents_transform_sepsis_parquet'
+file_name = 'labevents_transform_sepsis'
 
 # Define query to select data from table
-sql_query = "select * from v_labevents_transform_v31 order by row_key"
+sql_query = "select * from v_labevents_transform_sepsis_v2"
 
 # Define PostgreSQL connection parameters
 db_username = 'capstone'
