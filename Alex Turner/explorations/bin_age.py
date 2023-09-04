@@ -1,10 +1,3 @@
-from pathlib import Path
-import pandas as pd
-
-def get_project_root() -> Path:
-    return Path(__file__).absolute().parent.parent
-
-
 def categorise_age(df):
     """
     Categorise the 'AGE' column in the DataFrame into age bins.
@@ -23,6 +16,6 @@ def categorise_age(df):
     age_bin_labels = ['0', '1-17', '18-35', '36-50', '51-70', '71+']
     
     # create age bins
-    df['AGE_cat'] = pd.cut(df['AGE'], bins=age_bin_edges, labels=age_bin_labels, right=False)
+    df_demographic['AGE_cat'] = pd.cut(df_demographic['AGE'], bins=age_bin_edges, labels=age_bin_labels, right=False)
     
     return df
