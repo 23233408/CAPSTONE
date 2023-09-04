@@ -16,6 +16,8 @@ create table demographic (
   row_key varchar(255) not null unique,
   subject_id integer not null,
   hadm_id integer,
+  admittime timestamp,
+  dischtime timestamp,
   is_sepsis integer,
   primary key (id)
 );
