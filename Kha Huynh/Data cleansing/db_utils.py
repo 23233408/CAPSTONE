@@ -5,17 +5,18 @@ import numpy as np
 import psycopg2
 import psycopg2.extras
 from datetime import datetime
-import pathlib as Path
+from pathlib import Path
 from sqlalchemy import create_engine
 import pandas as pd
 
 # setup OS agnostic pathnames
-ROOT_DIR = Path('../..')
+ROOT_DIR = Path('.')
 file_name = ROOT_DIR / 'data' / 'LABEVENTS.csv'
 chunksize = 50000
 table_name = 'labevents_transform_v3'
+db_hostname = 'dev02.grouplab.io.vn'
 
-def execute_values(conn, df):
+def execute_values(conn, df, table_name=table_name):
   global max_id, inserted_count
   # SQL query to execute
   query = "INSERT INTO "+table_name+"(row_key,subject_id,hadm_id,charttime,item_values) VALUES (%s,%s,%s,%s,%s) ON CONFLICT (row_key) DO UPDATE SET item_values = "+table_name+".item_values || %s::jsonb"
@@ -40,9 +41,9 @@ def build_key(subject_id, hadm_id, charttime):
   return key
 
 # process and import the labevents table into db
-def import_to_db(file_name=file_name):
+def import_to_db(file_name=file_name, table_name=table_name):
   conn = psycopg2.connect(
-    database="capstone_db", user='capstone', password='capstone', host='127.0.0.1', port='5432'
+    database="capstone_db", user='capstone', password='capstone', host=db_hostname, port='5432'
   )
   psycopg2.extensions.register_adapter(dict, psycopg2.extras.Json)
 
@@ -77,7 +78,7 @@ def import_to_db(file_name=file_name):
         df.loc[row_key] = new_row_values
 
     df['ITEM_VAUES'] = df['TMP_ITEMS'].apply(json.dumps)
-    execute_values(conn=conn, df=df)
+    execute_values(conn=conn, df=df, table_name=table_name)
     print(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " processed "+str(chunk.index.stop)+"+ rows")
 
 # export processed labevents from DB and return dask dataframe
@@ -151,3 +152,6 @@ def export_labevents_transform_sepsis_parquet(ROOT_DIR):
     chunk.to_parquet(f'{output_dir}/{file_name}_{idx_num}.parquet', engine='fastparquet', compression='SNAPPY')
     idx = idx + 1
   print(str(datetime.now()) + ' End')
+
+
+import_to_db(ROOT_DIR / 'data/output_csv/fill_hadmid.csv', 'labevents_transform_v3_1')
