@@ -15,6 +15,7 @@ def load_labevents_dask(ROOT_DIR):
                         engine='fastparquet')
 
     print(str(datetime.now()) + ' ' + str(len(ddf)))
+    ddf.columns = ddf.columns.str.upper()
     # print(ddf)
 
     # Get OutOfMemory crash when converting to pandas
@@ -41,6 +42,7 @@ def load_labevents_pd(ROOT_DIR):
             df = df_i
         else:
             df = pd.concat([df, df_i], ignore_index = True)
+    df.columns = df.columns.str.upper()
 
     print(str(datetime.now()) + ' End')
 
