@@ -1,0 +1,36 @@
+LOAD CSV WITH HEADERS FROM 'file:///PatientswithSepsis.csv' as row
+MERGE (person:Admission{id:row.HADM_ID})
+MERGE (disease:DIAG{id:row.SHORT_TITLE})
+MERGE (icdcode:ICD9{id:row.ICD9_CODE})
+MERGE (person)-[:HAS]-> (disease)
+MERGE (disease)-[:HAS_ICD9_CODE]-> (icdcode)
+
+MATCH (d:DIAG) WHERE d.id IN ['NB septicemia [sepsis]','Severe sepsis','Sepsis'] 
+MATCH (d)<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
+WHERE d <> id
+WITH icd, id,COUNT(distinct p) as Count
+ORDER BY Count DESC
+LIMIT 50
+RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
+
+---------------------------------------------------------------------------------------------------------
+
+MATCH (d:DIAG{id:'Sepsis'})<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
+WHERE d <> id
+WITH icd, id, COUNT(distinct p) as Count
+ORDER BY Count DESC
+RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
+
+MATCH (d:DIAG{id:'NB septicemia [sepsis]'})<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
+WHERE d <> id
+WITH icd, id, COUNT(distinct p) as Count
+ORDER BY Count DESC
+RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
+
+MATCH (d:DIAG{id:'Severe sepsis'})<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
+WHERE d <> id
+WITH icd, id, COUNT(distinct p) as Count
+ORDER BY Count DESC
+RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
+
+
