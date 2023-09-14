@@ -1,0 +1,2044 @@
+﻿ICD9_CODE,SHORT_TITLE,Count
+"""0389""","""Septicemia NOS""",719
+"""4019""","""Hypertension NOS""",408
+"""4280""","""CHF NOS""",354
+"""5990""","""Urin tract infection NOS""",338
+"""42731""","""Atrial fibrillation""",322
+"""5849""","""Acute kidney failure NOS""",296
+"""25000""","""DMII wo cmp nt st uncntr""",218
+"""486""","""Pneumonia, organism NOS""",215
+"""2724""","""Hyperlipidemia NEC/NOS""",212
+"""2859""","""Anemia NOS""",192
+"""51881""","""Acute respiratry failure""",191
+"""2762""","""Acidosis""",186
+"""2449""","""Hypothyroidism NOS""",163
+"""41401""","""Crnry athrscl natve vssl""",162
+"""53081""","""Esophageal reflux""",158
+"""5070""","""Food/vomit pneumonitis""",144
+"""40391""","""Hyp kid NOS w cr kid V""",136
+"""2761""","""Hyposmolality""",131
+"""5119""","""Pleural effusion NOS""",122
+"""2875""","""Thrombocytopenia NOS""",121
+"""5856""","""End stage renal disease""",118
+"""V5861""","""Long-term use anticoagul""",117
+"""311""","""Depressive disorder NEC""",114
+"""03842""","""E coli septicemia""",112
+"""496""","""Chr airway obstruct NEC""",112
+"""99662""","""React-oth vasc dev/graft""",107
+"""2851""","""Ac posthemorrhag anemia""",105
+"""03811""","""Meth susc Staph aur sept""",103
+"""70703""","""Pressure ulcer, low back""",99
+"""2720""","""Pure hypercholesterolem""",98
+"""V4581""","""Aortocoronary bypass""",98
+"""0380""","""Streptococcal septicemia""",96
+"""99859""","""Other postop infection""",95
+"""E8798""","""Abn react-procedure NEC""",95
+"""00845""","""Int inf clstrdium dfcile""",92
+"""5859""","""Chronic kidney dis NOS""",91
+"""40390""","""Hy kid NOS w cr kid I-IV""",89
+"""5180""","""Pulmonary collapse""",87
+"""V4986""","""Do not resusctate status""",85
+"""27651""","""Dehydration""",85
+"""V5867""","""Long-term use of insulin""",82
+"""2760""","""Hyperosmolality""",78
+"""5845""","""Ac kidny fail, tubr necr""",78
+"""412""","""Old myocardial infarct""",78
+"""4589""","""Hypotension NOS""",77
+"""78791""","""Diarrhea""",76
+"""V1251""","""Hx-ven thrombosis/embols""",76
+"""V1582""","""History of tobacco use""",74
+"""5761""","""Cholangitis""",74
+"""73300""","""Osteoporosis NOS""",73
+"""3051""","""Tobacco use disorder""",72
+"""2767""","""Hyperpotassemia""",72
+"""2768""","""Hypopotassemia""",72
+"""42789""","""Cardiac dysrhythmias NEC""",71
+"""03849""","""Gram-neg septicemia NEC""",71
+"""2749""","""Gout NOS""",68
+"""28521""","""Anemia in chr kidney dis""",67
+"""28529""","""Anemia-other chronic dis""",66
+"""3572""","""Neuropathy in diabetes""",64
+"""4240""","""Mitral valve disorder""",62
+"""79902""","""Hypoxemia""",61
+"""V4582""","""Status-post ptca""",59
+"""2930""","""Delirium d/t other cond""",58
+"""E8497""","""Accid in resident instit""",57
+"""2639""","""Protein-cal malnutr NOS""",57
+"""32723""","""Obstructive sleep apnea""",56
+"""78959""","""Ascites NEC""",55
+"""41071""","""Subendo infarct, initial""",55
+"""E8788""","""Abn react-surg proc NEC""",53
+"""V090""","""Inf mcrg rstn pncllins""",52
+"""27652""","""Hypovolemia""",52
+"""2763""","""Alkalosis""",51
+"""60000""","""BPH w/o urinary obs/LUTS""",50
+"""41400""","""Cor ath unsp vsl ntv/gft""",49
+"""V667""","""Encountr palliative care""",49
+"""591""","""Hydronephrosis""",48
+"""4168""","""Chr pulmon heart dis NEC""",47
+"""45829""","""Iatrogenc hypotnsion NEC""",46
+"""49390""","""Asthma NOS""",46
+"""6826""","""Cellulitis of leg""",46
+"""2869""","""Coagulat defect NEC/NOS""",45
+"""78820""","""Retention urine NOS""",45
+"""4254""","""Prim cardiomyopathy NEC""",45
+"""79092""","""Abnrml coagultion prfile""",45
+"""5712""","""Alcohol cirrhosis liver""",44
+"""30000""","""Anxiety state NOS""",44
+"""07054""","""Chrnc hpt C wo hpat coma""",44
+"""4439""","""Periph vascular dis NOS""",44
+"""1977""","""Second malig neo liver""",44
+"""5770""","""Acute pancreatitis""",43
+"""42833""","""Ac on chr diast hrt fail""",43
+"""5601""","""Paralytic ileus""",43
+"""36201""","""Diabetic retinopathy NOS""",42
+"""99931""","""Oth/uns inf-cen ven cath""",41
+"""V4501""","""Status cardiac pacemaker""",41
+"""V103""","""Hx of breast malignancy""",40
+"""3004""","""Dysthymic disorder""",40
+"""03819""","""Staphylcocc septicem NEC""",40
+"""2809""","""Iron defic anemia NOS""",40
+"""34590""","""Epilep NOS w/o intr epil""",40
+"""5715""","""Cirrhosis of liver NOS""",39
+"""42832""","""Chr diastolic hrt fail""",39
+"""V440""","""Tracheostomy status""",38
+"""4271""","""Parox ventric tachycard""",38
+"""5723""","""Portal hypertension""",37
+"""2948""","""Mental disor NEC oth dis""",37
+"""7850""","""Tachycardia NOS""",37
+"""25060""","""DMII neuro nt st uncntrl""",37
+"""E8498""","""Accident in place NEC""",36
+"""42822""","""Chr systolic hrt failure""",36
+"""29410""","""Dementia w/o behav dist""",35
+"""42732""","""Atrial flutter""",35
+"""34982""","""Toxic encephalopathy""",35
+"""56400""","""Constipation NOS""",35
+"""E9331""","""Adv eff antineoplastic""",34
+"""V4511""","""Renal dialysis status""",34
+"""0417""","""Pseudomonas infect NOS""",34
+"""25040""","""DMII renl nt st uncntrld""",34
+"""34830""","""Encephalopathy NOS""",34
+"""4210""","""Ac/subac bact endocard""",33
+"""78039""","""Convulsions NEC""",33
+"""V1046""","""Hx-prostatic malignancy""",33
+"""1120""","""Thrush""",33
+"""E8781""","""Abn react-artif implant""",32
+"""27801""","""Morbid obesity""",32
+"""E8782""","""Abn react-anastom/graft""",32
+"""3310""","""Alzheimer's disease""",31
+"""6930""","""Drug dermatitis NOS""",31
+"""0388""","""Septicemia NEC""",31
+"""78720""","""Dysphagia NOS""",31
+"""27800""","""Obesity NOS""",31
+"""V5865""","""Long-term use steroids""",31
+"""78552""","""Septic shock""",31
+"""1985""","""Secondary malig neo bone""",31
+"""570""","""Acute necrosis of liver""",30
+"""5722""","""Hepatic encephalopathy""",30
+"""42830""","""Diastolc hrt failure NOS""",30
+"""03843""","""Pseudomonas septicemia""",30
+"""03812""","""MRSA septicemia""",30
+"""7904""","""Elev transaminase/ldh""",30
+"""56210""","""Dvrtclo colon w/o hmrhg""",29
+"""70722""","""Pressure ulcer, stage II""",29
+"""4275""","""Cardiac arrest""",29
+"""4011""","""Benign hypertension""",29
+"""59010""","""Ac pyelonephritis NOS""",29
+"""2753""","""Dis phosphorus metabol""",28
+"""5789""","""Gastrointest hemorr NOS""",28
+"""V441""","""Gastrostomy status""",28
+"""58381""","""Nephritis NOS in oth dis""",28
+"""99811""","""Hemorrhage complic proc""",27
+"""9982""","""Accidental op laceration""",27
+"""99812""","""Hematoma complic proc""",27
+"""V1254""","""Hx TIA/stroke w/o resid""",27
+"""5768""","""Dis of biliary tract NEC""",27
+"""5762""","""Obstruction of bile duct""",27
+"""07070""","""Hpt C w/o hepat coma NOS""",27
+"""42823""","""Ac on chr syst hrt fail""",27
+"""4241""","""Aortic valve disorder""",27
+"""340""","""Multiple sclerosis""",26
+"""04104""","""Enterococcus group d""",26
+"""V4365""","""Joint replaced knee""",26
+"""78009""","""Other alter consciousnes""",26
+"""51889""","""Other lung disease NEC""",26
+"""28860""","""Leukocytosis NOS""",26
+"""0413""","""Klebsiella pneumoniae""",26
+"""V1005""","""Hx of colonic malignancy""",26
+"""99674""","""Comp-oth vasc dev/graft""",26
+"""30391""","""Alcoh dep NEC/NOS-contin""",25
+"""45981""","""Venous insufficiency NOS""",25
+"""29680""","""Bipolar disorder NOS""",25
+"""59654""","""Neurogenic bladder NOS""",24
+"""28800""","""Neutropenia NOS""",24
+"""2800""","""Chr blood loss anemia""",24
+"""99664""","""React-indwell urin cath""",24
+"""70705""","""Pressure ulcer, buttock""",24
+"""3659""","""Glaucoma NOS""",24
+"""7140""","""Rheumatoid arthritis""",23
+"""V4364""","""Joint replaced hip""",23
+"""56722""","""Peritoneal abscess""",23
+"""V442""","""Ileostomy status""",23
+"""6822""","""Cellulitis of trunk""",23
+"""48241""","""Meth sus pneum d/t Staph""",22
+"""2536""","""Neurohypophysis dis NEC""",22
+"""28522""","""Anemia in neoplastic dis""",22
+"""33829""","""Chronic pain NEC""",22
+"""5781""","""Blood in stool""",22
+"""1122""","""Candidias urogenital NEC""",22
+"""99681""","""Compl kidney transplant""",22
+"""E8780""","""Abn react-org transplant""",22
+"""25050""","""DMII ophth nt st uncntrl""",22
+"""E8791""","""Abn react-renal dialysis""",22
+"""25002""","""DMII wo cmp uncntrld""",22
+"""V153""","""Hx of irradiation""",21
+"""V433""","""Heart valve replac NEC""",21
+"""60001""","""BPH w urinary obs/LUTS""",21
+"""5920""","""Calculus of kidney""",21
+"""4928""","""Emphysema NEC""",21
+"""V4975""","""Status amput below knee""",21
+"""56983""","""Perforation of intestine""",21
+"""04111""","""Mth sus Stph aur els/NOS""",20
+"""56211""","""Dvrtcli colon w/o hmrhg""",20
+"""27541""","""Hypocalcemia""",20
+"""44024""","""Ath ext ntv art gngrene""",20
+"""5853""","""Chr kidney dis stage III""",20
+"""5559""","""Regional enteritis NOS""",20
+"""5570""","""Ac vasc insuff intestine""",20
+"""3569""","""Idio periph neurpthy NOS""",20
+"""3441""","""Paraplegia NOS""",19
+"""78057""","""Sleep apnea NOS""",19
+"""49320""","""Chronic obst asthma NOS""",19
+"""59080""","""Pyelonephritis NOS""",19
+"""1970""","""Secondary malig neo lung""",19
+"""43820""","""Late ef-hemplga side NOS""",19
+"""V0980""","""Inf mcr rst ot drg nt ml""",18
+"""V443""","""Colostomy status""",18
+"""5724""","""Hepatorenal syndrome""",18
+"""5589""","""Noninf gastroenterit NEC""",18
+"""57420""","""Cholelithiasis NOS""",18
+"""7100""","""Syst lupus erythematosus""",18
+"""5771""","""Chronic pancreatitis""",18
+"""9971""","""Surg compl-heart""",18
+"""V4502""","""Status autm crd dfbrltr""",18
+"""1125""","""Disseminated candidiasis""",18
+"""4821""","""Pseudomonal pneumonia""",18
+"""E9342""","""Adv eff anticoagulants""",18
+"""41519""","""Pulm embol/infarct NEC""",18
+"""V707""","""Exam-clincal trial""",18
+"""70714""","""Ulcer of heel & midfoot""",18
+"""1983""","""Sec mal neo brain/spine""",18
+"""78061""","""Fever in other diseases""",17
+"""51882""","""Other pulmonary insuff""",17
+"""70707""","""Pressure ulcer, heel""",17
+"""70715""","""Ulcer other part of foot""",17
+"""5121""","""Iatrogenic pneumothorax""",17
+"""25080""","""DMII oth nt st uncntrld""",17
+"""99661""","""React-cardiac dev/graft""",17
+"""44020""","""Athscl extrm ntv art NOS""",17
+"""E8796""","""Abn react-urinary cath""",17
+"""7821""","""Nonspecif skin erupt NEC""",16
+"""57451""","""Choledochlith NOS w obst""",16
+"""5711""","""Ac alcoholic hepatitis""",16
+"""42820""","""Systolic hrt failure NOS""",16
+"""2752""","""Dis magnesium metabolism""",16
+"""3320""","""Paralysis agitans""",16
+"""042""","""Human immuno virus dis""",16
+"""7907""","""Bacteremia""",16
+"""5184""","""Acute lung edema NOS""",16
+"""19889""","""Secondary malig neo NEC""",16
+"""71590""","""Osteoarthros NOS-unspec""",16
+"""2764""","""Mixed acid-base bal dis""",16
+"""4148""","""Chr ischemic hrt dis NEC""",16
+"""53550""","""Gstr/ddnts NOS w/o hmrhg""",16
+"""49121""","""Obs chr bronc w(ac) exac""",16
+"""5680""","""Peritoneal adhesions""",16
+"""25062""","""DMII neuro uncntrld""",16
+"""78830""","""Urinary incontinence NOS""",15
+"""4414""","""Abdom aortic aneurysm""",15
+"""30390""","""Alcoh dep NEC/NOS-unspec""",15
+"""5728""","""Oth sequela, chr liv dis""",15
+"""45621""","""Esoph varice oth dis NOS""",15
+"""9975""","""Surg compl-urinary tract""",15
+"""0383""","""Anaerobic septicemia""",15
+"""04185""","""Oth gram negatv bacteria""",15
+"""25541""","""Glucocorticoid deficient""",15
+"""03840""","""Gram-neg septicemia NOS""",15
+"""515""","""Postinflam pulm fibrosis""",15
+"""99832""","""Disrup-external op wound""",15
+"""3485""","""Cerebral edema""",15
+"""78829""","""Oth spcf retention urine""",15
+"""4239""","""Pericardial disease NOS""",14
+"""V1082""","""Hx-malig skin melanoma""",14
+"""99731""","""Ventltr assoc pneumonia""",14
+"""43411""","""Crbl emblsm w infrct""",14
+"""5533""","""Diaphragmatic hernia""",14
+"""E9308""","""Adv eff antibiotics NEC""",14
+"""V1083""","""Hx-skin malignancy NEC""",14
+"""4940""","""Bronchiectas w/o ac exac""",14
+"""261""","""Nutritional marasmus""",14
+"""99659""","""Malfunc oth device/graft""",14
+"""6827""","""Cellulitis of foot""",14
+"""6823""","""Cellulitis of arm""",14
+"""452""","""Portal vein thrombosis""",14
+"""5750""","""Acute cholecystitis""",14
+"""20280""","""Oth lymp unsp xtrndl org""",14
+"""5921""","""Calculus of ureter""",14
+"""51883""","""Chronic respiratory fail""",14
+"""V8741""","""Hx antineoplastic chemo""",14
+"""319""","""Intellect disability NOS""",14
+"""30393""","""Alcoh dep NEC/NOS-remiss""",14
+"""E9320""","""Adv eff corticosteroids""",14
+"""3241""","""Intraspinal abscess""",13
+"""V4589""","""Post-proc states NEC""",13
+"""70720""","""Pressure ulcer,stage NOS""",13
+"""73390""","""Bone & cartilage dis NOS""",13
+"""70724""","""Pressure ulcer, stage IV""",13
+"""25042""","""DMII renal uncntrld""",13
+"""07032""","""Hpt B chrn wo cm wo dlta""",13
+"""V1581""","""Hx of past noncompliance""",13
+"""V422""","""Heart valve transplant""",13
+"""5854""","""Chr kidney dis stage IV""",13
+"""72400""","""Spinal stenosis NOS""",13
+"""27650""","""Volume depletion NOS""",13
+"""43889""","""Late effect CV dis NEC""",13
+"""42781""","""Sinoatrial node dysfunct""",13
+"""V420""","""Kidney transplant status""",13
+"""5793""","""Intest postop nonabsorb""",13
+"""20410""","""Ch lym leuk wo achv rmsn""",13
+"""73028""","""Osteomyelit NOS-oth site""",12
+"""V1588""","""Personal history of fall""",12
+"""27542""","""Hypercalcemia""",12
+"""7885""","""Oliguria & anuria""",12
+"""185""","""Malign neopl prostate""",12
+"""7242""","""Lumbago""",12
+"""34839""","""Encephalopathy NEC""",12
+"""70709""","""Pressure ulcer, site NEC""",12
+"""56409""","""Constipation NEC""",12
+"""E8786""","""Abn reac-organ rem NEC""",12
+"""E8859""","""Fall from slipping NEC""",12
+"""V454""","""Arthrodesis status""",12
+"""42831""","""Ac diastolic hrt failure""",12
+"""23875""","""Myelodysplastic synd NOS""",12
+"""78551""","""Cardiogenic shock""",12
+"""34690""","""Migrne unsp wo ntrc mgrn""",12
+"""431""","""Intracerebral hemorrhage""",12
+"""2866""","""Defibrination syndrome""",12
+"""56981""","""Intestinal fistula""",12
+"""7824""","""Jaundice NOS""",12
+"""9331""","""Foreign body in larynx""",12
+"""4588""","""Hypotension NEC""",12
+"""30500""","""Alcohol abuse-unspec""",11
+"""34290""","""Unsp hemiplga unspf side""",11
+"""20500""","""Ac myl leuk wo achv rmsn""",11
+"""78559""","""Shock w/o trauma NEC""",11
+"""7245""","""Backache NOS""",11
+"""V1051""","""Hx of bladder malignancy""",11
+"""51919""","""Trachea & bronch dis NEC""",11
+"""7823""","""Edema""",11
+"""2738""","""Dis plas protein met NEC""",11
+"""4829""","""Bacterial pneumonia NOS""",11
+"""6961""","""Other psoriasis""",11
+"""5609""","""Intestinal obstruct NOS""",11
+"""59970""","""Hematuria NOS""",11
+"""5720""","""Abscess of liver""",11
+"""9986""","""Persist postop fistula""",11
+"""25061""","""DMI neuro nt st uncntrld""",11
+"""725""","""Polymyalgia rheumatica""",11
+"""99673""","""Comp-ren dialys dev/grft""",11
+"""7837""","""Failure to thrive-adult""",11
+"""72888""","""Rhabdomyolysis""",11
+"""04112""","""MRSA elsewhere/NOS""",11
+"""56723""","""Spontan bact peritonitis""",11
+"""V4572""","""Acquire absnce intestine""",11
+"""29181""","""Alcohol withdrawal""",11
+"""V4579""","""Acq absence of organ NEC""",11
+"""V1006""","""Hx-rectal & anal malign""",11
+"""73313""","""Path fx vertebrae""",11
+"""5363""","""Gastroparesis""",11
+"""3970""","""Tricuspid valve disease""",11
+"""20300""","""Mult mye w/o achv rmson""",11
+"""23871""","""Essntial thrombocythemia""",11
+"""2630""","""Malnutrition mod degree""",11
+"""V1052""","""Hx of kidney malignancy""",10
+"""7291""","""Myalgia and myositis NOS""",10
+"""04149""","""E.coli infection NEC/NOS""",10
+"""79029""","""Abnormal glucose NEC""",10
+"""45341""","""Ac DVT/emb prox low ext""",10
+"""4820""","""K. pneumoniae pneumonia""",10
+"""45182""","""Phlbts sprfc vn up extrm""",10
+"""53789""","""Gastroduodenal dis NEC""",10
+"""45340""","""Ac DVT/embl low ext NOS""",10
+"""V1259""","""Hx-circulatory dis NEC""",10
+"""48283""","""Pneumo oth grm-neg bact""",10
+"""9999""","""Complic med care NEC/NOS""",10
+"""E8700""","""Acc cut/hem in surgery""",10
+"""V462""","""Depend-supplement oxygen""",10
+"""44023""","""Ath ext ntv art ulcrtion""",10
+"""7994""","""Cachexia""",10
+"""5780""","""Hematemesis""",10
+"""V4976""","""Status amput above knee""",10
+"""2867""","""Acq coagul factor defic""",10
+"""6929""","""Dermatitis NOS""",10
+"""1962""","""Mal neo lymph intra-abd""",10
+"""V1011""","""Hx-bronchogenic malignan""",10
+"""27669""","""Fluid overload NEC""",10
+"""E915""","""FB entering oth orifice""",10
+"""57450""","""Choledocholithiasis NOS""",10
+"""25063""","""DMI neuro uncntrld""",10
+"""04119""","""Other staphylococcus""",10
+"""28749""","""Sec thrombocytpenia NEC""",10
+"""3481""","""Anoxic brain damage""",10
+"""28419""","""Other pancytopenia""",10
+"""34831""","""Metabolic encephalopathy""",10
+"""51884""","""Acute & chronc resp fail""",10
+"""25012""","""DMII ketoacd uncontrold""",10
+"""1179""","""Mycoses NEC & NOS""",10
+"""7906""","""Abn blood chemistry NEC""",10
+"""E8889""","""Fall NOS""",10
+"""99669""","""React-int pros devic NEC""",10
+"""42821""","""Ac systolic hrt failure""",10
+"""5939""","""Renal & ureteral dis NOS""",9
+"""56969""","""Colstmy/enteros comp NEC""",9
+"""V08""","""Asymp hiv infectn status""",9
+"""135""","""Sarcoidosis""",9
+"""V4586""","""Bariatric surgery status""",9
+"""E9352""","""Adv eff opiates""",9
+"""5695""","""Intestinal abscess""",9
+"""57400""","""Cholelith w ac cholecyst""",9
+"""25041""","""DMI renl nt st uncntrld""",9
+"""29570""","""Schizoaffective dis NOS""",9
+"""V1255""","""Hx pulmonary embolism""",9
+"""5531""","""Umbilical hernia""",9
+"""29281""","""Drug-induced delirium""",9
+"""4264""","""Rt bundle branch block""",9
+"""E8499""","""Accident in place NOS""",9
+"""5934""","""Ureteric obstruction NEC""",9
+"""E9300""","""Adv eff penicillins""",9
+"""4550""","""Int hemorrhoid w/o compl""",9
+"""7843""","""Aphasia""",9
+"""7856""","""Enlargement lymph nodes""",9
+"""11289""","""Candidiasis site NEC""",9
+"""5772""","""Pancreat cyst/pseudocyst""",9
+"""25043""","""DMI renal uncntrld""",9
+"""42842""","""Chr syst/diastl hrt fail""",9
+"""1976""","""Sec mal neo peritoneum""",9
+"""E8490""","""Accident in home""",9
+"""42741""","""Ventricular fibrillation""",9
+"""2512""","""Hypoglycemia NOS""",9
+"""1978""","""Sec mal neo GI NEC""",9
+"""45381""","""Ac embl suprfcl up ext""",8
+"""1551""","""Mal neo intrahepat ducts""",8
+"""7905""","""Abn serum enzy level NEC""",8
+"""V4573""","""Acquired absence kidney""",8
+"""501""","""Asbestosis""",8
+"""43811""","""Late eff CV dis-aphasia""",8
+"""V1204""","""Hx Methicln resist Staph""",8
+"""3669""","""Cataract NOS""",8
+"""5569""","""Ulceratve colitis unspcf""",8
+"""2662""","""B-complex defic NEC""",8
+"""79001""","""Drop, hematocrit, precip""",8
+"""5303""","""Esophageal stricture""",8
+"""4561""","""Esoph varices w/o bleed""",8
+"""78900""","""Abdmnal pain unspcf site""",8
+"""56729""","""Suppurat peritonitis NEC""",8
+"""53085""","""Barrett's esophagus""",8
+"""99831""","""Disrup internal op wound""",8
+"""71941""","""Joint pain-shlder""",8
+"""5718""","""Chronic liver dis NEC""",8
+"""V446""","""Urinostomy status NEC""",8
+"""V600""","""Lack of housing""",8
+"""30560""","""Cocaine abuse-unspec""",8
+"""78052""","""Insomnia NOS""",8
+"""V427""","""Liver transplant status""",8
+"""72886""","""Necrotizing fasciitis""",8
+"""99685""","""Compl marrow transplant""",8
+"""28981""","""Prim hypercoagulable st""",8
+"""8670""","""Bladder/urethra inj-clos""",8
+"""E9289""","""Accident NOS""",8
+"""7078""","""Chronic skin ulcer NEC""",8
+"""V4987""","""Physical restrain status""",8
+"""99932""","""Blood inf dt cen ven cth""",8
+"""514""","""Pulm congest/hypostasis""",8
+"""73027""","""Osteomyelitis NOS-ankle""",8
+"""1173""","""Aspergillosis""",8
+"""25051""","""DMI ophth nt st uncntrld""",8
+"""2410""","""Nontox uninodular goiter""",8
+"""99667""","""React-oth int ortho dev""",8
+"""5679""","""Peritonitis NOS""",8
+"""V6441""","""Lap surg convert to open""",8
+"""99682""","""Compl liver transplant""",8
+"""25200""","""Hyperparathyroidism NOS""",8
+"""99749""","""Oth digestv system comp""",8
+"""71690""","""Arthropathy NOS-unspec""",8
+"""1623""","""Mal neo upper lobe lung""",8
+"""25001""","""DMI wo cmp nt st uncntrl""",8
+"""E9288""","""Accident NEC""",8
+"""430""","""Subarachnoid hemorrhage""",7
+"""7847""","""Epistaxis""",7
+"""71106""","""Pyogen arthritis-l/leg""",7
+"""48242""","""Meth res pneu d/t Staph""",7
+"""V4983""","""Await organ transplnt st""",7
+"""78550""","""Shock NOS""",7
+"""43491""","""Crbl art ocl NOS w infrc""",7
+"""99813""","""Seroma complicting proc""",7
+"""03844""","""Serratia septicemia""",7
+"""V444""","""Enterostomy status NEC""",7
+"""56081""","""Intestinal adhes w obstr""",7
+"""99666""","""React-inter joint prost""",7
+"""5738""","""Liver disorders NEC""",7
+"""5778""","""Pancreatic disease NEC""",7
+"""4404""","""Chr tot occl art extrem""",7
+"""53019""","""Other esophagitis""",7
+"""1570""","""Mal neo pancreas head""",7
+"""0549""","""Herpes simplex NOS""",7
+"""V1009""","""Hx of GI malignancy NEC""",7
+"""28489""","""Aplastic anemias NEC""",7
+"""56212""","""Dvrtclo colon w hmrhg""",7
+"""99883""","""Non-healing surgcl wound""",7
+"""7318""","""Bone involv in oth dis""",7
+"""E8792""","""Abn react-radiotherapy""",7
+"""4568""","""Varices of other sites""",7
+"""V1087""","""Hx of thyroid malignancy""",7
+"""4370""","""Cerebral atherosclerosis""",7
+"""V641""","""No proc/contraindication""",7
+"""25013""","""DMI ketoacd uncontrold""",7
+"""E8809""","""Fall on stair/step NEC""",7
+"""7840""","""Headache""",7
+"""E8783""","""Abn react-external stoma""",7
+"""5109""","""Empyema w/o fistula""",7
+"""V4611""","""Respirator depend status""",7
+"""04102""","""Streptococcus group b""",7
+"""V1272""","""Prsnl hst colonic polyps""",7
+"""5733""","""Hepatitis NOS""",7
+"""30981""","""Posttraumatic stress dis""",7
+"""70721""","""Pressure ulcer, stage I""",7
+"""7455""","""Secundum atrial sept def""",7
+"""03810""","""Staphylcocc septicem NOS""",7
+"""25070""","""DMII circ nt st uncntrld""",7
+"""70723""","""Pressure ulcer,stage III""",7
+"""57410""","""Cholelith w cholecys NEC""",7
+"""40310""","""Ben hy kid w cr kid I-IV""",7
+"""2819""","""Deficiency anemia NOS""",7
+"""V0254""","""Meth resis Staph carrier""",7
+"""70712""","""Ulcer of calf""",7
+"""V8801""","""Acq absnce cervix/uterus""",7
+"""78650""","""Chest pain NOS""",7
+"""3379""","""Autonomic nerve dis NEC""",7
+"""4580""","""Orthostatic hypotension""",7
+"""5307""","""Mallory-weiss syndrome""",7
+"""E9305""","""Adv eff cephalosporin""",6
+"""1578""","""Malig neo pancreas NEC""",6
+"""2113""","""Benign neoplasm lg bowel""",6
+"""29530""","""Paranoid schizo-unspec""",6
+"""1890""","""Malig neopl kidney""",6
+"""V851""","""BMI between 19-24,adult""",6
+"""5571""","""Chr vasc insuff intest""",6
+"""4242""","""Nonrheum tricusp val dis""",6
+"""29590""","""Schizophrenia NOS-unspec""",6
+"""29420""","""Demen NOS w/o behv dstrb""",6
+"""27549""","""Dis calcium metablsm NEC""",6
+"""25052""","""DMII ophth uncntrld""",6
+"""0539""","""Herpes zoster NOS""",6
+"""V1302""","""Personal history UTI""",6
+"""5932""","""Cyst of kidney, acquired""",6
+"""449""","""Septic arterial embolism""",6
+"""28731""","""Immune thrombocyt purpra""",6
+"""9072""","""Late eff spinal cord inj""",6
+"""70713""","""Ulcer of ankle""",6
+"""V1042""","""Hx-uterus malignancy NEC""",6
+"""2689""","""Vitamin D deficiency NOS""",6
+"""2883""","""Eosinophilia""",6
+"""30501""","""Alcohol abuse-continuous""",6
+"""E8785""","""Abn react-limb amputat""",6
+"""99702""","""Iatrogen CV infarc/hmrhg""",6
+"""V850""","""BMI less than 19,adult""",6
+"""V1079""","""Hx-lymphatic malign NEC""",6
+"""71105""","""Pyogen arthritis-pelvis""",6
+"""1629""","""Mal neo bronch/lung NOS""",6
+"""56089""","""Intestinal obstruct NEC""",6
+"""33394""","""Restless legs syndrome""",6
+"""V4283""","""Trnspl status-pancreas""",6
+"""0416""","""Proteus infection NOS""",6
+"""57431""","""Choledochlith/ac gb-obst""",6
+"""41189""","""Ac ischemic hrt dis NEC""",6
+"""1889""","""Malig neo bladder NOS""",6
+"""V1301""","""Prsnl hst urnr dsrd calc""",6
+"""3694""","""Legal blindness-usa def""",6
+"""1561""","""Mal neo extrahepat ducts""",6
+"""07030""","""Hpt B acte wo cm wo dlta""",6
+"""V5869""","""Long-term use meds NEC""",6
+"""73017""","""Chr osteomyelit-ankle""",6
+"""5855""","""Chron kidney dis stage V""",6
+"""V1041""","""Hx-cervical malignancy""",6
+"""56731""","""Psoas muscle abscess""",6
+"""2440""","""Postsurgical hypothyroid""",6
+"""79311""","""Solitary pulmonry nodule""",6
+"""78701""","""Nausea with vomiting""",6
+"""45342""","""Ac DVT/emb distl low ext""",6
+"""1550""","""Mal neo liver, primary""",6
+"""28850""","""Leukocytopenia NOS""",6
+"""0088""","""Viral enteritis NOS""",6
+"""3331""","""Tremor NEC""",6
+"""V5866""","""Long-term use of aspirin""",6
+"""33182""","""Dementia w Lewy bodies""",6
+"""2518""","""Pancreatic disorder NEC""",6
+"""53560""","""Duodenitis w/o hmrhg""",6
+"""43882""","""Late ef CV dis dysphagia""",6
+"""3314""","""Obstructiv hydrocephalus""",5
+"""E9478""","""Adv eff medicinal NEC""",5
+"""4400""","""Aortic atherosclerosis""",5
+"""44422""","""Lower extremity embolism""",5
+"""53010""","""Esophagitis, unspecified""",5
+"""70704""","""Pressure ulcer, hip""",5
+"""4270""","""Parox atrial tachycardia""",5
+"""42843""","""Ac/chr syst/dia hrt fail""",5
+"""99762""","""Infection amputat stump""",5
+"""73008""","""Ac osteomyelitis NEC""",5
+"""78060""","""Fever NOS""",5
+"""2853""","""Anemia d/t antineo chemo""",5
+"""30550""","""Opioid abuse-unspec""",5
+"""E9310""","""Adv eff sulfonamides""",5
+"""27739""","""Amyloidosis NEC""",5
+"""43310""","""Ocl crtd art wo infrct""",5
+"""04109""","""Other streptococcus""",5
+"""45382""","""Ac DVT/embl up ext""",5
+"""4321""","""Subdural hemorrhage""",5
+"""6202""","""Ovarian cyst NEC/NOS""",5
+"""4233""","""Cardiac tamponade""",5
+"""E8790""","""Abn react-cardiac cath""",5
+"""5693""","""Rectal & anal hemorrhage""",5
+"""1968""","""Mal neo lymph node-mult""",5
+"""53642""","""Gastrostomy comp - mech""",5
+"""29040""","""Vascular dementia,uncomp""",5
+"""9341""","""Foreign body bronchus""",5
+"""44489""","""Arterial embolism NEC""",5
+"""99739""","""Respiratory comp NEC""",5
+"""3383""","""Neoplasm related pain""",5
+"""78079""","""Malaise and fatigue NEC""",5
+"""E9479""","""Adv eff medicinal NOS""",5
+"""4592""","""Compression of vein""",5
+"""72989""","""Muscskel sympt limb NEC""",5
+"""56721""","""Peritonitis (acute) gen""",5
+"""9092""","""Late effect of radiation""",5
+"""1103""","""Dermatophytosis of groin""",5
+"""57511""","""Chronic cholecystitis""",5
+"""1123""","""Cutaneous candidiasis""",5
+"""7210""","""Cervical spondylosis""",5
+"""30301""","""Ac alcohol intox-contin""",5
+"""30401""","""Opioid dependence-contin""",5
+"""5130""","""Abscess of lung""",5
+"""72210""","""Lumbar disc displacement""",5
+"""E9309""","""Adv eff antibiotic NOS""",5
+"""71101""","""Pyogen arthritis-shlder""",5
+"""78841""","""Urinary frequency""",5
+"""31401""","""Attn deficit w hyperact""",5
+"""43813""","""Late eff CV-dysarthria""",5
+"""49322""","""Ch obst asth w (ac) exac""",5
+"""E912""","""Resp obstr-inhal obj NEC""",5
+"""1628""","""Mal neo bronch/lung NEC""",5
+"""5579""","""Vasc insuff intest NOS""",5
+"""53782""","""Angio stm/dudn w/o hmrhg""",5
+"""E8708""","""Acc cut in med care NEC""",5
+"""60883""","""Male gen vascul dis NEC""",5
+"""1991""","""Malignant neoplasm NOS""",5
+"""56881""","""Hemoperitoneum""",5
+"""V160""","""Family hx-gi malignancy""",5
+"""71107""","""Pyogen arthritis-ankle""",5
+"""7892""","""Splenomegaly""",5
+"""7580""","""Down's syndrome""",5
+"""25053""","""DMI ophth uncntrld""",5
+"""4169""","""Chr pulmon heart dis NOS""",5
+"""V1279""","""Prsnl hst ot spf dgst ds""",5
+"""2252""","""Ben neo cerebr meninges""",5
+"""78659""","""Chest pain NEC""",5
+"""56889""","""Peritoneal disorder NEC""",5
+"""5641""","""Irritable bowel syndrome""",5
+"""8054""","""Fx lumbar vertebra-close""",5
+"""55321""","""Incisional hernia""",5
+"""3559""","""Mononeuritis NOS""",5
+"""4422""","""Iliac artery aneurysm""",5
+"""78097""","""Altered mental status""",5
+"""9992""","""Vasc comp med care NEC""",5
+"""0382""","""Pneumococcal septicemia""",5
+"""56989""","""Intestinal disorders NEC""",5
+"""30400""","""Opioid dependence-unspec""",4
+"""41512""","""Septic pulmonary embolsm""",4
+"""68110""","""Cellulitis, toe NOS""",4
+"""71535""","""Loc osteoarth NOS-pelvis""",4
+"""566""","""Anal & rectal abscess""",4
+"""71906""","""Joint effusion-l/leg""",4
+"""53551""","""Gstr/ddnts NOS w hmrhg""",4
+"""78722""","""Dysphagia, oropharyngeal""",4
+"""9916""","""Hypothermia""",4
+"""78609""","""Respiratory abnorm NEC""",4
+"""60886""","""Edema, male genital orgn""",4
+"""6084""","""Male gen inflam dis NEC""",4
+"""V151""","""Hx-major cardiovasc surg""",4
+"""V4571""","""Acq absnce breast/nipple""",4
+"""7211""","""Cerv spondyl w myelopath""",4
+"""3899""","""Hearing loss NOS""",4
+"""481""","""Pneumococcal pneumonia""",4
+"""25092""","""DMII unspf uncntrld""",4
+"""2920""","""Drug withdrawal""",4
+"""73007""","""Ac osteomyelitis-ankle""",4
+"""58281""","""Chr nephritis in oth dis""",4
+"""0785""","""Cytomegaloviral disease""",4
+"""70710""","""Ulcer of lower limb NOS""",4
+"""27401""","""Acute gouty arthropathy""",4
+"""57441""","""Choledochlith/gb NEC-obs""",4
+"""V1003""","""Hx-esophageal malignancy""",4
+"""4571""","""Other lymphedema""",4
+"""56789""","""Peritonitis NEC""",4
+"""4139""","""Angina pectoris NEC/NOS""",4
+"""53649""","""Gastrostomy comp NEC""",4
+"""4590""","""Hemorrhage NOS""",4
+"""69589""","""Erythematous cond NEC""",4
+"""7200""","""Ankylosing spondylitis""",4
+"""4260""","""Atriovent block complete""",4
+"""6820""","""Cellulitis of face""",4
+"""99672""","""Comp-oth cardiac device""",4
+"""29690""","""Episodic mood disord NOS""",4
+"""7948""","""Abn liver function study""",4
+"""4870""","""Influenza with pneumonia""",4
+"""7098""","""Skin disorders NEC""",4
+"""3962""","""Mitral insuf/aort stenos""",4
+"""39891""","""Rheumatic heart failure""",4
+"""61610""","""Vaginitis NOS""",4
+"""5798""","""Intest malabsorption NEC""",4
+"""1974""","""Sec malig neo sm bowel""",4
+"""4659""","""Acute uri NOS""",4
+"""34400""","""Quadriplegia, unspecifd""",4
+"""56962""","""Colosty/enter comp-mech""",4
+"""1121""","""Candidal vulvovaginitis""",4
+"""9972""","""Surg comp-peri vasc syst""",4
+"""1508""","""Mal neo esophagus NEC""",4
+"""28803""","""Drug induced neutropenia""",4
+"""E9293""","""Late eff accidental fall""",4
+"""07044""","""Chrnc hpt C w hepat Coma""",4
+"""2532""","""Panhypopituitarism""",4
+"""37230""","""Conjunctivitis NOS""",4
+"""58881""","""Sec hyperparathyrd-renal""",4
+"""34580""","""Epilep NEC w/o intr epil""",4
+"""3558""","""Mononeuritis leg NOS""",4
+"""V452""","""Ventricular shunt status""",4
+"""7313""","""Major osseous defects""",4
+"""5566""","""Univrsl ulcertve colitis""",4
+"""79579""","""Oth unspcf nspf imun fnd""",4
+"""5790""","""Celiac disease""",4
+"""9950""","""Other anaphylactic react""",4
+"""53082""","""Esophageal hemorrhage""",4
+"""52801""","""Mucosits d/t antineo rx""",4
+"""44381""","""Angiopathy in other dis""",4
+"""5839""","""Nephritis NOS""",4
+"""262""","""Oth severe malnutrition""",4
+"""E9394""","""Adv eff benzodiaz tranq""",4
+"""42490""","""Endocarditis NOS""",4
+"""25082""","""DMII oth uncntrld""",4
+"""45184""","""Phlbts vn NOS up extrm""",4
+"""43330""","""Ocl mlt bi art wo infrct""",4
+"""2858""","""Anemia NEC""",4
+"""5848""","""Acute kidney failure NEC""",4
+"""5764""","""Fistula of bile duct""",4
+"""45383""","""Ac emblsm up ext NOS""",4
+"""42989""","""Ill-defined hrt dis NEC""",4
+"""4471""","""Stricture of artery""",4
+"""30562""","""Cocaine abuse-episodic""",4
+"""4263""","""Left bb block NEC""",4
+"""V140""","""Hx-penicillin allergy""",4
+"""4822""","""H.influenzae pneumonia""",4
+"""56949""","""Rectal & anal dis NEC""",4
+"""56200""","""Dvrtclo sml int w/o hmrg""",4
+"""V173""","""Fam hx-ischem heart dis""",4
+"""2939""","""Transient mental dis NOS""",4
+"""7854""","""Gangrene""",4
+"""40301""","""Mal hyp kid w cr kid V""",4
+"""4846""","""Pneum in aspergillosis""",4
+"""28959""","""Spleen disease NEC""",4
+"""59381""","""Renal vascular disorder""",4
+"""E8121""","""Mv collision NOS-pasngr""",4
+"""56781""","""Choleperitonitis""",4
+"""11284""","""Candidal esophagitis""",4
+"""45385""","""Ac embl subclav veins""",4
+"""78194""","""Facial weakness""",4
+"""43883""","""Facial weakness""",4
+"""78065""","""Hypothrm-wo low env tmp""",4
+"""7810""","""Abn involun movement NEC""",4
+"""59971""","""Gross hematuria""",4
+"""V6284""","""Suicidal ideation""",4
+"""2967""","""Bipolor I current NOS""",4
+"""E8799""","""Abn react-procedure NOS""",4
+"""3453""","""Grand mal status""",4
+"""V1085""","""Hx of brain malignancy""",4
+"""41072""","""Subendo infarct, subseq""",4
+"""V4972""","""Status amput othr toe(s)""",4
+"""4552""","""Int hemrrhoid w comp NEC""",4
+"""48282""","""Pneumonia e coli""",4
+"""53541""","""Oth spf gastrt w hmrhg""",4
+"""86804""","""Retroperitoneum inj-cl""",4
+"""V4561""","""Cataract extract status""",4
+"""2910""","""Delirium tremens""",4
+"""3576""","""Neuropathy due to drugs""",4
+"""4739""","""Chronic sinusitis NOS""",4
+"""29620""","""Depress psychosis-unspec""",4
+"""30001""","""Panic dis w/o agorphobia""",4
+"""V0259""","""Bacteria dis carrier NEC""",4
+"""4329""","""Intracranial hemorr NOS""",3
+"""52800""","""Stomatitis/mucositis NOS""",3
+"""6828""","""Cellulitis, site NEC""",3
+"""7230""","""Cervical spinal stenosis""",3
+"""7921""","""Abn find-stool contents""",3
+"""E9390""","""Adv eff antidepressants""",3
+"""07999""","""Viral infection NOS""",3
+"""4160""","""Prim pulm hypertension""",3
+"""5523""","""Diaphragm hernia w obstr""",3
+"""5192""","""Mediastinitis""",3
+"""V551""","""Atten to gastrostomy""",3
+"""99639""","""Malfunc gu dev/graft NEC""",3
+"""73342""","""Aseptic necrosis femur""",3
+"""2732""","""Paraproteinemia NEC""",3
+"""3239""","""Encephalitis NOS""",3
+"""5902""","""Renal/perirenal abscess""",3
+"""6140""","""Ac salpingo-oophoritis""",3
+"""5374""","""Gastric/duodenal fistula""",3
+"""57149""","""Chronic hepatitis NEC""",3
+"""25071""","""DMI circ nt st uncntrld""",3
+"""70725""","""Pressure ulcer,unstagebl""",3
+"""V1007""","""Hx of liver malignancy""",3
+"""78702""","""Nausea alone""",3
+"""4553""","""Ext hemorrhoid w/o compl""",3
+"""73015""","""Chr osteomyelit-pelvis""",3
+"""5713""","""Alcohol liver damage NOS""",3
+"""45620""","""Bleed esoph var oth dis""",3
+"""5379""","""Gastroduodenal dis NOS""",3
+"""3510""","""Bell's palsy""",3
+"""72992""","""Nontrauma hema soft tiss""",3
+"""E8704""","""Acc cut/hem w scope exam""",3
+"""25072""","""DMII circ uncntrld""",3
+"""1579""","""Malig neo pancreas NOS""",3
+"""V643""","""No proc for reasons NEC""",3
+"""73730""","""Idiopathic scoliosis""",3
+"""47824""","""Retropharyngeal abscess""",3
+"""04186""","""Helicobacter pylori""",3
+"""56481""","""Neurogenic bowel""",3
+"""5100""","""Empyema with fistula""",3
+"""53240""","""Chr duoden ulcer w hem""",3
+"""59389""","""Renal & ureteral dis NEC""",3
+"""7596""","""Hamartoses NEC""",3
+"""3540""","""Carpal tunnel syndrome""",3
+"""9961""","""Malfunc vasc device/graf""",3
+"""E9315""","""Adv eff antprotazoal NEC""",3
+"""56738""","""Retroperiton abscess NEC""",3
+"""1748""","""Malign neopl breast NEC""",3
+"""V0991""","""Infc mcrg drgrst mult""",3
+"""79093""","""Elvtd prstate spcf antgn""",3
+"""70706""","""Pressure ulcer, ankle""",3
+"""2810""","""Pernicious anemia""",3
+"""57430""","""Choledocholith/ac gb inf""",3
+"""2384""","""Polycythemia vera""",3
+"""45375""","""Ch emblsm subclav veins""",3
+"""5373""","""Duodenal obstruction NEC""",3
+"""7213""","""Lumbosacral spondylosis""",3
+"""29041""","""Vasc dementia w delirium""",3
+"""6989""","""Pruritic disorder NOS""",3
+"""V1209""","""Prsnl hst oth nfct parst""",3
+"""45386""","""Ac embl internl jug vein""",3
+"""V8543""","""BMI 50.0-59.9, adult""",3
+"""30421""","""Cocaine depend-contin""",3
+"""V642""","""No proc/patient decision""",3
+"""V1271""","""Prsnl hst peptic ulcr ds""",3
+"""5370""","""Acq pyloric stenosis""",3
+"""86803""","""Peritoneum injury-closed""",3
+"""7963""","""Low blood press reading""",3
+"""29650""","""Bipol I cur depres NOS""",3
+"""1560""","""Malig neo gallbladder""",3
+"""920""","""Contusion face/scalp/nck""",3
+"""99649""","""Mech com orth dev NEC""",3
+"""20020""","""Brkt tmr unsp xtrndl org""",3
+"""78451""","""Dysarthria""",3
+"""E9500""","""Poison-analgesics""",3
+"""49392""","""Asthma NOS w (ac) exac""",3
+"""E9420""","""Adv eff card rhyth regul""",3
+"""V1541""","""Hx of physical abuse""",3
+"""V463""","""Wheelchair dependence""",3
+"""769""","""Respiratory distress syn""",3
+"""70719""","""Ulcer oth part low limb""",3
+"""4871""","""Flu w resp manifest NEC""",3
+"""37741""","""Ischemic optic neuropthy""",3
+"""20080""","""Oth varn unsp xtrndl org""",3
+"""4255""","""Alcoholic cardiomyopathy""",3
+"""45821""","""Hemododialysis hypotensn""",3
+"""5935""","""Hydroureter""",3
+"""59960""","""Urinary obstruction NOS""",3
+"""58089""","""Acute nephritis NEC""",3
+"""2189""","""Uterine leiomyoma NOS""",3
+"""78099""","""Other general symptoms""",3
+"""4476""","""Arteritis NOS""",3
+"""1830""","""Malign neopl ovary""",3
+"""7102""","""Sicca syndrome""",3
+"""1969""","""Mal neo lymph node NOS""",3
+"""53140""","""Chr stomach ulc w hem""",3
+"""55320""","""Ventral hernia NOS""",3
+"""36250""","""Macular degeneration NOS""",3
+"""55090""","""Unilat inguinal hernia""",3
+"""2112""","""Benign neoplasm sm bowel""",3
+"""3484""","""Compression of brain""",3
+"""5168""","""Alveol pneumonopathy NEC""",3
+"""42983""","""Takotsubo syndrome""",3
+"""E8495""","""Accid on street/highway""",3
+"""60091""","""BPH NOS w ur obs/LUTS""",3
+"""2949""","""Mental disor NOS oth dis""",3
+"""3439""","""Cerebral palsy NOS""",3
+"""59972""","""Microscopic hematuria""",3
+"""4441""","""Thoracic aortic embolism""",3
+"""V4282""","""Trspl sts-perip stm cell""",3
+"""5178""","""Lung involv in oth dis""",3
+"""41511""","""Iatrogen pulm emb/infarc""",3
+"""5225""","""Periapical abscess""",3
+"""4536""","""Embl suprfcl ves low ext""",3
+"""4238""","""Pericardial disease NEC""",3
+"""7135""","""Arthropathy w nerve dis""",3
+"""56941""","""Rectal & anal ulcer""",3
+"""V4984""","""Bed confinement status""",3
+"""2769""","""Electrolyt/fluid dis NEC""",3
+"""2900""","""Senile dementia uncomp""",3
+"""73314""","""Path fx neck of femur""",3
+"""04189""","""Oth specf bacteria""",3
+"""73382""","""Nonunion of fracture""",3
+"""20510""","""Ch myl leuk wo achv rmsn""",3
+"""07071""","""Hpt C w hepatic coma NOS""",3
+"""1987""","""Second malig neo adrenal""",3
+"""2631""","""Malnutrition mild degree""",3
+"""64783""","""Infect dis NEC-antepart""",3
+"""5852""","""Chro kidney dis stage II""",3
+"""1975""","""Sec malig neo lg bowel""",3
+"""78760""","""Full incontinence-feces""",3
+"""51181""","""Malignant pleural effusn""",3
+"""8052""","""Fx dorsal vertebra-close""",3
+"""72402""","""Spin sten,lumbr wo claud""",3
+"""79431""","""Abnorm electrocardiogram""",3
+"""99665""","""React-oth genitourin dev""",3
+"""71536""","""Loc osteoarth NOS-l/leg""",3
+"""V163""","""Family hx-breast malig""",3
+"""V1584""","""Hx-contct/expos asbestos""",3
+"""28804""","""Neutropenia d/t infectn""",3
+"""7101""","""Systemic sclerosis""",3
+"""3575""","""Alcoholic polyneuropathy""",3
+"""4401""","""Renal artery atheroscler""",3
+"""7812""","""Abnormality of gait""",3
+"""4532""","""Oth inf vena cava thromb""",3
+"""71596""","""Osteoarthros NOS-l/leg""",3
+"""78321""","""Abnormal loss of weight""",3
+"""7842""","""Swelling in head & neck""",3
+"""9349""","""FB respiratory tree NOS""",3
+"""30591""","""Drug abuse NEC-contin""",3
+"""53561""","""Duodenitis w hmrhg""",3
+"""53020""","""Ulc esophagus w/o bleed""",3
+"""V553""","""Atten to colostomy""",3
+"""53200""","""Ac duodenal ulcer w hem""",3
+"""45350""","""Ch DVT/embl low ext NOS""",3
+"""72293""","""Disc dis NEC/NOS-lumbar""",3
+"""05319""","""H zoster nerv syst NEC""",3
+"""42611""","""Atriovent block-1st degr""",3
+"""V552""","""Atten to ileostomy""",3
+"""4570""","""Postmastect lymphedema""",3
+"""3079""","""Special symptom NEC/NOS""",3
+"""3570""","""Ac infect polyneuritis""",3
+"""27803""","""Obesity hypovent synd""",3
+"""70711""","""Ulcer of thigh""",3
+"""4162""","""Chr pulmonary embolism""",3
+"""60490""","""Orchitis/epididymit NOS""",3
+"""6953""","""Rosacea""",3
+"""V8541""","""BMI 40.0-44.9, adult""",3
+"""1363""","""Pneumocystosis""",3
+"""1541""","""Malignant neopl rectum""",2
+"""44031""","""Ath ext autologs bps gft""",2
+"""99676""","""Comp-genitourin dev/grft""",2
+"""30403""","""Opioid dependence-remiss""",2
+"""80702""","""Fracture two ribs-closed""",2
+"""73025""","""Osteomyelitis NOS-pelvis""",2
+"""2513""","""Postsurg hypoinsulinemia""",2
+"""2903""","""Senile delirium""",2
+"""326""","""Late eff cns abscess""",2
+"""53021""","""Ulcer esophagus w bleed""",2
+"""99590""","""SIRS, NOS""",2
+"""4549""","""Asympt varicose veins""",2
+"""3014""","""Obsessive-compulsive dis""",2
+"""3003""","""Obsessive-compulsive dis""",2
+"""7061""","""Acne NEC""",2
+"""5739""","""Liver disorder NOS""",2
+"""4560""","""Esophag varices w bleed""",2
+"""72291""","""Disc dis NEC/NOS-cerv""",2
+"""80703""","""Fracture three ribs-clos""",2
+"""27900""","""Hypogammaglobulinem NOS""",2
+"""44101""","""Dsct of thoracic aorta""",2
+"""1622""","""Malig neo main bronchus""",2
+"""E9401""","""Adv eff opiat antagonist""",2
+"""34581""","""Epilepsy NEC w intr epil""",2
+"""59969""","""Urinary obstruction NEC""",2
+"""E8843""","""Fall from wheelchair""",2
+"""3591""","""Hered prog musc dystrphy""",2
+"""V168""","""Family hx-malignancy NEC""",2
+"""28984""","""Heparin-indu thrombocyto""",2
+"""44421""","""Upper extremity embolism""",2
+"""45384""","""Ac emblsm axillary veins""",2
+"""45377""","""Ch embl thorac vein NEC""",2
+"""45371""","""Ch emblsm suprfcl up ext""",2
+"""27906""","""Common variabl immunodef""",2
+"""41041""","""AMI inferior wall, init""",2
+"""22804""","""Hemangioma intra-abdom""",2
+"""E9290""","""Late eff motor vehic acc""",2
+"""5964""","""Atony of bladder""",2
+"""V1072""","""Hx-hodgkin's disease""",2
+"""V1089""","""Hx of malignancy NEC""",2
+"""4293""","""Cardiomegaly""",2
+"""138""","""Late effect acute polio""",2
+"""48284""","""Legionnaires' disease""",2
+"""5602""","""Volvulus of intestine""",2
+"""9654""","""Pois-arom analgesics NEC""",2
+"""34403""","""Quadrplg c5-c7, complete""",2
+"""E9298""","""Late eff accident NEC""",2
+"""47831""","""Vocal paral unilat part""",2
+"""1398""","""Late eff infect dis NEC""",2
+"""37200""","""Acute conjunctivitis NOS""",2
+"""22809""","""Hemangioma NEC""",2
+"""8300""","""Dislocation jaw-closed""",2
+"""220""","""Benign neoplasm ovary""",2
+"""78839""","""Oth urinry incontinence""",2
+"""V1202""","""Prsnl hst poliomyelitis""",2
+"""5111""","""Bact pleur/effus not TB""",2
+"""28989""","""Blood diseases NEC""",2
+"""24200""","""Tox dif goiter no crisis""",2
+"""V4281""","""Trnspl status-bne marrow""",2
+"""E9447""","""Adv eff uric acid metab""",2
+"""3941""","""Rheumatic mitral insuff""",2
+"""2443""","""Iatrogen hypothyroid NEC""",2
+"""1104""","""Dermatophytosis of foot""",2
+"""E9426""","""Adv eff antihyperten agt""",2
+"""45989""","""Circulatory disease NEC""",2
+"""57510""","""Cholecystitis NOS""",2
+"""48249""","""Staph pneumonia NEC""",2
+"""61172""","""Lump or mass in breast""",2
+"""27788""","""Tumor lysis syndrome""",2
+"""V1552""","""Hx traumatc brain injury""",2
+"""85221""","""Subdural hem w/o coma""",2
+"""71236""","""Chondrocalcin NOS-l/leg""",2
+"""64823""","""Anemia-antepartum""",2
+"""64813""","""Thyroid dysfunc-antepart""",2
+"""6824""","""Cellulitis of hand""",2
+"""80708""","""Fx eight/more rib-closed""",2
+"""55092""","""Bilat inguinal hernia""",2
+"""4660""","""Acute bronchitis""",2
+"""07819""","""Oth specfd viral warts""",2
+"""V4971""","""Status amput great toe""",2
+"""41011""","""AMI anterior wall, init""",2
+"""V5413""","""Aftrcre traumatic fx hip""",2
+"""58889""","""Impair ren funct dis NEC""",2
+"""V8542""","""BMI 45.0-49.9, adult""",2
+"""47822""","""Parapharyngeal abscess""",2
+"""7830""","""Anorexia""",2
+"""2397""","""Endocrine/nerv neo NOS""",2
+"""78729""","""Dysphagia NEC""",2
+"""72885""","""Spasm of muscle""",2
+"""43853""","""Lt ef oth parals-bilat""",2
+"""2912""","""Alcohol persist dementia""",2
+"""55221""","""Obstr incisional hernia""",2
+"""75981""","""Prader-willi syndrome""",2
+"""34511""","""Gen cnv epil w intr epil""",2
+"""4786""","""Edema of larynx""",2
+"""V4575""","""Acq absence of stomach""",2
+"""5551""","""Reg enteritis, lg intest""",2
+"""27503""","""Hemochromatosis NEC""",2
+"""E9348""","""Adv eff blood agent NEC""",2
+"""42090""","""Acute pericarditis NOS""",2
+"""2890""","""Secondary polycythemia""",2
+"""96501""","""Poisoning-heroin""",2
+"""78652""","""Painful respiration""",2
+"""7104""","""Polymyositis""",2
+"""5183""","""Pulmonary eosinophilia""",2
+"""05479""","""H simplex complicat NEC""",2
+"""5959""","""Cystitis NOS""",2
+"""V453""","""Intestinal bypass status""",2
+"""8602""","""Traum hemothorax-closed""",2
+"""8738""","""Open wound of head NEC""",2
+"""2755""","""Hungry bone syndrome""",2
+"""V1001""","""Hx of tongue malignancy""",2
+"""53510""","""Atrph gastrtis w/o hmrhg""",2
+"""20028""","""Burkitt's tumor mult""",2
+"""99592""","""Severe sepsis""",2
+"""52809""","""Stomatits & mucosits NEC""",2
+"""7802""","""Syncope and collapse""",2
+"""51189""","""Effusion NEC exc tb""",2
+"""57401""","""Cholelith/ac gb inf-obst""",2
+"""57491""","""Gall&bil cal w/o ch w ob""",2
+"""73026""","""Osteomyelitis NOS-l/leg""",2
+"""5779""","""Pancreatic disease NOS""",2
+"""20278""","""Periph T cell lym multip""",2
+"""60784""","""Impotence, organic orign""",2
+"""04182""","""Bacteroides fragilis""",2
+"""6988""","""Pruritic conditions NEC""",2
+"""75989""","""Specfied cong anomal NEC""",2
+"""7464""","""Cong aorta valv insuffic""",2
+"""34680""","""Othr migrne wo ntrc mgrn""",2
+"""7742""","""Neonat jaund preterm del""",2
+"""29624""","""Depr psychos-sev w psych""",2
+"""34889""","""Brain conditions NEC""",2
+"""56039""","""Impaction intestine NEC""",2
+"""3373""","""Autonomic dysreflexia""",2
+"""V4962""","""Status amput oth fingers""",2
+"""4802""","""Parinfluenza viral pneum""",2
+"""3950""","""Rheumat aortic stenosis""",2
+"""34550""","""Part epil w/o intr epil""",2
+"""1534""","""Malignant neoplasm cecum""",2
+"""72709""","""Synovitis NEC""",2
+"""20040""","""Mantle cell lym xtrrndl""",2
+"""2721""","""Pure hyperglyceridemia""",2
+"""2894""","""Hypersplenism""",2
+"""28249""","""Thalassemia NEC""",2
+"""V4577""","""Acq absnce genital organ""",2
+"""2870""","""Allergic purpura""",2
+"""30928""","""Adjust dis w anxiety/dep""",2
+"""35800""","""Mysthna grvs w/o ac exac""",2
+"""6869""","""Local skin infection NOS""",2
+"""64893""","""Oth curr cond-antepartum""",2
+"""51851""","""Ac resp flr fol trma/srg""",2
+"""7804""","""Dizziness and giddiness""",2
+"""28983""","""Myelofibrosis""",2
+"""1844""","""Malign neopl vulva NOS""",2
+"""04082""","""Toxic shock syndrome""",2
+"""3332""","""Myoclonus""",2
+"""2143""","""Lipoma intra-abdominal""",2
+"""42099""","""Acute pericarditis NEC""",2
+"""7294""","""Fasciitis NOS""",2
+"""96509""","""Poisoning-opiates NEC""",2
+"""99631""","""Malfunc urethral cath""",2
+"""1307""","""Toxoplasmosis site NEC""",2
+"""48289""","""Pneumonia oth spcf bact""",2
+"""0543""","""Herpetic encephalitis""",2
+"""71230""","""Chondrocalcin NOS-unspec""",2
+"""3371""","""Aut neuropthy in oth dis""",2
+"""2839""","""Acq hemolytic anemia NOS""",2
+"""86121""","""Lung contusion-closed""",2
+"""35782""","""Crit illness neuropathy""",2
+"""99799""","""Surg compl-body syst NEC""",2
+"""E9319""","""Adv eff antinfct NEC/NOS""",2
+"""36281""","""Retinal hemorrhage""",2
+"""V180""","""Fam hx-diabetes mellitus""",2
+"""4373""","""Nonrupt cerebral aneurym""",2
+"""43490""","""Crbl art oc NOS wo infrc""",2
+"""5272""","""Sialoadenitis""",2
+"""25090""","""DMII unspf nt st uncntrl""",2
+"""47875""","""Laryngeal spasm""",2
+"""29689""","""Bipolar disorder NEC""",2
+"""9070""","""Lt eff intracranial inj""",2
+"""V5331""","""Ftng cardiac pacemaker""",2
+"""99889""","""Oth spcf cmplc procd NEC""",2
+"""1504""","""Mal neo middle 3rd esoph""",2
+"""3099""","""Adjustment reaction NOS""",2
+"""4379""","""Cerebrovasc disease NOS""",2
+"""E9301""","""Adv eff antifung antbiot""",2
+"""5078""","""Solid/liq pneumonit NEC""",2
+"""1625""","""Mal neo lower lobe lung""",2
+"""V5811""","""Antineoplastic chemo enc""",2
+"""72889""","""Muscle/ligament dis NEC""",2
+"""73005""","""Ac osteomyelitis-pelvis""",2
+"""4460""","""Polyarteritis nodosa""",2
+"""4464""","""Wegener's granulomatosis""",2
+"""25081""","""DMI oth nt st uncntrld""",2
+"""44021""","""Ath ext ntv at w claudct""",2
+"""2537""","""Iatrogenic pituitary dis""",2
+"""4380""","""Late ef CV dis-cognf def""",2
+"""41412""","""Dissection cor artery""",2
+"""6960""","""Psoriatic arthropathy""",2
+"""99881""","""Emphysema rsult frm proc""",2
+"""V556""","""Atten to urinostomy NEC""",2
+"""57481""","""Gal&bil cal w/ac&ch w ob""",2
+"""99668""","""React-periton dialy cath""",2
+"""36900""","""Both eyes blind-who def""",2
+"""7862""","""Cough""",2
+"""6012""","""Abscess of prostate""",2
+"""27952""","""Chronc graft-vs-host dis""",2
+"""4779""","""Allergic rhinitis NOS""",2
+"""73710""","""Kyphosis NOS""",2
+"""V1551""","""Hx traumatic fracture""",2
+"""80709""","""Fx mult ribs NOS-closed""",2
+"""30183""","""Borderline personality""",2
+"""V5862""","""Long-term use antibiotic""",2
+"""53390""","""Peptic ulcer NOS""",2
+"""25201""","""Primary hyperparathyroid""",2
+"""42761""","""Atrial premature beats""",2
+"""80126""","""Cl skul base fx-coma NOS""",2
+"""80116""","""Cl skul base fx-coma NOS""",2
+"""80136""","""Cl skul base fx-coma NOS""",2
+"""7310""","""Osteitis deformans NOS""",2
+"""33385""","""Subac dyskinesa d/t drug""",2
+"""E9421""","""Adv eff cardiotonics""",2
+"""25022""","""DMII hprosmlr uncontrold""",2
+"""9584""","""Traumatic shock""",2
+"""E966""","""Assault-cutting instr""",2
+"""80701""","""Fracture one rib-closed""",2
+"""V1253""","""Hx sudden cardiac arrest""",2
+"""6010""","""Acute prostatitis""",2
+"""51902""","""Tracheostomy - mech comp""",2
+"""30503""","""Alcohol abuse-in remiss""",2
+"""V1021""","""Hx-laryngeal malignancy""",2
+"""04184""","""Other anaerobes""",2
+"""8074""","""Flail chest""",2
+"""80502""","""Fx c2 vertebra-closed""",2
+"""95893""","""Trauma compart synd abd""",2
+"""8072""","""Fracture of sternum-clos""",2
+"""6191""","""Digest-genit fistul, fem""",2
+"""49120""","""Obst chr bronc w/o exac""",2
+"""2989""","""Psychosis NOS""",2
+"""7873""","""Flatul/eructat/gas pain""",2
+"""3229""","""Meningitis NOS""",2
+"""E9358""","""Adv eff analgesics NEC""",2
+"""6143""","""Acute parametritis""",2
+"""6146""","""Fem pelvic periton adhes""",2
+"""V1749""","""Fam hx-cardiovas dis NEC""",2
+"""4539""","""Venous thrombosis NOS""",2
+"""34540""","""Psymotr epil w/o int epi""",2
+"""57471""","""Gall&bil cal w/oth w obs""",2
+"""29623""","""Depress psychosis-severe""",2
+"""5829""","""Chronic nephritis NOS""",2
+"""73018""","""Chr osteomyelit NEC""",2
+"""72271""","""Cerv disc dis w myelopat""",2
+"""28412""","""Oth drg indcd pancytopna""",2
+"""1980""","""Second malig neo kidney""",2
+"""29562""","""Schizophr dis resid-chr""",2
+"""E8789""","""Abn react-surg proc NOS""",2
+"""4266""","""Other heart block""",2
+"""E8844""","""Fall from bed""",2
+"""8020""","""Nasal bone fx-closed""",2
+"""4430""","""Raynaud's syndrome""",2
+"""1982""","""Secondary malig neo skin""",2
+"""53190""","""Stomach ulcer NOS""",2
+"""71945""","""Joint pain-pelvis""",2
+"""51909""","""Tracheostomy comp NEC""",2
+"""E9504""","""Poison-drug/medicin NEC""",2
+"""30300""","""Ac alcohol intox-unspec""",2
+"""E9503""","""Poison-psychotropic agt""",2
+"""25010""","""DMII keto nt st uncntrld""",2
+"""24900""","""Sec DM wo cmp nt st uncn""",2
+"""25011""","""DMI keto nt st uncntrld""",2
+"""9054""","""Late effect leg fx""",2
+"""9051""","""Late eff spine/trunk fx""",2
+"""56984""","""Angio intes w/o hmrhg""",2
+"""43819""","""Late ef-spch/lang df NEC""",2
+"""E9359""","""Adv eff analgesic NOS""",2
+"""72887""","""Muscle weakness-general""",2
+"""99604""","""Mch cmp autm mplnt dfbrl""",2
+"""V3001""","""Single lb in-hosp w cs""",2
+"""56961""","""Colosty/enterost infectn""",2
+"""3519""","""Facial nerve dis NOS""",1
+"""3449""","""Paralysis NOS""",1
+"""0090""","""Infectious enteritis NOS""",1
+"""78062""","""Postprocedural fever""",1
+"""7861""","""Stridor""",1
+"""34404""","""Quadrplg c5-c7, incomplt""",1
+"""2535""","""Diabetes insipidus""",1
+"""0542""","""Herpetic gingivostomat""",1
+"""25202""","""Sec hyprprthyrd nonrenal""",1
+"""5199""","""Resp system disease NOS""",1
+"""40501""","""Mal renovasc hypertens""",1
+"""4417""","""Thracabd anurysm wo rupt""",1
+"""6238""","""Noninflam dis vagina NEC""",1
+"""0310""","""Pulmonary mycobacteria""",1
+"""74100""","""Spin bif w hydroceph NOS""",1
+"""3431""","""Congenital hemiplegia""",1
+"""35981""","""Critical illness myopthy""",1
+"""69282""","""Dermatitis oth radiation""",1
+"""33183""","""Mild cognitive impairemt""",1
+"""2181""","""Intramural leiomyoma""",1
+"""5238""","""Periodontal disease NEC""",1
+"""2860""","""Cong factor viii diord""",1
+"""75317""","""Medullary sponge kidney""",1
+"""3071""","""Anorexia nervosa""",1
+"""75169""","""Biliary & liver anom NEC""",1
+"""37300""","""Blepharitis NOS""",1
+"""75162""","""Cong cystic liver dis""",1
+"""59651""","""Hypertonicity of bladder""",1
+"""45387""","""Ac embl thorac vein NEC""",1
+"""71947""","""Joint pain-ankle""",1
+"""V580""","""Radiotherapy encounter""",1
+"""1272""","""Strongyloidiasis""",1
+"""2356""","""Unc behav neo larynx""",1
+"""E9452""","""Adv eff skelet musc relx""",1
+"""38014""","""Malignant otitis externa""",1
+"""24290""","""Thyrotox NOS no crisis""",1
+"""44030""","""Athscl extrm bps gft NOS""",1
+"""8082""","""Fracture of pubis-closed""",1
+"""90289""","""Inj abdominal vessel NEC""",1
+"""E969""","""Late effect assault""",1
+"""6018""","""Prostatic inflam dis NEC""",1
+"""4489""","""Capillary dis NEC/NOS""",1
+"""1512""","""Mal neo pyloric antrum""",1
+"""0880""","""Bartonellosis""",1
+"""20240""","""Lk rtctl unsp xtrndl org""",1
+"""68601""","""Pyoderma gangrenosum""",1
+"""4387""","""Disturbances of vision""",1
+"""75563""","""Cong hip deformity NEC""",1
+"""5960""","""Bladder neck obstruction""",1
+"""44771""","""Thoracic aortic ectasia""",1
+"""20501""","""Act myl leuk w rmsion""",1
+"""3438""","""Cerebral palsy NEC""",1
+"""7099""","""Skin disorder NOS""",1
+"""7517""","""Pancreas anomalies""",1
+"""99933""","""Lcl inf dt cen ven cth""",1
+"""55010""","""Unilat ing hernia w obst""",1
+"""07051""","""Hpt C acute wo hpat coma""",1
+"""1888""","""Malig neo bladder NEC""",1
+"""34210""","""Spstc hmiplga unspf side""",1
+"""25510""","""Hyperaldosteronism NOS""",1
+"""E8842""","""Fall from chair""",1
+"""52460""","""TMJ disorders NOS""",1
+"""99529""","""Adv eff med/biol NEC/NOS""",1
+"""8750""","""Open wound of chest""",1
+"""95891""","""Trauma comp synd up ext""",1
+"""86411""","""Liver hematom/contus-opn""",1
+"""8603""","""Traum hemothorax-open""",1
+"""86813""","""Peritoneum injury-open""",1
+"""8760""","""Open wound of back""",1
+"""8620""","""Diaphragm injury-closed""",1
+"""42840""","""Syst/diast hrt fail NOS""",1
+"""3577""","""Neurpthy toxic agent NEC""",1
+"""59382""","""Ureteral fistula""",1
+"""2713""","""Disaccharidase def/malab""",1
+"""20285""","""Lymphomas NEC inguin""",1
+"""47879""","""Disease of larynx NEC""",1
+"""490""","""Bronchitis NOS""",1
+"""36000""","""Purulent endophthalm NOS""",1
+"""3963""","""Mitral/aortic val insuff""",1
+"""1101""","""Dermatophytosis of nail""",1
+"""86502""","""Spleen capsular tear""",1
+"""82525""","""Fx metatarsal-closed""",1
+"""81342""","""Fx distal radius NEC-cl""",1
+"""81242""","""Fx humer, lat condyl-cl""",1
+"""81601""","""Fx mid/prx phal, hand-cl""",1
+"""4111""","""Intermed coronary synd""",1
+"""6190""","""Urin-genital fistul, fem""",1
+"""5961""","""Intestinovesical fistula""",1
+"""99677""","""Comp-internal joint pros""",1
+"""E8501""","""Acc poison-methadone""",1
+"""96502""","""Poisoning-methadone""",1
+"""34461""","""Neurogenic bladder""",1
+"""V1043""","""Hx of ovarian malignancy""",1
+"""72252""","""Lumb/lumbosac disc degen""",1
+"""7202""","""Sacroiliitis NEC""",1
+"""20920""","""Mal crcnd prim site unkn""",1
+"""29211""","""Drug psych disor w delus""",1
+"""E9392""","""Adv eff butyrophen tranq""",1
+"""27950""","""Graft-versus-host NOS""",1
+"""5880""","""Renal osteodystrophy""",1
+"""V142""","""Hx-sulfonamides allergy""",1
+"""1919""","""Malig neo brain NOS""",1
+"""1984""","""Sec malig neo nerve NEC""",1
+"""28951""","""Chr congest splenomegaly""",1
+"""2777""","""Dysmetabolic syndrome x""",1
+"""2751""","""Dis copper metabolism""",1
+"""57142""","""Autoimmune hepatitis""",1
+"""30411""","""Sed,hyp,anxiolyt dep-con""",1
+"""E9688""","""Assault NEC""",1
+"""4412""","""Thoracic aortic aneurysm""",1
+"""80506""","""Fx c6 vertebra-closed""",1
+"""80504""","""Fx c4 vertebra-closed""",1
+"""80505""","""Fx c5 vertebra-closed""",1
+"""94108""","""Burn NOS neck""",1
+"""94800""","""Bdy brn < 10%/3d deg NOS""",1
+"""2271""","""Benign neo parathyroid""",1
+"""E8581""","""Acc poisn-systemic agent""",1
+"""79551""","""Nonsp rea skn test wo tb""",1
+"""9631""","""Pois-antineopl/immunosup""",1
+"""5881""","""Nephrogen diabetes insip""",1
+"""7234""","""Brachial neuritis NOS""",1
+"""E8794""","""Abn react-fluid aspirat""",1
+"""5735""","""Hepatopulmonary syndrome""",1
+"""4413""","""Rupt abd aortic aneurysm""",1
+"""V1201""","""Prsnl hst tuberculosis""",1
+"""99679""","""Comp-int prost devic NEC""",1
+"""6944""","""Pemphigus""",1
+"""V561""","""Ft/adj xtrcorp dial cath""",1
+"""2726""","""Lipodystrophy""",1
+"""57460""","""Gall&bil cal w/ac w/o ob""",1
+"""71901""","""Joint effusion-shlder""",1
+"""8024""","""Fx malar/maxillary-close""",1
+"""87343""","""Open wound of lip""",1
+"""29572""","""Schizoaffective dis-chr""",1
+"""85216""","""Op subarach hem-coma NOS""",1
+"""71695""","""Arthropathy NOS-pelvis""",1
+"""92232""","""Buttock contusion""",1
+"""85226""","""Subdural hemorr-coma NOS""",1
+"""5716""","""Biliary cirrhosis""",1
+"""3529""","""Cranial nerve dis NOS""",1
+"""1972""","""Second malig neo pleura""",1
+"""70702""","""Pressure ulcer, upr back""",1
+"""37034""","""Expsure keratoconjunctiv""",1
+"""34292""","""Unsp hmiplga nondmnt sde""",1
+"""9694""","""Pois-benzodiazepine tran""",1
+"""9588""","""Early complic trauma NEC""",1
+"""9663""","""Pois-anticonvul NEC/NOS""",1
+"""E9502""","""Poison-sedat/hypnotic""",1
+"""96903""","""Pois serotinin reuptake""",1
+"""V5831""","""Attn rem surg dressing""",1
+"""96561""","""Pois-propionic acid derv""",1
+"""96905""","""Pois tricyclc antidepres""",1
+"""9678""","""Pois-sedative/hypnot NEC""",1
+"""5080""","""Ac pul manif d/t radiat""",1
+"""E9356""","""Adv eff antirheumatics""",1
+"""59581""","""Cystitis cystica""",1
+"""53783""","""Angio stm/dudn w hmrhg""",1
+"""78863""","""Urgency of urination""",1
+"""33818""","""Acute postop pain NEC""",1
+"""33729""","""Rflx sym dystrph oth st""",1
+"""85300""","""Traumatic brain hem NEC""",1
+"""6159""","""Uterine inflam dis NOS""",1
+"""6390""","""Postabortion gu infect""",1
+"""30789""","""Psychogenic pain NEC""",1
+"""78904""","""Abdmnal pain lt lwr quad""",1
+"""6398""","""Postabortion compl NEC""",1
+"""56489""","""Funct dis intestine NEC""",1
+"""37520""","""Epiphora NOS""",1
+"""5120""","""Spont tens pneumothorax""",1
+"""76515""","""Preterm NEC 1250-1499g""",1
+"""74922""","""Unil cleft palat/lip-inc""",1
+"""76526""","""31-32 comp wks gestation""",1
+"""7566""","""Anomalies of diaphragm""",1
+"""75329""","""Obst def ren plv&urt NEC""",1
+"""3599""","""Myopathy NOS""",1
+"""28319""","""Oth nonauto hem anemia""",1
+"""2733""","""Macroglobulinemia""",1
+"""44629""","""Hypersensit angiitis NEC""",1
+"""485""","""Bronchopneumonia org NOS""",1
+"""03841""","""H. influenae septicemia""",1
+"""85306""","""Brain hem NEC-coma NOS""",1
+"""85246""","""Extradural hem-coma NOS""",1
+"""7141""","""Felty's syndrome""",1
+"""37941""","""Anisocoria""",1
+"""3708""","""Keratitis NEC""",1
+"""2929""","""Drug mental disorder NOS""",1
+"""20000""","""Retclsrc unsp xtrndl org""",1
+"""85209""","""Subarach hem-concussion""",1
+"""8505""","""Concussion w coma NOS""",1
+"""30723""","""Tourette's disorder""",1
+"""86501""","""Spleen hematoma-closed""",1
+"""E8160""","""Loss control mv acc-driv""",1
+"""20210""","""Mycs fng unsp xtrndl org""",1
+"""3017""","""Antisocial personality""",1
+"""30402""","""Opioid dependence-episod""",1
+"""1726""","""Malig melanoma arm""",1
+"""3334""","""Huntington's chorea""",1
+"""75160""","""Biliary & liver anom NOS""",1
+"""45189""","""Thrombophlebitis NEC""",1
+"""5929""","""Urinary calculus NOS""",1
+"""57512""","""Acte & chr cholecystitis""",1
+"""V8811""","""Acq total absnc pancreas""",1
+"""5809""","""Acute nephritis NOS""",1
+"""73016""","""Chr osteomyelit-l/leg""",1
+"""20961""","""Ben carcinoid bronc/lung""",1
+"""37921""","""Vitreous degeneration""",1
+"""41012""","""AMI anterior wall,subseq""",1
+"""44289""","""Aneurysm NEC""",1
+"""5582""","""Toxic gastroenteritis""",1
+"""6253""","""Dysmenorrhea""",1
+"""V554""","""Atten to enterostomy NEC""",1
+"""7891""","""Hepatomegaly""",1
+"""E8147""","""Mv coll w pedest-pedest""",1
+"""80175""","""Op skl base fx-deep coma""",1
+"""1530""","""Mal neo hepatic flexure""",1
+"""0360""","""Meningococcal meningitis""",1
+"""0362""","""Meningococcemia""",1
+"""6262""","""Excessive menstruation""",1
+"""2180""","""Submucous leiomyoma""",1
+"""6952""","""Erythema nodosum""",1
+"""E8587""","""Acc poisn-skin/eent agnt""",1
+"""9766""","""Poison-ent preparation""",1
+"""E9011""","""Excessive cold, man-made""",1
+"""5194""","""Disorders of diaphragm""",1
+"""9348""","""FB trach/bronch/lung NEC""",1
+"""39890""","""Rheumatic heart dis NOS""",1
+"""71191""","""Inf arthritis NOS-shlder""",1
+"""1572""","""Mal neo pancreas tail""",1
+"""71918""","""Hemarthrosis-jt NEC""",1
+"""32381""","""Enceph & encephlalo NEC""",1
+"""08881""","""Lyme disease""",1
+"""2893""","""Lymphadenitis NOS""",1
+"""7235""","""Torticollis NOS""",1
+"""81209""","""Fx upper humerus NEC-cl""",1
+"""0499""","""Viral encephalitis NOS""",1
+"""71680""","""Arthropathy NEC-unspec""",1
+"""5110""","""Pleurisy w/o effus or TB""",1
+"""4231""","""Adhesive pericarditis""",1
+"""7908""","""Viremia NOS""",1
+"""30009""","""Anxiety state NEC""",1
+"""8920""","""Open wound of foot""",1
+"""E8494""","""Accid in recreation area""",1
+"""E0073""","""Baseball""",1
+"""E9170""","""Sports acc w/o sub fall""",1
+"""8911""","""Open wnd knee/leg-compl""",1
+"""7089""","""Urticaria NOS""",1
+"""6279""","""Menopausal disorder NOS""",1
+"""1509""","""Mal neo esophagus NOS""",1
+"""1749""","""Malign neopl breast NOS""",1
+"""4257""","""Metabolic cardiomyopathy""",1
+"""0270""","""Listeriosis""",1
+"""47830""","""Vocal cord paralysis NOS""",1
+"""E8504""","""Acc poison-arom analgesc""",1
+"""29625""","""Depr psychos-part remiss""",1
+"""34281""","""Ot sp hmiplga domnt side""",1
+"""1390""","""Late eff viral encephal""",1
+"""34551""","""Part epil w intr epil""",1
+"""9962""","""Malfun neuro device/graf""",1
+"""7015""","""Abnormal granulation NEC""",1
+"""5721""","""Portal pyemia""",1
+"""5568""","""Other ulcerative colitis""",1
+"""2552""","""Adrenogenital disorders""",1
+"""0340""","""Strep sore throat""",1
+"""683""","""Acute lymphadenitis""",1
+"""9001""","""Inj internl jugular vein""",1
+"""71902""","""Joint effusion-up/arm""",1
+"""1913""","""Mal neo parietal lobe""",1
+"""E8131""","""Mv-oth veh coll-pasngr""",1
+"""85181""","""Brain lacer NEC w/o coma""",1
+"""82312""","""Fx up tibia w fibula-opn""",1
+"""81001""","""Fx clavicl, stern end-cl""",1
+"""80111""","""Cl skul base fx w/o coma""",1
+"""87340""","""Open wound of face NOS""",1
+"""73315""","""Path fx oth spcf prt fmr""",1
+"""73312""","""Path fx dstl radius ulna""",1
+"""34291""","""Unsp hemiplga domnt side""",1
+"""7292""","""Neuralgia/neuritis NOS""",1
+"""56213""","""Dvrtcli colon w hmrhg""",1
+"""9053""","""Late eff femoral neck fx""",1
+"""72272""","""Thor disc dis w myelopat""",1
+"""37810""","""Exotropia NOS""",1
+"""72871""","""Plantar fibromatosis""",1
+"""5650""","""Anal fissure""",1
+"""4738""","""Chronic sinusitis NEC""",1
+"""20530""","""Myl sarcoma wo achv rmsn""",1
+"""20023""","""Burkitt's tumor abdom""",1
+"""01402""","""TB peritonitis-exam unkn""",1
+"""47829""","""Disease of pharynx NEC""",1
+"""75612""","""Spondylolisthesis""",1
+"""87364""","""Opn wnd tongue/mouth flr""",1
+"""E9283""","""Human bite - accidental""",1
+"""V1252""","""Hx-thrombophlebitis""",1
+"""1538""","""Malignant neo colon NEC""",1
+"""5754""","""Perforation gallbladder""",1
+"""V1090""","""Hx malig neoplasm NOS""",1
+"""V550""","""Atten to tracheostomy""",1
+"""5306""","""Acq esophag diverticulum""",1
+"""1209""","""Schistosomiasis NOS""",1
+"""7801""","""Hallucinations""",1
+"""56782""","""Sclerosing mesenteritis""",1
+"""78838""","""Overflow incontinence""",1
+"""462""","""Acute pharyngitis""",1
+"""7068""","""Sebaceous gland dis NEC""",1
+"""4830""","""Pneu mycplsm pneumoniae""",1
+"""7358""","""Acq deformity of toe NEC""",1
+"""07020""","""Hpt B acte coma wo dlta""",1
+"""1714""","""Mal neo soft tis thorax""",1
+"""32719""","""Organic hypersomnia NEC""",1
+"""E9379""","""Adv eff sedat/hypnot NOS""",1
+"""33812""","""Acute post-thoracot pain""",1
+"""30470""","""Opioid/other dep-unspec""",1
+"""80704""","""Fracture four ribs-close""",1
+"""3699""","""Visual loss NOS""",1
+"""V1507""","""Hx-latex allergy""",1
+"""75651""","""Osteogenesis imperfecta""",1
+"""3561""","""Peroneal muscle atrophy""",1
+"""55841""","""Eosinophilic gastroent""",1
+"""3384""","""Chronic pain syndrome""",1
+"""2452""","""Chr lymphocyt thyroidit""",1
+"""78449""","""Voice/resonance dis NEC""",1
+"""V502""","""Routine circumcision""",1
+"""99675""","""Comp-nerv sys dev/graft""",1
+"""4556""","""Hemorrhoids NOS""",1
+"""E8120""","""Mv collision NOS-driver""",1
+"""V4973""","""Status amput foot""",1
+"""V555""","""Atten to cystostomy""",1
+"""74781""","""Cerebrovascular anomaly""",1
+"""3410""","""Neuromyelitis optica""",1
+"""8053""","""Fx dorsal vertebra-open""",1
+"""8055""","""Fx lumbar vertebra-open""",1
+"""5224""","""Ac apical periodontitis""",1
+"""5283""","""Cellulitis/abscess mouth""",1
+"""5264""","""Inflammation of jaw""",1
+"""20722""","""Mgkrycyt leuk in relapse""",1
+"""20502""","""Act myel leuk in relapse""",1
+"""605""","""Redun prepuce & phimosis""",1
+"""V653""","""Dietary surveil/counsel""",1
+"""2811""","""B12 defic anemia NEC""",1
+"""2329""","""Ca in situ skin NOS""",1
+"""V169""","""Family hx-malignancy NOS""",1
+"""3489""","""Brain condition NOS""",1
+"""2448""","""Acquired hypothyroid NEC""",1
+"""7825""","""Cyanosis""",1
+"""5172""","""Syst sclerosis lung dis""",1
+"""7533""","""Kidney anomaly NEC""",1
+"""3159""","""Development delay NOS""",1
+"""29632""","""Recurr depr psychos-mod""",1
+"""53531""","""Alchl gstritis w hmrhg""",1
+"""5710""","""Alcoholic fatty liver""",1
+"""7131""","""Arthrop w noninf GI dis""",1
+"""8208""","""Fx neck of femur NOS-cl""",1
+"""3581""","""Myasthenia in oth dis""",1
+"""4375""","""Moyamoya disease""",1
+"""2122""","""Benign neo trachea""",1
+"""2123""","""Benign neo bronchus/lung""",1
+"""70219""","""Other sborheic keratosis""",1
+"""30561""","""Cocaine abuse-continuous""",1
+"""3182""","""Profnd intellct disablty""",1
+"""7869""","""Resp sys/chest symp NEC""",1
+"""E9361""","""Adv eff hydantoin deriv""",1
+"""V1004""","""Hx of gastric malignancy""",1
+"""53270""","""Chr duodenal ulcer NOS""",1
+"""35781""","""Chr inflam polyneuritis""",1
+"""V1504""","""Hx-seafood allergy""",1
+"""95912""","""Injury of abdomen NEC""",1
+"""E8703""","""Acc cut/hem in injection""",1
+"""6110""","""Inflam disease of breast""",1
+"""30502""","""Alcohol abuse-episodic""",1
+"""47832""","""Vocal paral unilat total""",1
+"""30924""","""Adjustment dis w anxiety""",1
+"""1532""","""Mal neo descend colon""",1
+"""7964""","""Abn clinical finding NEC""",1
+"""4618""","""Other acute sinusitis""",1
+"""3094""","""Adj dis-emotion/conduct""",1
+"""29043""","""Vasc dementia w depressn""",1
+"""2521""","""Hypoparathyroidism""",1
+"""2588""","""Polyglandul dysfunc NEC""",1
+"""5756""","""Gb cholesterolosis""",1
+"""5950""","""Acute cystitis""",1
+"""2558""","""Adrenal disorder NEC""",1
+"""42769""","""Premature beats NEC""",1
+"""20050""","""Primary CNS lymph xtrndl""",1
+"""99830""","""Wound disruption NOS""",1
+"""37992""","""Swelling or mass of eye""",1
+"""V4578""","""Acquired absence of eye""",1
+"""V430""","""Eye replacement NEC""",1
+"""1562""","""Mal neo ampulla of vater""",1
+"""34501""","""Gen nonconv ep w intr ep""",1
+"""5690""","""Anal & rectal polyp""",1
+"""30563""","""Cocaine abuse-in remiss""",1
+"""E8500""","""Acc poison-heroin""",1
+"""80601""","""C1-c4 fx-cl/com cord les""",1
+"""68609""","""Pyoderma NEC""",1
+"""7048""","""Hair diseases NEC""",1
+"""99684""","""Compl lung transplant""",1
+"""53220""","""Ac duoden ulc w hem/perf""",1
+"""4720""","""Chronic rhinitis""",1
+"""27411""","""Uric acid nephrolithias""",1
+"""5941""","""Bladder calculus NEC""",1
+"""53230""","""Acute duodenal ulcer NOS""",1
+"""34670""","""Ch mgr wo ar wo nt wo st""",1
+"""85011""","""Concus-brief coma <31 mn""",1
+"""V5332""","""Ftng autmtc dfibrillator""",1
+"""81002""","""Fx clavicle shaft-closed""",1
+"""0092""","""Infectious diarrhea NOS""",1
+"""2538""","""Pituitary disorder NEC""",1
+"""57490""","""Gall&bil cal w/o cho w/o""",1
+"""V1241""","""Hx benign neoplasm brain""",1
+"""73089""","""Bone infect NEC-mult""",1
+"""57461""","""Gall&bil cal w/ac w obs""",1
+"""V8539""","""BMI 39.0-39.9,adult""",1
+"""4259""","""Second cardiomyopath NOS""",1
+"""1911""","""Malig neo frontal lobe""",1
+"""7092""","""Scar & fibrosis of skin""",1
+"""73022""","""Osteomyelitis NOS-up/arm""",1
+"""52100""","""Dental caries NOS""",1
+"""1820""","""Malig neo corpus uteri""",1
+"""6214""","""Hematometra""",1
+"""6150""","""Ac uterine inflammation""",1
+"""04105""","""Streptococcus group g""",1
+"""6271""","""Postmenopausal bleeding""",1
+"""V8523""","""BMI 27.0-27.9,adult""",1
+"""76076""","""Maternal DES af NB/fetus""",1
+"""30120""","""Schizoid personality NOS""",1
+"""41410""","""Aneurysm of heart""",1
+"""4540""","""Leg varicosity w ulcer""",1
+"""49122""","""Obs chr bronc w ac bronc""",1
+"""7336""","""Tietze's disease""",1
+"""99982""","""Extravasn vesicant NEC""",1
+"""5692""","""Rectal & anal stenosis""",1
+"""1540""","""Mal neo rectosigmoid jct""",1
+"""11505""","""Histoplasm caps pneumon""",1
+"""78906""","""Abdmnal pain epigastric""",1
+"""7011""","""Keratoderma, acquired""",1
+"""30540""","""Sed,hyp,anxiolytc ab-NOS""",1
+"""V8533""","""BMI 33.0-33.9,adult""",1
+"""5300""","""Achalasia & cardiospasm""",1
+"""20198""","""Hodgkins dis NOS mult""",1
+"""00862""","""Intes infec adenovirus""",1
+"""2309""","""Ca in situ GI NEC/NOS""",1
+"""7581""","""Patau's syndrome""",1
+"""4919""","""Chronic bronchitis NOS""",1
+"""4730""","""Chr maxillary sinusitis""",1
+"""4619""","""Acute sinusitis NOS""",1
+"""85205""","""Subarach hem-deep coma""",1
+"""5258""","""Dental disorder NEC""",1
+"""85305""","""Brain hem NEC-deep coma""",1
+"""8728""","""Open wound of ear NOS""",1
+"""5275""","""Sialolithiasis""",1
+"""1569""","""Malig neo biliary NOS""",1
+"""990""","""Effects radiation NOS""",1
+"""30570""","""Amphetamine abuse-unspec""",1
+"""2971""","""Delusional disorder""",1
+"""29411""","""Dementia w behavior dist""",1
+"""E9384""","""Adv eff gen anes NEC/NOS""",1
+"""7062""","""Sebaceous cyst""",1
+"""0479""","""Viral meningitis NOS""",1
+"""37886""","""Internucl ophthalmopleg""",1
+"""7827""","""Spontaneous ecchymoses""",1
+"""74689""","""Cong heart anomaly NEC""",1
+"""4472""","""Rupture of artery""",1
+"""5753""","""Hydrops of gallbladder""",1
+"""76521""","""<24 comp wks gestation""",1
+"""76502""","""Extreme immatur 500-749g""",1
+"""7771""","""Meconium obstruction""",1
+"""7759""","""Transient met dis NB NOS""",1
+"""77210""","""NB intraven hem NOS""",1
+"""V3100""","""Twin-mate lb-hosp w/o cs""",1
+"""7470""","""Patent ductus arteriosus""",1
+"""E8784""","""Abn react-plast surg NEC""",1
+"""73679""","""Acq ankle-foot def NEC""",1
+"""1963""","""Mal neo lymph-axilla/arm""",1
+"""37430""","""Ptosis of eyelid NOS""",1
+"""V8812""","""Acq part absnce pancreas""",1
+"""6821""","""Cellulitis of neck""",1
+"""0412""","""Pneumococcus infect NOS""",1
+"""3181""","""Sev intellect disability""",1
+"""3341""","""Hered spastic paraplegia""",1
+"""6181""","""Uterine prolapse""",1
+"""28260""","""Sickle cell disease NOS""",1
+"""E918""","""Caught between objects""",1
+"""92619""","""Crushing inj trunk NEC""",1
+"""44284""","""Visceral aneurysm NEC""",1
+"""E8238""","""Oth coll stn obj-per NEC""",1
+"""86404""","""Liver laceration, major""",1
+"""2441""","""Postablat hypothyr NEC""",1
+"""3344""","""Cerebel atax in oth dis""",1
+"""2812""","""Folate-deficiency anemia""",1
+"""78606""","""Tachypnea""",1
+"""V625""","""Legal circumstances""",1
+"""48240""","""Staphylococcal pneu NOS""",1
+"""78003""","""Persistent vegtv state""",1
+"""61189""","""Disorders breast NEC""",1
+"""9162""","""Blister hip & leg""",1
+"""E9363""","""Adv eff antconvl NEC/NOS""",1
+"""9721""","""Poisoning-cardiotonics""",1
+"""E8583""","""Acc poisn-cardiovasc agt""",1
+"""73029""","""Osteomyelitis NOS-mult""",1
+"""V4451""","""Cutaneous-vesicos status""",1
+"""2411""","""Nontox multinodul goiter""",1
+"""73349""","""Asept necrosis bone NEC""",1
+"""1419""","""Malig neo tongue NOS""",1
+"""1960""","""Mal neo lymph-head/neck""",1
+"""V8537""","""BMI 37.0-37.9,adult""",1
+"""34282""","""Ot sp hmiplg nondmnt sde""",1
+"""4533""","""Renal vein thrombosis""",1
+"""78899""","""Oth symptm urinary systm""",1
+"""4838""","""Pneumon oth spec orgnsm""",1
+"""4465""","""Giant cell arteritis""",1
+"""6829""","""Cellulitis NOS""",1
+"""71500""","""General osteoarthrosis""",1
+"""75310""","""Cystic kidney diseas NOS""",1
+"""41091""","""AMI NOS, initial""",1
+"""56985""","""Angio intes w hmrhg""",1
+"""3418""","""Cns demyelination NEC""",1
+"""4479""","""Arterial disease NOS""",1
+"""5763""","""Perforation of bile duct""",1
+"""3313""","""Communicat hydrocephalus""",1
+"""42613""","""Av block-2nd degree NEC""",1
+"""E887""","""Fracture, cause NOS""",1
+"""82022""","""Subtrochanteric fx-close""",1
+"""6200""","""Follicular cyst of ovary""",1
+"""V0981""","""Inf mcrg rstn oth drg ml""",1
+"""E9010""","""Excessive cold: weather""",1
+"""9100""","""Abrasion head""",1
+"""E9292""","""Late eff acc poisoning""",1
+"""2511""","""Oth spcf hypoglycemia""",1
+"""41061""","""True post infarct, init""",1
+"""53150""","""Chr stomach ulcer w perf""",1
+"""4423""","""Lower extremity aneurysm""",1
+"""2559""","""Adrenal disorder NOS""",1
+"""99689""","""Comp oth organ transplnt""",1
+"""20010""","""Lymphsrc unsp xtrndl org""",1
+"""04183""","""Clostridium perfringens""",1
+"""60889""","""Male genital dis NEC""",1
+"""88102""","""Open wound of wrist""",1
+"""E956""","""Injury-cut instrument""",1
+"""36563""","""Glaucoma w vascular dis""",1
+"""V1044""","""Hx-female genit malg NEC""",1
+"""9099""","""Late eff exter cause NEC""",1
+"""E8493""","""Acc on industr premises""",1
+"""V4574""","""Acq absence urinary trct""",1
+"""3361""","""Vascular myelopathies""",1
+"""70701""","""Pressure ulcer, elbow""",1
+"""73734""","""Thoracogenic scoliosis""",1
+"""73013""","""Chr osteomyelit-forearm""",1
+"""75689""","""Soft tissue anomaly NEC""",1
+"""V029""","""Carrier NEC""",1
+"""5259""","""Dental disorder NOS""",1
+"""34409""","""Other quadriplegia""",1
+"""25208""","""Hyperparathyroidism NEC""",1
+"""64663""","""Gu infection-antepartum""",1
+"""7864""","""Abnormal sputum""",1
+"""5309""","""Esophageal disorder NOS""",1
+"""37601""","""Orbital cellulitis""",1
+"""5187""","""Transfsn rel ac lung inj""",1
+"""59582""","""Irradiation cystitis""",1
+"""E9347""","""Adv eff blood products""",1
+"""2114""","""Benign neopl rectum/anus""",1
+"""73319""","""Path fx oth specif site""",1
+"""3240""","""Intracranial abscess""",1
+"""57470""","""Gal&bil cal w/oth w/o ob""",1
+"""72700""","""Synovitis NOS""",1
+"""08249""","""Ehrlichiosis NEC""",1
+"""7910""","""Proteinuria""",1
+"""73088""","""Bone infect NEC-oth site""",1
+"""01504""","""TB of vertebra-cult dx""",1
+"""5851""","""Chro kidney dis stage I""",1
+"""4558""","""Hemrrhoid NOS w comp NEC""",1
+"""5847""","""Ac kidny fail, medu necr""",1
+"""74103""","""Spin bif w hydrceph-lumb""",1
+"""78050""","""Sleep disturbance NOS""",1
+"""28802""","""Cyclic neutropenia""",1
+"""30552""","""Opioid abuse-episodic""",1
+"""1882""","""Mal neo bladder-lateral""",1
+"""45119""","""Deep phlebitis-leg NEC""",1
+"""1965""","""Mal neo lymph-inguin/leg""",1
+"""2931""","""Subacute delirium""",1
+"""1129""","""Candidiasis site NOS""",1
+"""71996""","""Joint dis NOS-l/leg""",1
+"""2758""","""Dis mineral metabol NEC""",1
+"""1124""","""Candidiasis of lung""",1
+"""64821""","""Anemia-delivered""",1
+"""V270""","""Deliver-single liveborn""",1
+"""64881""","""Abn glucose toler-deliv""",1
+"""67482""","""Puerp comp NEC-del w p/p""",1
+"""64891""","""Oth curr cond-delivered""",1
+"""64421""","""Early onset delivery-del""",1
+"""64781""","""Infect dis NEC-delivered""",1
+"""64621""","""Renal dis NOS-delivered""",1
+"""64761""","""Oth viral dis-delivered""",1
+"""64861""","""CV dis NEC preg-deliver""",1
+"""64842""","""Mental dis-deliv w p/p""",1
+"""66942""","""Oth ob compl-deliv w p/p""",1
+"""64201""","""Essen hyperten-delivered""",1
+"""20400""","""Ac lym leuk wo achv rmsn""",1
+"""E9430""","""Adv eff antacids""",1
+"""43311""","""Ocl crtd art w infrct""",1
+"""38910""","""Sensorneur hear loss NOS""",1
+"""5552""","""Reg enterit sm/lg intest""",1
+"""5538""","""Hernia NEC""",1
+"""78843""","""Nocturia""",1
+"""5846""","""Ac kidny fail, cort necr""",1
+"""E8797""","""Abn react-blood sampling""",1
+"""53100""","""Ac stomach ulcer w hem""",1
+"""37000""","""Corneal ulcer NOS""",1
+"""37489""","""Disorders of eyelid NEC""",1
+"""37501""","""Acute dacryoadenitis""",1
+"""71905""","""Joint effusion-pelvis""",1
+"""30490""","""Drug depend NOS-unspec""",1
+"""34430""","""Monplga lwr lmb unsp sde""",1
+"""2888""","""Wbc disease NEC""",1
+"""E9323""","""Adv eff insulin/antidiab""",1
+"""E8502""","""Acc poison-opiates NEC""",1
+"""29212""","""Drug psy dis w hallucin""",1
+"""07033""","""Hpt B chrn wo cm w dlta""",1
+"""41081""","""AMI NEC, initial""",1
+"""4386""","""Alteration of sensations""",1
+"""6028""","""Prostatic disorders NEC""",1
+"""05410""","""Genital herpes NOS""",1
+"""1883""","""Mal neo bladder-anterior""",1
+"""43300""","""Ocl bslr art wo infrct""",1
+"""7866""","""Chest swelling/mass/lump""",1
+"""6825""","""Cellulitis of buttock""",1
+"""5131""","""Abscess of mediastinum""",1
+"""8630""","""Stomach injury-closed""",1
+"""86329""","""Small intest inj NEC-cl""",1
+"""37313""","""Abscess of eyelid""",1
+"""5305""","""Dyskinesia of esophagus""",1
+"""04110""","""Staphylococcus unspcfied""",1
+"""23879""","""Lymph/hematpoitc tis NEC""",1
+"""2899""","""Blood disease NOS""",1
+"""2872""","""Purpura NOS""",1
+"""E8881""","""Fall striking object NEC""",1
+"""92400""","""Contusion of thigh""",1
+"""79989""","""Ill-define condition NEC""",1
+"""7109""","""Diff connect tis dis NOS""",1
+"""57440""","""Choledochlith/gb inf NEC""",1
+"""V113""","""Hx of alcoholism""",1
+"""56982""","""Ulceration of intestine""",1
+"""42841""","""Ac syst/diastol hrt fail""",1
+"""0312""","""DMAC bacteremia""",1
+"""43884""","""Ataxia""",1
+"""45351""","""Ch DVT/embl prox low ext""",1
+"""0415""","""H. influenzae infect NOS""",1
+"""6039""","""Hydrocele NOS""",1
+"""65953""","""Elder primigravid-antepa""",1
+"""64233""","""Trans hyperten-antepart""",1
+"""72740""","""Synovial cyst NOS""",1
+"""78907""","""Abdmnal pain generalized""",1
+"""13109""","""Urogenital trichomon NEC""",1
+"""33821""","""Chronc pain d/t trauma""",1
+"""6079""","""Disorder of penis NOS""",1
+"""60011""","""Nod prostate w ur obst""",1
+"""1571""","""Mal neo pancreas body""",1
+"""29630""","""Recurr depr psychos-unsp""",1
+"""53290""","""Duodenal ulcer NOS""",1
+"""53490""","""Gastrojejunal ulcer NOS""",1
+"""99601""","""Malfunc cardiac pacemake""",1
+"""29980""","""Pervasv dev dis-cur NEC""",1
+"""42291""","""Idiopathic myocarditis""",1
+"""33722""","""Rflx sym dystrph lwr lmb""",1
+"""6040""","""Orchitis with abscess""",1
+"""75312""","""Polycystic kidney NOS""",1
+"""9597""","""Lower leg injury NOS""",1
+"""9061""","""Late eff open wnd extrem""",1
+"""3536""","""Phantom limb (syndrome)""",1
+"""7093""","""Degenerative skin disord""",1
+"""2370""","""Unc behav neo pituitary""",1
+"""0491""","""Adenoviral meningitis""",1
+"""3594""","""Toxic myopathy""",1
+"""27951""","""Ac graft-versus-host dis""",1
+"""05881""","""Human herpesvirus 6 infc""",1
+"""07989""","""Oth specf viral infectn""",1
+"""59659""","""Oth func dsdr bladder""",1
+"""2825""","""Sickle-cell trait""",1
+"""08882""","""Babesiosis""",1
+"""36816""","""Psychophysic visual dist""",1
+"""1588""","""Mal neo peritoneum NEC""",1
+"""6144""","""Chronic parametritis""",1
+"""5933""","""Stricture of ureter""",1
+"""3220""","""Nonpyogenic meningitis""",1
+"""94224""","""2nd deg burn back""",1
+"""3363""","""Myelopathy in oth dis""",1
+"""56032""","""Fecal impaction""",1
+"""5963""","""Diverticulum of bladder""",1
+"""4841""","""Pneum w cytomeg incl dis""",1
+"""76525""","""29-30 comp wks gestation""",1
+"""V063""","""Vaccin for dtp + polio""",1
+"""77981""","""Neonatal bradycardia""",1
+"""76514""","""Preterm NEC 1000-1249g""",1
+"""V202""","""Routin child health exam""",1
+"""V2651""","""Tubal ligation status""",1
+"""45376""","""Ch embl internl jug vein""",1
+"""33520""","""Amyotrophic sclerosis""",1
+"""78603""","""Apnea""",1
+"""32082""","""Mningts gram-neg bct NEC""",1
+"""36846""","""Homonymous hemianopsia""",1
+"""317""","""Mild intellect disabilty""",1
+"""5282""","""Oral aphthae""",1
+"""32720""","""Organic sleep apnea NOS""",1
+"""72610""","""Rotator cuff synd NOS""",1
+"""V016""","""Venereal dis contact""",1
+"""71943""","""Joint pain-forearm""",1
+"""30021""","""Agoraphobia w panic dis""",1
+"""74190""","""Spina bifida""",1
+"""E8850""","""Fall-nonmotor scooter""",1
+"""81303""","""Monteggia's fx-closed""",1
+"""E8810""","""Fall from ladder""",1
+"""95200""","""C1-c4 spin cord inj NOS""",1
+"""42651""","""Rt bbb/lft post fasc blk""",1
+"""42610""","""Atriovent block NOS""",1
+"""0091""","""Enteritis of infect orig""",1
+"""86321""","""Duodenum injury-closed""",1
+"""20283""","""Lymphomas NEC abdom""",1
+"""86402""","""Liver laceration, minor""",1
+"""7295""","""Pain in limb""",1
+"""2638""","""Protein-cal malnutr NEC""",1
+"""37923""","""Vitreous hemorrhage""",1
+"""79094""","""Euthyroid sick syndrome""",1
+"""E9330""","""Adv eff anallrg/antemet""",1
+"""3321""","""Secondary parkinsonism""",1
+"""9093""","""Late eff surg/med compl""",1
+"""E9378""","""Adv eff sedat/hypnot NEC""",1
+"""99670""","""Comp-unsp device/graft""",1
+"""V066""","""Nd vac strp pnumn/inflnz""",1
+"""2306""","""Ca in situ anus NOS""",1
+"""56944""","""Dysplasia of anus""",1
+"""42682""","""Long QT syndrome""",1
+"""96972""","""Poisoning by amphetamine""",1
+"""96500""","""Poisoning-opium NOS""",1
+"""97081""","""Poisoning by cocaine""",1
+"""3961""","""Mitral stenos/aort insuf""",1
+"""9221""","""Contusion of chest wall""",1
+"""3940""","""Mitral stenosis""",1
+"""8600""","""Traum pneumothorax-close""",1
+"""80507""","""Fx c7 vertebra-closed""",1
+"""72401""","""Spinal stenosis-thoracic""",1
+"""8220""","""Fracture patella-closed""",1
+"""86509""","""Spleen injury NEC-closed""",1
+"""99642""","""Dislocate prosthetic jt""",1
+"""71589""","""Osteoarthrosis-mult site""",1
+"""71580""","""Osteoarthrosis-mult site""",1
+"""71104""","""Pyogen arthritis-hand""",1
+"""6019""","""Prostatitis NOS""",1
+"""01894""","""Miliary TB NOS-cult dx""",1
+"""8744""","""Open wound of pharynx""",1
+"""72939""","""Panniculitis, site NEC""",1
+"""44029""","""Athrsc extrm ntv art oth""",1
+"""V6442""","""Thoracoscop conv to open""",1
+"""2830""","""Autoimmun hemolytic anem""",1
+"""2281""","""Lymphangioma, any site""",1
+"""4372""","""Hypertens encephalopathy""",1
+"""55000""","""Unilat ing hernia w gang""",1
+"""5970""","""Urethral abscess""",1
+"""5991""","""Urethral fistula""",1
+"""30122""","""Schizotypal person dis""",1
+"""30150""","""Histrionic person NOS""",1
+"""2572""","""Testicular hypofunc NEC""",1
+"""7231""","""Cervicalgia""",1
+"""5401""","""Abscess of appendix""",1
+"""71697""","""Arthropathy NOS-ankle""",1
+"""34591""","""Epilepsy NOS w intr epil""",1
+"""9094""","""Late eff cert ext cause""",1
+"""E9295""","""Late eff environment acc""",1
+"""73024""","""Osteomyelitis NOS-hand""",1
+"""2599""","""Endocrine disorder NOS""",1
+"""2519""","""Pancreatic disorder NOS""",1
+"""34600""","""Mgrn w aura wo ntrc mgrn""",1
+"""2682""","""Osteomalacia NOS""",1
+"""25073""","""DMI circ uncntrld""",1
+"""25083""","""DMI oth uncntrld""",1
+"""7051""","""Prickly heat""",1
+"""85220""","""Traumatic subdural hem""",1
+"""20512""","""Chr myel leuk in relapse""",1
+"""30471""","""Opioid/other dep-contin""",1
+"""3432""","""Congenital quadriplegia""",1
+"""3202""","""Streptococcal meningitis""",1
+"""3829""","""Otitis media NOS""",1
+"""38300""","""Ac mastoiditis w/o compl""",1
+"""E8702""","""Acc cut/hem-perfusn NEC""",1
+"""E989""","""Late eff inj-undet circ""",1
+"""9081""","""Late eff int inj abdomen""",1
+"""3201""","""Pneumococcal meningitis""",1
+"""36001""","""Acute endophthalmitis""",1
+"""37274""","""Conjunctiva vasc anomaly""",1
+"""3612""","""Serous retina detachment""",1
+"""V1819""","""Fm hx endo/metab dis NEC""",1
+"""3518""","""Facial nerve dis NEC""",1
+"""53012""","""Acute esophagitis""",1
+"""0579""","""Viral exanthemata NOS""",1
+"""3698""","""Visual loss, one eye NOS""",1
+"""82021""","""Intertrochanteric fx-cl""",1
+"""V8538""","""BMI 38.0-38.9,adult""",1
+"""E8705""","""Acc cut/hem w catheteriz""",1
+"""84500""","""Sprain of ankle NOS""",1
+"""51289""","""Other pneumothorax""",1
+"""1961""","""Mal neo lymph-intrathor""",1
+"""1809""","""Mal neo cervix uteri NOS""",1
+"""80021""","""Cl skull vlt fx w/o coma""",1
+"""E8888""","""Fall NEC""",1
+"""78442""","""Dysphonia""",1
+"""20511""","""Chr myl leuk w rmsion""",1
+"""19881""","""Second malig neo breast""",1
+"""99741""","""Ret cholelh fol cholecys""",1
+"""71537""","""Loc osteoarth NOS-ankle""",1
+"""36019""","""Endophthalmitis NEC""",1
+"""4359""","""Trans cereb ischemia NOS""",1
+"""43401""","""Crbl thrmbs w infrct""",1
+"""4785""","""Vocal cord disease NEC""",1
+"""46400""","""Ac laryngitis w/o obst""",1
+"""20200""","""Ndlr lym unsp xtrndl org""",1
