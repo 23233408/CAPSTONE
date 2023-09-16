@@ -1,0 +1,34 @@
+# create DB for demo data
+load csv with headers from 'file:///out.csv' as row
+merge (p:patient {subject_id: toString(row.SUBJECT_ID)})
+merge (a:admission {hadm_id: toString(row.HADM_ID)})
+
+FOREACH (code IN CASE WHEN toString(row.SEPSIS) IN ['0'] THEN [1] ELSE [] END |
+    CREATE (i:icd {icd9_code: toString(row.ICD9_CODE), disease: toString(row.SHORT_TITLE)})
+    MERGE (p)-[r1:admitted]->(a)
+    MERGE (a)-[r2:diagnosed]->(i)
+)
+
+FOREACH (code IN CASE WHEN toString(row.SEPSIS) IN ['1'] THEN [1] ELSE [] END |
+    CREATE (s:sepsis {icd9_code: toString(row.ICD9_CODE), disease: toString(row.SHORT_TITLE)})
+    MERGE (a)-[r3:diagnosed_sepsis]->(s)
+)
+
+
+#-------------------------------------------------------------------------------------------------
+# create data for common labevents
+load csv with headers from 'file:///potential_events_others.csv' as row
+merge (a:admission {SUBJECT_ID: row.SUBJECT_ID, HADM_ID: row.HADM_ID, ADMITTIME: row.ADMITTIME})
+merge (e:event {ITEMID: row.ITEMID, ILABEL: row.LABEL, FLUID: row.FLUID})
+create (a)-[t:TESTED {CHARTTIME: row.CHARTTIME, FLAG: row.FLAG, TIME: toInteger(row.TIME)}]->(e)
+
+load csv with headers from 'file:///potential_events_abnormal.csv' as row
+merge (a:admission {SUBJECT_ID: row.SUBJECT_ID, HADM_ID: row.HADM_ID, ADMITTIME: row.ADMITTIME})
+merge (e:event {ITEMID: row.ITEMID, ILABEL: row.LABEL, FLUID: row.FLUID})
+create (a)-[t:TESTED {CHARTTIME: row.CHARTTIME, FLAG: row.FLAG, TIME: toInteger(row.TIME)}]->(e)
+
+match (a:admission)-[ta:TESTED {FLAG: 'abnormal'}]->(e:event)
+where ta.TIME <= 4 and ta.TIME >= -4
+with e.ITEMID as ITEMID, e.ILABEL as `LABEL`, a
+return ITEMID, LABEL, count(distinct a) as abnormal_count  order by abnormal_count desc
+limit 30
