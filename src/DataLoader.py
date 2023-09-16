@@ -278,4 +278,4 @@ class DataLoader:
 
     df_final = df_final.fillna(-999)
 
-    utils.save_csv(df_final, self.ROOT_DIR / f'data/output_csv/t{hours}.csv')
+    utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
