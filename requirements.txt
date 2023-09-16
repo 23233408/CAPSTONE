@@ -10,6 +10,5 @@ sweetviz
 sqlalchemy==2.0.20
 psycopg2==2.9.7
 requests
-re
-numpy
+numpy==1.24.4
 shap
