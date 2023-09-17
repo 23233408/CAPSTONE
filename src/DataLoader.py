@@ -223,7 +223,7 @@ class DataLoader:
     new_admittime = df_labevents.groupby(['SUBJECT_ID', 'HADM_ID']).apply(lambda x: self.__get_admittime(x)).reset_index(name='NEW_ADMITTIME')
     df_labevents = df_labevents.merge(new_admittime, on=['SUBJECT_ID', 'HADM_ID'])
 
-    df_labevents['TIME'] = np.ceil((df_labevents.CHARTTIME - df_labevents.ADMITTIME).dt.total_seconds() / 3600)
+    df_labevents['TIME'] = np.ceil((df_labevents.CHARTTIME - df_labevents.NEW_ADMITTIME).dt.total_seconds() / 3600)
     return df_labevents
 
   def __create_labevents_processed(self, df_labevents, df_demographic, df_desc_labitems, feature_list, hours):
