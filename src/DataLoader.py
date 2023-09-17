@@ -100,7 +100,7 @@ class DataLoader:
       df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents.csv')
       # convert column type: CHARTTIME
       df_labevents = self.__labevents_cleanup_hadm_id(df_demographic, df_labevents)
-      # utils.save_csv(df_labevents, self.ROOT_DIR / 'data/labevents_cleaned.csv')
+      utils.save_csv(df_labevents, self.ROOT_DIR / 'data/labevents_cleaned.csv')
     df_labevents['CHARTTIME'] = pd.to_datetime(df_labevents['CHARTTIME'], format='%Y-%m-%d %H:%M:%S')
     return df_labevents
 
@@ -259,9 +259,11 @@ class DataLoader:
     - df_labevents: the labevents dataframe
     - df_demographic: the demographic dataframe
     - df_desc_labitems: the labitems description dataframe
-    
+    - hours: first n hours to extract
+    - feature_no: the number of features to extract
+  
     Returns:
-    - potential_cases: the labevents filtered
+    - df_final: the train data dataframe. It is also saved as csv file in data/Model input data/ folder.
     """
     potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
     feature_list = potential_events.iloc[:feature_no]['ITEMID']
@@ -274,8 +276,10 @@ class DataLoader:
     a = a.dropna(subset=['VALUENUM'], axis=0)
     a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
     df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
-    df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first').reset_index()
+    df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
+    df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
+    df_final = df_final.reset_index()
 
     df_final = df_final.fillna(-999)
-
     utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
+    return df_final
