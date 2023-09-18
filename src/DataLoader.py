@@ -238,7 +238,7 @@ class DataLoader:
     Returns:
     - potential_cases: the labevents filtered
     """
-    # load features from file and get top 10 features
+    # load features from file and get top n features
     potential_cases = df_labevents[df_labevents.ITEMID.isin(feature_list)].merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER', 'IS_SEPSIS']], on=['SUBJECT_ID', 'HADM_ID'])
 
     # get only the data at first n hours
@@ -251,35 +251,51 @@ class DataLoader:
 
     return potential_cases
 
-  def create_train_data(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_no = 20):
+  def create_train_data(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_no = -1, output_filename=''):
     """
-    Get all labevents rows filtered by itemid, t=n. Replace GENDER by GENDER_NUM
+    Create the train data file.
 
     Parameters:
     - df_labevents: the labevents dataframe
     - df_demographic: the demographic dataframe
     - df_desc_labitems: the labitems description dataframe
     - hours: first n hours to extract
-    - feature_no: the number of features to extract
+    - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+    - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
   
     Returns:
-    - df_final: the train data dataframe. It is also saved as csv file in data/Model input data/ folder.
+    - The result dataframe is saved as csv file in data/Model input data/ folder.
     """
+    # read the features list in the potential csv file and get top n features
     potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
-    feature_list = potential_events.iloc[:feature_no]['ITEMID']
-
+    potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
+    if feature_no == -1:
+      # get all features
+      feature_list = potential_events['ITEMID']
+    else:
+      feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    
+    # get the df_labevents filtered by hours and features
     a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
     a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], ascending = False, inplace=True)
-
+    # get unique rows by SUBJECT_ID, HADM_ID, ITEMID
     df_final = a.drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], ignore_index=True)[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'ITEMID']]
 
+    # drop all rows having null in VALUENUM and keep only the firt duplicate rows
     a = a.dropna(subset=['VALUENUM'], axis=0)
     a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    # merge the result back to the unique rows by SUBJECT_ID, HADM_ID, ITEMID and unpivot the table
     df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
     df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
+    # rename the features column names
     df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
     df_final = df_final.reset_index()
 
+    # fill all null VALUENUM by -999 and save to csv file
     df_final = df_final.fillna(-999)
-    utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
-    return df_final
+    try:
+      utils.save_csv(df_final, output_filename)
+    except:
+      utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
+
+    # return df_final
