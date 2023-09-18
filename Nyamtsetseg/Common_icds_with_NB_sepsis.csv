@@ -1,0 +1,303 @@
+﻿ICD9_CODE,SHORT_TITLE,Count
+"""7742""","""Neonat jaund preterm del""",177
+"""769""","""Respiratory distress syn""",168
+"""77081""","""Primary apnea of newborn""",105
+"""V053""","""Need prphyl vc vrl hepat""",100
+"""V3001""","""Single lb in-hosp w cs""",93
+"""7766""","""Anemia of prematurity""",90
+"""7470""","""Patent ductus arteriosus""",87
+"""77981""","""Neonatal bradycardia""",69
+"""7707""","""Perinatal chr resp dis""",61
+"""77989""","""Perinatal condition NEC""",59
+"""36221""","""Retrolental fibroplasia""",59
+"""V3000""","""Single lb in-hosp w/o cs""",50
+"""V3101""","""Twin-mate lb-in hos w cs""",48
+"""76503""","""Extreme immatur 750-999g""",47
+"""76524""","""27-28 comp wks gestation""",45
+"""76502""","""Extreme immatur 500-749g""",44
+"""76523""","""25-26 comp wks gestation""",44
+"""7757""","""Late metab acidosis NB""",33
+"""V502""","""Routine circumcision""",30
+"""7755""","""Neonatal dehydration""",30
+"""77211""","""NB intraven hem,grade i""",28
+"""76514""","""Preterm NEC 1000-1249g""",28
+"""76522""","""24 comp weeks gestation""",23
+"""7761""","""Neonatal thrombocytopen""",21
+"""7702""","""NB interstit emphysema""",21
+"""76525""","""29-30 comp wks gestation""",21
+"""76527""","""33-34 comp wks gestation""",20
+"""7455""","""Secundum atrial sept def""",20
+"""53081""","""Esophageal reflux""",18
+"""7756""","""Neonatal hypoglycemia""",18
+"""4589""","""Hypotension NOS""",15
+"""76516""","""Preterm NEC 1500-1749g""",14
+"""76518""","""Preterm NEC 2000-2499g""",13
+"""76515""","""Preterm NEC 1250-1499g""",13
+"""76526""","""31-32 comp wks gestation""",13
+"""7786""","""Congenital hydrocele""",13
+"""7700""","""Congenital pneumonia""",13
+"""77089""","""Resp prob after brth NEC""",12
+"""7703""","""NB pulmonary hemorrhage""",11
+"""77212""","""NB intraven hem,grade ii""",11
+"""77213""","""NB intravn hem,grade iii""",11
+"""76519""","""Preterm NEC 2500+g""",10
+"""76528""","""35-36 comp wks gestation""",10
+"""3229""","""Meningitis NOS""",10
+"""76517""","""Preterm NEC 1750-1999g""",10
+"""74602""","""Cong pulmon valve stenos""",9
+"""7454""","""Ventricular sept defect""",9
+"""486""","""Pneumonia, organism NOS""",9
+"""7767""","""Neonatal neutropenia""",9
+"""55092""","""Bilat inguinal hernia""",9
+"""V3401""","""Oth mult lb-in hosp w cs""",9
+"""77082""","""Other apnea of newborn""",9
+"""7784""","""NB temp regulat dis NEC""",8
+"""5531""","""Umbilical hernia""",8
+"""7706""","""NB transitory tachypnea""",8
+"""7746""","""Fetal/neonatal jaund NOS""",8
+"""7705""","""NB atelectasis NEC/NOS""",8
+"""7717""","""Neonatal candida infect""",7
+"""V293""","""NB obs genetc/metabl cnd""",7
+"""76513""","""Preterm NEC 750-999g""",7
+"""7716""","""Neonatal conjunctivitis""",7
+"""V3100""","""Twin-mate lb-hosp w/o cs""",7
+"""55090""","""Unilat inguinal hernia""",7
+"""7776""","""Perinatal intest perfor""",7
+"""04111""","""Mth sus Stph aur els/NOS""",7
+"""74783""","""Persistent fetal circ""",6
+"""75329""","""Obst def ren plv&urt NEC""",6
+"""7774""","""Transitory ileus of NB""",6
+"""6910""","""Diaper or napkin rash""",5
+"""2762""","""Acidosis""",5
+"""74860""","""Lung anomaly NOS""",5
+"""0389""","""Septicemia NOS""",5
+"""75261""","""Hypospadias""",5
+"""V290""","""NB obsrv suspct infect""",5
+"""77210""","""NB intraven hem NOS""",5
+"""4588""","""Hypotension NEC""",4
+"""79029""","""Abnormal glucose NEC""",4
+"""3480""","""Cerebral cysts""",4
+"""V090""","""Inf mcrg rstn pncllins""",4
+"""76402""","""Lt-for-dates 500-749g""",4
+"""2761""","""Hyposmolality""",4
+"""7778""","""Perinat GI sys dis NEC""",4
+"""04119""","""Other staphylococcus""",4
+"""76512""","""Preterm NEC 500-749g""",4
+"""75251""","""Undescended testis""",4
+"""76521""","""<24 comp wks gestation""",4
+"""7764""","""Polycythemia neonatorum""",4
+"""76492""","""Fet growth ret 500-749g""",4
+"""74683""","""Infundib pulmon stenosis""",3
+"""7560""","""Anomal skull/face bones""",3
+"""3314""","""Obstructiv hydrocephalus""",3
+"""76493""","""Fet growth ret 750-999g""",3
+"""7726""","""NB cutaneous hemorrhage""",3
+"""7630""","""Breech del/extrac aff NB""",3
+"""V0482""","""Vaccination for RSV""",3
+"""99662""","""React-oth vasc dev/graft""",3
+"""7921""","""Abn find-stool contents""",3
+"""7720""","""NB fetal blood loss NEC""",3
+"""6823""","""Cellulitis of arm""",3
+"""55012""","""Bilat ing hernia w obst""",3
+"""77581""","""NB acidosis NEC""",3
+"""7661""","""Heavy-for-date infan NEC""",3
+"""28801""","""Congenital neutropenia""",3
+"""7424""","""Brain anomaly NEC""",3
+"""7797""","""Perivent leukomalacia""",3
+"""7790""","""Convulsions in newborn""",3
+"""V442""","""Ileostomy status""",3
+"""76075""","""Mat cocaine aff NB/fet""",2
+"""76072""","""Matern narc aff NB/fetus""",2
+"""22801""","""Hemangioma skin""",2
+"""7704""","""Primary atelectasis""",2
+"""74685""","""Coronary artery anomaly""",2
+"""7821""","""Nonspecif skin erupt NEC""",2
+"""2760""","""Hyperosmolality""",2
+"""76504""","""Extreme immat 1000-1249g""",2
+"""V301""","""Singl livebrn-before adm""",2
+"""7600""","""Matern hyperten aff NB""",2
+"""4019""","""Hypertension NOS""",2
+"""E8798""","""Abn react-procedure NEC""",2
+"""75501""","""Polydactyly, fingers""",2
+"""9999""","""Complic med care NEC/NOS""",2
+"""5990""","""Urin tract infection NOS""",2
+"""46410""","""Ac tracheitis no obstruc""",2
+"""7624""","""Prolapsed cord aff NB""",2
+"""7608""","""Maternal cond NEC aff NB""",2
+"""V707""","""Exam-clincal trial""",2
+"""7762""","""Dissem intravasc coag NB""",2
+"""48282""","""Pneumonia e coli""",2
+"""4820""","""K. pneumoniae pneumonia""",2
+"""243""","""Congenital hypothyroidsm""",2
+"""42761""","""Atrial premature beats""",2
+"""56969""","""Colstmy/enteros comp NEC""",2
+"""V0381""","""Nd vac hmophlus inflnz b""",2
+"""V0382""","""Nd vac strptcs pneumni b""",2
+"""04104""","""Enterococcus group d""",2
+"""03810""","""Staphylcocc septicem NOS""",2
+"""7515""","""Intestinal anomaly NEC""",2
+"""76403""","""Lt-for-dates 750-999g""",2
+"""77018""","""NB asp w resp symp NEC""",2
+"""7852""","""Cardiac murmurs NEC""",2
+"""77214""","""NB intraven hem,grade iv""",2
+"""04102""","""Streptococcus group b""",2
+"""9992""","""Vasc comp med care NEC""",2
+"""5768""","""Dis of biliary tract NEC""",2
+"""73399""","""Bone & cartilage dis NEC""",2
+"""7873""","""Flatul/eructat/gas pain""",2
+"""42789""","""Cardiac dysrhythmias NEC""",2
+"""5119""","""Pleural effusion NOS""",2
+"""77084""","""Resp failure of newborn""",2
+"""5650""","""Anal fissure""",2
+"""5583""","""Allrgic gastro & colitis""",2
+"""75733""","""Cong skin pigment anomal""",2
+"""07989""","""Oth specf viral infectn""",2
+"""V068""","""Vac-dis combinations NEC""",2
+"""77182""","""NB urinary tract infectn""",2
+"""4578""","""Noninfect lymph dis NEC""",2
+"""7795""","""NB drug withdrawal syndr""",1
+"""4618""","""Other acute sinusitis""",1
+"""2710""","""Glycogenosis""",1
+"""51881""","""Acute respiratry failure""",1
+"""75169""","""Biliary & liver anom NEC""",1
+"""7945""","""Abn thyroid funct study""",1
+"""7759""","""Transient met dis NB NOS""",1
+"""7627""","""Chorioamnionitis aff NB""",1
+"""74365""","""Spec lacrimal pass anom""",1
+"""7714""","""Omphalitis of newborn""",1
+"""03840""","""Gram-neg septicemia NOS""",1
+"""7660""","""Exceptionally large baby""",1
+"""32082""","""Mningts gram-neg bct NEC""",1
+"""42840""","""Syst/diast hrt fail NOS""",1
+"""46611""","""Acu broncholitis d/t RSV""",1
+"""2682""","""Osteomalacia NOS""",1
+"""74259""","""Spinal cord anomaly NEC""",1
+"""75263""","""Congenital chordee""",1
+"""6851""","""Pilonidal cyst w/o absc""",1
+"""7422""","""Reduction deform, brain""",1
+"""7441""","""Accessory auricle""",1
+"""E8497""","""Accid in resident instit""",1
+"""591""","""Hydronephrosis""",1
+"""99859""","""Other postop infection""",1
+"""48241""","""Meth sus pneum d/t Staph""",1
+"""7612""","""Oligohydramnios aff NB""",1
+"""53541""","""Oth spf gastrt w hmrhg""",1
+"""0388""","""Septicemia NEC""",1
+"""2869""","""Coagulat defect NEC/NOS""",1
+"""27652""","""Hypovolemia""",1
+"""2875""","""Thrombocytopenia NOS""",1
+"""5184""","""Acute lung edema NOS""",1
+"""7540""","""Cong skull/face/jaw def""",1
+"""7483""","""Laryngotrach anomaly NEC""",1
+"""11283""","""Candidal meningitis""",1
+"""74689""","""Cong heart anomaly NEC""",1
+"""1124""","""Candidiasis of lung""",1
+"""78039""","""Convulsions NEC""",1
+"""7724""","""NB GI hemorrhage""",1
+"""36210""","""Backgrnd retinopathy NOS""",1
+"""4160""","""Prim pulm hypertension""",1
+"""6822""","""Cellulitis of trunk""",1
+"""77589""","""Neonat endo/met dis NEC""",1
+"""V040""","""Vaccin for poliomyelitis""",1
+"""4280""","""CHF NOS""",1
+"""56400""","""Constipation NOS""",1
+"""76079""","""Nox sub NEC aff NB/fetus""",1
+"""48289""","""Pneumonia oth spcf bact""",1
+"""7730""","""NB hemolyt dis:rh isoimm""",1
+"""2839""","""Acq hemolytic anemia NOS""",1
+"""75889""","""Oth con d/t chrm anm NEC""",1
+"""75567""","""Anomalies of foot NEC""",1
+"""7731""","""NB hemolyt dis-abo isoim""",1
+"""75520""","""Reduc deform up limb NOS""",1
+"""5939""","""Renal & ureteral dis NOS""",1
+"""1125""","""Disseminated candidiasis""",1
+"""6869""","""Local skin infection NOS""",1
+"""27651""","""Dehydration""",1
+"""7678""","""Birth trauma NEC""",1
+"""7533""","""Kidney anomaly NEC""",1
+"""9390""","""FB bladder & urethra""",1
+"""74363""","""Spec anom of eyelid NEC""",1
+"""7481""","""Nose anomaly NEC""",1
+"""74900""","""Cleft palate NOS""",1
+"""78341""","""Failure to thrive-child""",1
+"""3518""","""Facial nerve dis NEC""",1
+"""74710""","""Coarctation of aorta""",1
+"""04109""","""Other streptococcus""",1
+"""74429""","""Ear anomalies NEC""",1
+"""76621""","""Post-term infant""",1
+"""0479""","""Viral meningitis NOS""",1
+"""7823""","""Edema""",1
+"""7617""","""Antepart malpres aff NB""",1
+"""V4589""","""Post-proc states NEC""",1
+"""6824""","""Cellulitis of hand""",1
+"""7062""","""Sebaceous cyst""",1
+"""55010""","""Unilat ing hernia w obst""",1
+"""78933""","""Abdmnal mass rt lwr quad""",1
+"""77183""","""Bacteremia of newborn""",1
+"""76407""","""Lt-for-dates 1750-1999g""",1
+"""7599""","""Congenital anomaly NOS""",1
+"""7689""","""Birth asphyxia NOS""",1
+"""4519""","""Thrombophlebitis NOS""",1
+"""75526""","""Longitud defic radius""",1
+"""5609""","""Intestinal obstruct NOS""",1
+"""7589""","""Chromosome anomaly NOS""",1
+"""99812""","""Hematoma complic proc""",1
+"""6820""","""Cellulitis of face""",1
+"""2707""","""Straig amin-acid met NEC""",1
+"""V061""","""Vaccination for DTP-DTaP""",1
+"""V058""","""Vaccin for disease NEC""",1
+"""V298""","""NB obsrv oth suspct cond""",1
+"""78552""","""Septic shock""",1
+"""59370""","""Vescouretrl rflux unspcf""",1
+"""76501""","""Extreme immatur <500g""",1
+"""76401""","""Light-for-dates <500g""",1
+"""7905""","""Abn serum enzy level NEC""",1
+"""2689""","""Vitamin D deficiency NOS""",1
+"""73390""","""Bone & cartilage dis NOS""",1
+"""76529""","""37+ comp wks gestation""",1
+"""74353""","""Cong chorioretinal degen""",1
+"""7098""","""Skin disorders NEC""",1
+"""59389""","""Renal & ureteral dis NEC""",1
+"""E9444""","""Adv eff diuretics NEC""",1
+"""04184""","""Other anaerobes""",1
+"""E9356""","""Adv eff antirheumatics""",1
+"""53110""","""Ac stomach ulcer w perf""",1
+"""0380""","""Streptococcal septicemia""",1
+"""V443""","""Colostomy status""",1
+"""77083""","""Cyanotic attack, newborn""",1
+"""7512""","""Atresia large intestine""",1
+"""7763""","""Oth neonatal coag dis""",1
+"""7423""","""Congenital hydrocephalus""",1
+"""79094""","""Euthyroid sick syndrome""",1
+"""7511""","""Atresia small intestine""",1
+"""7783""","""NB hypothermia NEC""",1
+"""V202""","""Routin child health exam""",1
+"""7760""","""NB hemorrhagic disease""",1
+"""7732""","""NB hemolyt dis-isoim NEC""",1
+"""V0179""","""Viral dis contact NEC""",1
+"""E9317""","""Adv eff antiviral drugs""",1
+"""28803""","""Drug induced neutropenia""",1
+"""03811""","""Meth susc Staph aur sept""",1
+"""79092""","""Abnrml coagultion prfile""",1
+"""47879""","""Disease of larynx NEC""",1
+"""7904""","""Elev transaminase/ldh""",1
+"""47819""","""Nasal & sinus dis NEC""",1
+"""2511""","""Oth spcf hypoglycemia""",1
+"""5180""","""Pulmonary collapse""",1
+"""7799""","""Perinatal condition NOS""",1
+"""04185""","""Oth gram negatv bacteria""",1
+"""73026""","""Osteomyelitis NOS-l/leg""",1
+"""87412""","""Open wound trachea-compl""",1
+"""7475""","""Umbilical artery absence""",1
+"""0413""","""Klebsiella pneumoniae""",1
+"""4786""","""Edema of larynx""",1
+"""03842""","""E coli septicemia""",1
+"""7788""","""NB integument cond NEC""",1
+"""7962""","""Elev bl pres w/o hypertn""",1
+"""7711""","""Cong cytomegalovirus inf""",1
+"""03819""","""Staphylcocc septicem NEC""",1
+"""79989""","""Ill-define condition NEC""",1
+"""7754""","""Hypocalcem/hypomagnes NB""",1
+"""V180""","""Fam hx-diabetes mellitus""",1
+"""2893""","""Lymphadenitis NOS""",1
+"""V0481""","""Vaccin for influenza""",1
