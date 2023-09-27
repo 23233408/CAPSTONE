@@ -331,25 +331,25 @@ class DataLoader:
     # split dataframe to 3 dfs, admissions with 4, <4, >4 rows
     temp = a.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])['CHARTTIME'].count().reset_index(name='count')
     temp.count = temp['count'].astype(int)
-    row4_df = a.merge(temp[temp.count == 4][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
-    rowG4_df = a.merge(temp[temp.count > 4][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
-    rowL4_df = a.merge(temp[temp.count < 4][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    row4_df = a.merge(temp[temp.count == hours][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    rowG4_df = a.merge(temp[temp.count > hours][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    rowL4_df = a.merge(temp[temp.count < hours][['SUBJECT_ID', 'HADM_ID', 'ITEMID']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
 
     # for admission >4 rows, only get 4 latest rows by CHARTTIME
-    rowG4_df = rowG4_df.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).tail(4)
+    rowG4_df = rowG4_df.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).tail(hours)
 
     # for admission <4 rows, duplicate the first row and replace the value by mean in that admission/ITEMID
     rowL4_mean = rowL4_df.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])['VALUENUM'].mean().reset_index(name='avg')
     rowL4_mean.avg = rowL4_mean.avg.astype(float)
-    rowL4_mean = pd.DataFrame(np.repeat(rowL4_mean.values, 3, axis=0), columns=rowL4_mean.columns)
+    rowL4_mean = pd.DataFrame(np.repeat(rowL4_mean.values, hours-1, axis=0), columns=rowL4_mean.columns)
     
     first_row_df = rowL4_df.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
-    replicate_first_row = pd.DataFrame(np.repeat(first_row_df.values, 3, axis=0), columns=first_row_df.columns)
+    replicate_first_row = pd.DataFrame(np.repeat(first_row_df.values, hours-1, axis=0), columns=first_row_df.columns)
     replicate_first_row.VALUENUM = rowL4_mean.avg
 
     rowL4_df = pd.concat([rowL4_df, replicate_first_row], ignore_index=True)
     rowL4_df.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
-    rowL4_df = rowL4_df.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).tail(4)
+    rowL4_df = rowL4_df.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).tail(hours)
 
     # union 3 dfs
     df_final = pd.concat([row4_df, rowG4_df], ignore_index=True)
@@ -396,9 +396,16 @@ class DataLoader:
     # get the df_labevents filtered by hours and features
     a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
     a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
-    a['level'] = a.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).cumcount()
+    row_mean = a.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])['VALUENUM'].mean().reset_index(name='avg')
+    row_mean.avg = row_mean.avg.astype(float)
+    
+    df_final = a.merge(row_mean, on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    df_final.VALUENUM = np.where(df_final.VALUENUM.isnull(),df_final.avg, df_final.VALUENUM)
+    
+    df_final['level'] = df_final.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).cumcount()
+    df_final.VALUENUM.fillna(-999, inplace=True)
 
-    result = a.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'level'], columns='ITEMID', aggfunc='first')
+    result = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'level'], columns='ITEMID', aggfunc='first')
     result.columns = ["ITEMID_" + str(i) for i in result.columns]
     result = result.reset_index()
     result = result.fillna(-999)
