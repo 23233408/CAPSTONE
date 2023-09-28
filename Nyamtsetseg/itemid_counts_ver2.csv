@@ -1,0 +1,80 @@
+ITEMID,LABEL,ref1,ref2,ref3,neo4j,All yes,COUNT
+50802,BASE EXCESS,yes,no,no,no,,
+50803,"CALCULATED BICARBONATE, WHOLE BLOOD",yes,no,yes,no,,395.0
+50806,"CHLORIDE, WHOLE BLOOD",yes,no,no,no,,947.0
+50808,FREE CALCIUM,yes,yes,no,no,,2769.0
+50809,GLUCOSE,no,yes,no,no,,2305.0
+50810,"HEMATOCRIT, CALCULATED",yes,no,no,no,,
+50811,HEMOGLOBIN,yes,no,yes,no,,2002.0
+50813,LACTATE,no,yes,yes,yes,,3587.0
+50817,OXYGEN SATURATION,yes,no,no,no,,
+50818,PCO2,yes,no,no,yes,,3891.0
+50820,PH,yes,no,no,yes,,3920.0
+50822,"POTASSIUM, WHOLE BLOOD",yes,no,no,no,,1523.0
+50830,"PCO2, BODY FLUID",yes,no,no,no,,
+50833,POTASSIUM,yes,no,no,no,,
+50835,"ALBUMIN, ASCITES",no,yes,yes,no,,
+50847,"POTASSIUM, ASCITES",yes,no,no,no,,
+50852,% HEMOGLOBIN A1C,yes,no,yes,no,,213.0
+50855,ABSOLUTE HEMOGLOBIN,yes,no,yes,no,,
+50861,ALANINE AMINOTRANSFERASE (ALT),no,no,yes,no,,2391.0
+50862,ALBUMIN,no,yes,yes,yes,,4118.0
+50863,ALKALINE PHOSPHATASE,no,yes,no,yes,,2903.0
+50868,ANION GAP,no,yes,no,no,,2642.0
+50878,ASPARATE AMINOTRANSFERASE (AST),no,yes,yes,yes,,3024.0
+50882,BICARBONATE,yes,no,yes,yes,,4682.0
+50885,"BILIRUBIN, TOTAL",no,yes,yes,no,,1901.0
+50889,C-REACTIVE PROTEIN,no,no,yes,no,,711.0
+50893,"CALCIUM, TOTAL",yes,yes,no,yes,,4928.0
+50902,CHLORIDE,yes,no,no,yes,,4589.0
+50912,CREATININE,yes,yes,yes,yes,yes,4244.0
+50915,D-DIMER,no,no,yes,no,,198.0
+50920,ESTIMATED GFR (MDRD EQUATION),no,yes,no,no,,
+50924,FERRITIN,no,no,yes,no,,1160.0
+50931,GLUCOSE,no,yes,no,yes,,5150.0
+50954,LACTATE DEHYDROGENASE (LD),no,yes,yes,no,,2678.0
+50960,MAGNESIUM,yes,no,no,no,,3143.0
+50970,PHOSPHATE,yes,no,no,yes,,4900.0
+50971,POTASSIUM,yes,no,no,no,,3732.0
+51002,TROPONIN I,no,no,yes,no,,3.0
+51003,TROPONIN T,no,no,yes,yes,,2729.0
+51037,"MAGNESIUM, BODY FLUID",yes,no,no,no,,
+51040,"PHOSPHATE, BODY FLUID",yes,no,no,no,,
+51046,"ALBUMIN, PLEURAL",no,yes,yes,no,,
+51069,"ALBUMIN, URINE",no,yes,yes,no,,
+51078,"CHLORIDE, URINE",yes,no,no,no,,
+51081,"CREATININE, SERUM",yes,yes,yes,no,,
+51082,"CREATININE, URINE",yes,yes,yes,no,,
+51088,"MAGNESIUM, URINE",yes,no,no,no,,
+51095,"PHOSPHATE, URINE",yes,no,no,no,,
+51106,URINE CREATININE,yes,yes,yes,no,,
+51133,ABSOLUTE LYMPHOCYTE COUNT,no,yes,no,no,,
+51143,ATYPICAL LYMPHOCYTES,no,yes,no,no,,1559.0
+51144,BANDS,no,yes,no,no,,2037.0
+51196,D-DIMER,no,no,yes,no,,509.0
+51221,HEMATOCRIT,yes,no,no,yes,,5282.0
+51222,HEMOGLOBIN,yes,no,yes,yes,,5288.0
+51223,HEMOGLOBIN A2,yes,no,yes,no,,5.0
+51224,HEMOGLOBIN C,yes,no,yes,no,,1.0
+51225,HEMOGLOBIN F,yes,no,yes,no,,1.0
+51237,INR(PT),no,no,yes,yes,,3872.0
+51244,LYMPHOCYTES,no,yes,no,yes,,5009.0
+51245,"LYMPHOCYTES, PERCENT",no,yes,no,no,,70.0
+51253,MONOCYTE COUNT,no,yes,no,no,,
+51254,MONOCYTES,no,yes,no,no,,2125.0
+51256,NEUTROPHILS,no,yes,yes,yes,,5032.0
+51265,PLATELET COUNT,yes,yes,yes,yes,yes,3960.0
+51275,PTT,no,no,yes,yes,,3859.0
+51300,WBC COUNT,yes,yes,yes,no,,49.0
+51480,HEMATOCRIT,yes,no,no,no,,
+51529,ESTIMATED ACTUAL GLUCOSE,no,yes,no,no,,1.0
+51279,Red Blood Cells,no,no,no,yes,,5282.0
+51006,Urea Nitrogen,no,no,no,yes,,4780.0
+51301,White Blood Cells,no,no,no,yes,,4977.0
+51274,PT,no,no,no,yes,,4744.0
+51277,RDW,no,no,no,yes,,3878.0
+50821,pO2,no,no,no,yes,,4246.0
+51248,MCH,no,no,no,yes,,2880.0
+51493,RBC,no,no,no,yes,,3198.0
+50804,Calculated Total CO2,no,no,no,yes,,3383.0
+50983,Sodium,no,no,no,yes,,3472.0
