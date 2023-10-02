@@ -1,0 +1,57 @@
+Predictor,Category,Table
+AGE,Demographic,PATIENTS
+DOBUTAMINE  (Y/N),Medication,PRESCRIPTIONS
+DOPAMINE  (Y/N),Medication,PRESCRIPTIONS
+EPINEPHRINE  (Y/N),Medication,PRESCRIPTIONS
+NOREPINEPHRINE  (Y/N),Medication,PRESCRIPTIONS
+SYSTOLIC BP x AGE,Engineered Feature,Derived
+SHOCK INDEX (HR/SYSTOLIC BP),Engineered,Derived
+SHOCK INDEX x AGE,Engineered,Derived
+ANION GAP,Laboratory Result,LABEVENTS
+ALBUMIN,Laboratory Result,LABEVENTS
+ALKALINE PHOSPHATASE,Laboratory Result,LABEVENTS
+ASPARATE AMINOTRANSFERASE (AST),Laboratory Result,LABEVENTS
+BANDS,Laboratory Result,LABEVENTS
+BILIRUBIN,Laboratory Result,LABEVENTS
+UREA NITROGEN,Laboratory Result,LABEVENTS
+CALCIUM,Laboratory Result,LABEVENTS
+CREATININE,Laboratory Result,LABEVENTS
+ESTIMATED GFR (MDRD EQUATION),Laboratory Result,LABEVENTS
+GLUCOSE,Laboratory Result,LABEVENTS
+LACTIC ACID,Laboratory Result,LABEVENTS
+LYMPHOCYTE,Laboratory Result,LABEVENTS
+MONOCYTE,Laboratory Result,LABEVENTS
+NEUTROPHIL,Laboratory Result,LABEVENTS
+PLATELET COUNT,Laboratory Result,LABEVENTS
+WBC,Laboratory Result,LABEVENTS
+GLASGOW COMA SCALE,Neurological Evaluation,CHARTEVENTS
+SUPPLEMENTAL OXYGEN (Y/N),Nursing Documentation,CHARTEVENTS
+VENTILATOR,Nursing Documentation,CHARTEVENTS
+ALTERED MENTAL STATUS,Nursing Documentation,CHARTEVENTS
+ABSCESS,Text- Keyword (ED chief complaint),ED_EVENTS
+ACUTE,Text- Keyword (ED chief complaint),ED_EVENTS
+ALTERED,Text- Keyword (ED chief complaint),ED_EVENTS
+BACTEREMIA,Text- Keyword (ED chief complaint),ED_EVENTS
+CELLULITIS,Text- Keyword (ED chief complaint),ED_EVENTS
+CYSTITIS,Text- Keyword (ED chief complaint),ED_EVENTS
+DIABETES,Text-Keyword (ED chief complaint),ED_EVENTS
+FAILURE,Text-Keyword (ED chief complaint),ED_EVENTS
+LACTIC,Text-Keyword (ED chief complaint),ED_EVENTS
+LEUKOCYTOSIS,Text-Keyword (ED chief complaint),ED_EVENTS
+PNA,Text-Keyword (ED chief complaint),ED_EVENTS
+PNEUMONIA,Text-Keyword (ED chief complaint),ED_EVENTS
+PYELONEPHRITIS,Text-Keyword (ED chief complaint),ED_EVENTS
+RESPIRATORY,Text-Keyword (ED chief complaint),ED_EVENTS
+SEPSIS,Text-Keyword (ED chief complaint),ED_EVENTS
+SEPTIC,Text-Keyword (ED chief complaint),ED_EVENTS
+UROSEPSIS,Text-Keyword (ED chief complaint),ED_EVENTS
+UTI,Text-Keyword (ED chief complaint),ED_EVENTS
+HEART RATE,Vital Sign,CHARTEVENTS
+MEAN ARTERIAL PRESSURE,Vital Sign,CHARTEVENTS
+RESPIRATORY RATE,Vital Sign,CHARTEVENTS
+SYSTTOLIC BLOOD PRESSURE,Vital Sign,CHARTEVENTS
+OXYGEN SATURATION,Vital Sign,CHARTEVENTS
+TEMPERATURE,Vital Sign,CHARTEVENTS
+WEIGHT,Physiological,ADMISSIONS
+HEIGHT,Physiological,ADMISSIONS
+BMI,Physiological,Derived

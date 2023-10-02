@@ -1,0 +1,31 @@
+Predictor,Description,Category,Type,Table
+ICULOS,ICU length of stay (hours since ICU admission),Demographic data,Numeric,ICUSTAYS
+HospAdmTime,The time between hospital and ICU admission,Demographic data,Date,ADMISSIONS
+Age,Age (years),Demographic data,Numeric,PATIENTS
+Gender,Female (0) or male (1),Demographic data,Categorical,PATIENTS
+O2Sat,Pulse oximetry (%),Clinical time series data,Numeric,CHARTEVENTS
+Resp,Respiration rate (breaths per minute),Clinical time series data,Numeric,CHARTEVENTS
+HR,Heart rate (beats per minute),Clinical time series data,Numeric,CHARTEVENTS
+Temp,Temperature (deg C),Clinical time series data,Numeric,CHARTEVENTS
+DBP,Diastolic BP (mm Hg),Clinical time series data,Numeric,CHARTEVENTS
+MAP,Mean arterial pressure (mm Hg),Clinical time series data,Numeric,CHARTEVENTS
+SBP,Systolic BP (mm Hg),Clinical time series data,Numeric,CHARTEVENTS
+FiO2,Fraction of inspired oxygen (%),Laboratory values,Numeric,CHARTEVENTS
+pH,A blood pH test is a normal part of a blood gas test or arterial blood gas (ABG) test. It measures how much oxygen and carbon dioxide are in your blood,Laboratory values,Numeric,LABEVENTS
+SIRS_Score,"Four SIRS criteria were defined, namely tachycardia (heart rate >90 beats/min), tachypnea (respiratory rate >20 breaths/min), fever or hypothermia (temperature >38 or <36 °C), and leukocytosis, leukopenia, or bandemia (white blood cells >1200/mm3, <4000/mm3 or bandemia ≥10%",Laboratory values,Numeric,Derived
+Base Excess,Excess bicarbonate (mmol/L),Laboratory values,Numeric,LABEVENTS
+Glucose,Serum glucose (mg/dL),Laboratory values,Numeric,LABEVENTS
+PCO2,"The partial pressure of carbon dioxide from arterial blood (mm Hg). Ranges 35 to 45 mmHg, or 4.7 to 6.0 kPa.",Laboratory values,Numeric,LABEVENTS
+WBC,Leukocyte count (count/L),Laboratory values,Numeric,LABEVENTS
+OXYGEN SATURATION,Oxygen saturation from arterial blood (%) SaO2,Laboratory values,Numeric,LABEVENTS
+Potassium,Potassiam (mmol/L),Laboratory values,Numeric,LABEVENTS
+Calcium,Calcium (mg/dL),Laboratory values,Numeric,LABEVENTS
+Hematocrit,Hematocrit (%),Laboratory values,Numeric,LABEVENTS
+Hemoglobin,Hemoglobin (g/dL),Laboratory values,Numeric,LABEVENTS
+Magnesium,Magnesium (mmol/dL),Laboratory values,Numeric,LABEVENTS
+urea nitrogen,Blood urea nitrogen (mg/dL),Laboratory values,Numeric,LABEVENTS
+Phosphate,Phosphate (mg/dL),Laboratory values,Numeric,LABEVENTS
+Bicarbonate,Bicarbonate (mmol/L),Laboratory values,Numeric,LABEVENTS
+Creatinine,Creatinine (mg/dL),Laboratory values,Numeric,LABEVENTS
+PLATELET COUNT,Platelet count (count/mL),Laboratory values,Numeric,LABEVENTS
+Chloride,Chloride (mmol/L),Laboratory values,Numeric,LABEVENTS
