@@ -7,6 +7,9 @@ from importlib import reload
 import utils as utils
 reload(utils)
 
+import engineer_features as ef
+reload(ef)
+
 class DataLoader:
 
   ROOT_DIR = Path('../..')
@@ -293,6 +296,10 @@ class DataLoader:
 
     # fill all null VALUENUM by -999 and save to csv file
     df_final = df_final.fillna(-999)
+
+    # # compute SOFA score
+    # df_final['SOFA'] = ef.get_sofa_score(df=df_final)
+
     try:
       utils.save_csv(df_final, output_filename)
     except:
@@ -481,6 +488,10 @@ class DataLoader:
 
     # fill all null VALUENUM by -999 and save to csv file
     df_final = df_final.fillna(-999)
+
+    # compute SOFA score
+    df_final['SOFA'] = ef.get_sofa_score(df=df_final)
+
     try:
       utils.save_csv(df_final, output_filename)
     except:
