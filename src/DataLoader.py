@@ -7,6 +7,9 @@ from importlib import reload
 import src.utils as utils
 reload(utils)
 
+import src.engineer_features as ef
+reload(ef)
+
 class DataLoader:
 
   ROOT_DIR = Path('../..')
@@ -293,9 +296,150 @@ class DataLoader:
 
     # fill all null VALUENUM by -999 and save to csv file
     df_final = df_final.fillna(-999)
+
+    # # compute SOFA score
+    # df_final['SOFA'] = ef.get_sofa_score(df=df_final)
+
     try:
       utils.save_csv(df_final, output_filename)
     except:
       utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
 
     # return df_final
+  
+  def create_train_data_sequence(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_no = -1, output_filename=''):
+    """
+    Create the train data file.
+
+    Parameters:
+    - df_labevents: the labevents dataframe
+    - df_demographic: the demographic dataframe
+    - df_desc_labitems: the labitems description dataframe
+    - hours: first n hours to extract
+    - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+    - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
+  
+    Returns:
+    - The result dataframe is saved as csv file in data/Model input data/ folder.
+    """
+    # read the features list in the potential csv file and get top n features
+    potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
+    potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
+    if feature_no == -1:
+      # get all features
+      feature_list = potential_events['ITEMID']
+    else:
+      feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    
+    # get the df_labevents filtered by hours and features
+    a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
+    a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
+    row_mean = a.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])['VALUENUM'].mean().reset_index(name='avg')
+    row_mean.avg = row_mean.avg.astype(float)
+    
+    df_final = a.merge(row_mean, on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    df_final.VALUENUM = np.where(df_final.VALUENUM.isnull(),df_final.avg, df_final.VALUENUM)
+    
+    df_final['level'] = df_final.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID']).cumcount()
+    df_final.VALUENUM.fillna(-999, inplace=True)
+
+    result = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'level'], columns='ITEMID', aggfunc='first')
+    result.columns = ["ITEMID_" + str(i) for i in result.columns]
+    result = result.reset_index()
+    result = result.fillna(-999)
+    result.drop(['level'], axis=1, inplace=True)
+    try:
+      utils.save_csv(result, output_filename)
+    except:
+      utils.save_csv(result, self.ROOT_DIR / f'data/Model input data/t{hours}_sequence.csv')
+
+    return result
+
+  def __read_features(self, feature_filename, feature_no=-1):
+    """
+    Read features from file and get top n features.
+
+    Parameters:
+    - feature_filename: the feature file path
+    - feature_no: the top n features to select
+
+    Returns:
+    - The numpy array of features
+    """
+    try:
+      potential_events = pd.read_csv(feature_filename)
+      if feature_no == -1:
+        # get all features
+        feature_list = potential_events['ITEMID']
+      else:
+        feature_list = potential_events.iloc[:feature_no]['ITEMID']
+      # Parameters for computing SOFA score:
+      #     Platelet_count [51265]
+      #     Bilirubin_total [50885]
+      #     Creatinine [50912]
+      SOFA_features = np.array([51265, 50885, 50912])
+      result = np.concatenate((feature_list, np.setdiff1d(SOFA_features, feature_list)))
+    except Exception as e:
+      raise
+    return result
+
+  def extract_train_data_by_features(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_filename='', feature_no = -1, output_filename=''):
+    """
+    Create the train data file.
+
+    Parameters:
+    - df_labevents: the labevents dataframe
+    - df_demographic: the demographic dataframe
+    - df_desc_labitems: the labitems description dataframe
+    - hours: first n hours to extract
+    - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+    - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
+  
+    Returns:
+    - The result dataframe is saved as csv file in data/Model input data/ folder.
+    """
+    # read the features list in the potential csv file and get top n features
+    feature_list = self.__read_features(feature_filename, feature_no)
+
+    # get the df_labevents filtered by hours and features
+    a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
+    a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], ascending = False, inplace=True)
+    # get unique rows by SUBJECT_ID, HADM_ID, ITEMID
+    df_final = a.drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], ignore_index=True)[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'ITEMID']]
+
+    # drop all rows having null in VALUENUM and keep only the firt duplicate rows
+    a = a.dropna(subset=['VALUENUM'], axis=0)
+    a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+    # merge the result back to the unique rows by SUBJECT_ID, HADM_ID, ITEMID and unpivot the table
+    df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
+    df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
+    # rename the features column names
+    df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
+    df_final = df_final.reset_index()
+
+    # fill all null VALUENUM by -999 and save to csv file
+    df_final = df_final.fillna(-999)
+
+    # compute SOFA score
+    df_final['SOFA'] = ef.get_sofa_score(df=df_final)
+
+    try:
+      utils.save_csv(df_final, output_filename)
+    except:
+      utils.save_csv(df_final, self.ROOT_DIR / f'data/Model input data/t{hours}.csv')
+
+    return df_final
+  
+  def convert_itemid_to_title(self, itemid_array, df_desc_labitems):
+    """
+    Convert ITEMID_xxxx to itemid's Label.
+
+    Parameters:
+    - itemid_array: the array of ITEMIDs to convert
+    - df_desc_labitems: the labitems description dataframe
+
+    Returns:
+    - A dictionary of {ITEMID_xxxx: LABEL}
+    """
+    plot_feats = {x: f'{df_desc_labitems[df_desc_labitems.ITEMID == int(x[7:])].LABEL.values[0]} ({x[7:]})' for x in itemid_array}
+    return plot_feats

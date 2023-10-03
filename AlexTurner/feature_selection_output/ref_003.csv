@@ -1,0 +1,55 @@
+Predictor,Description,Table
+Lactate,High Lactate Levels,LABEVENTS
+Systolic BP,"Low Blood Pressure (Hypotension) ('Systolic BP', 'Diastolic BP')",CHARTEVENTS
+Diastolic BP,"Low Blood Pressure (Hypotension) ('Systolic BP', 'Diastolic BP')",CHARTEVENTS
+Glasgow Coma Scale,Altered Mental Status,CHARTEVENTS
+Heart Rate,High Heart Rate (Tachycardia),CHARTEVENTS
+Respiratory Rate,Rapid Breathing (Tachypnea),CHARTEVENTS
+WBC,High WBC Count,LABEVENTS
+WBC,Low WBC Count,LABEVENTS
+Procalcitonin,Elevated Procalcitonin,LABEVENTS
+C-Reactive Protein,Elevated CRP,LABEVENTS
+Blood Culture,Positive Blood Culture,MICROBIOLOGYEVENTS
+Temperature,Fever or Hypothermia,CHARTEVENTS
+Platelet Count,Low Platelet Count,LABEVENTS
+Bilirubin,Elevated Bilirubin,LABEVENTS
+Creatinine,Elevated Creatinine,LABEVENTS
+Bicarbonate,Low Bicarbonate Levels,LABEVENTS
+Blood Glucose,High Blood Glucose,LABEVENTS
+Urine Culture,Positive Urine Culture,MICROBIOLOGYEVENTS
+AST,"Elevated Liver Enzymes (AST, ALT)",LABEVENTS
+ALT,"Elevated Liver Enzymes (AST, ALT)",LABEVENTS
+Troponin,Elevated Troponin,LABEVENTS
+Hemoglobin,Low Hemoglobin,LABEVENTS
+INR,High INR or PTT,LABEVENTS
+PTT,High INR or PTT,LABEVENTS
+Albumin,Low Albumin,LABEVENTS
+D-Dimer,Elevated D-Dimer,LABEVENTS
+Ferritin,Elevated Ferritin,LABEVENTS
+LDH,Elevated LDH,LABEVENTS
+UREA NITROGEN,High Blood Urea Nitrogen,LABEVENTS
+PaO2,Low PaO2/FiO2 Ratio,CHARTEVENTS
+FiO2,Low PaO2/FiO2 Ratio,LABEVENTS
+Age,Age > 65 years,PATIENTS
+Comorbidities,"Comorbidities (e.g., Diabetes, Heart Disease)",ADMISSIONS
+Surgery History,Recent Surgery,ADMISSIONS
+Immunosuppression Status,Immunosuppression,ADMISSIONS
+Alcohol Abuse History,Chronic Alcohol Abuse,ADMISSIONS
+Intravenous Drug Use History,Intravenous Drug Use,ADMISSIONS
+Recent Infection or Antibiotic Use,Recent Infection or Antibiotic Use,ADMISSIONS
+Mechanical Ventilation Status,Mechanical Ventilation,CHARTEVENTS
+Central Venous Catheter Use,Central Venous Catheter Use,PROCEDURES_ICD
+Urinary Catheter Use,Urinary Catheter Use,PROCEDURES_ICD
+Recent Hospitalization,Recent Hospitalization,ADMISSIONS
+Chronic Renal Failure,Chronic Renal Failure,ADMISSIONS
+Chronic Liver Disease,Chronic Liver Disease,ADMISSIONS
+Pregnancy Status,Pregnancy,ADMISSIONS
+Burns or Trauma,Burns or Trauma,ADMISSIONS
+Neutropenia,Neutropenia,LABEVENTS
+Nutritional Status,Malnutrition,ADMISSIONS
+BMI,Obesity,ADMISSIONS
+Blood Glucose on Admission,Hyperglycemia on Admission,LABEVENTS
+Infection Source,Community-Acquired vs Hospital-Acquired Infection,ADMISSIONS
+Skin Mottling,Skin Mottling,CHARTEVENTS
+Skin Color,Cyanosis (Bluish Skin),CHARTEVENTS
+Urine Output,Oliguria (Low Urine Output),OUTPUTEVENTS
