@@ -1,0 +1,312 @@
+ITEMID,LABEL,ref1,ref2,ref3,neo4j,All yes,Abnormal_Count,Sepsis_abnormal_count,Sepsis_Proportion,Admission_proportion,Sepsis_admission_proportion
+51222,HEMOGLOBIN,yes,no,yes,yes,,52821,5116,10%,90%,99%
+51221,HEMATOCRIT,yes,no,no,yes,,51779,5097,10%,88%,98%
+51279,Red Blood Cells,no,no,no,yes,,50487,5113,10%,86%,99%
+50931,GLUCOSE,no,yes,no,yes,,48493,5110,11%,82%,99%
+51301,White Blood Cells,no,no,no,yes,,41550,4825,12%,70%,93%
+51256,NEUTROPHILS,no,yes,yes,yes,,37926,4831,13%,64%,93%
+50970,PHOSPHATE,yes,no,no,yes,,36863,4833,13%,63%,93%
+50893,"CALCIUM, TOTAL",yes,yes,no,yes,,36137,4869,13%,61%,94%
+51244,LYMPHOCYTES,no,yes,no,yes,,35215,4814,14%,60%,93%
+51274,PT,no,no,no,yes,,37308,4703,13%,63%,91%
+51006,Urea Nitrogen,no,no,no,yes,,36818,4664,13%,62%,90%
+50882,BICARBONATE,yes,no,yes,yes,,33037,4488,14%,56%,87%
+50902,CHLORIDE,yes,no,no,yes,,34954,4409,13%,59%,85%
+50821,pO2,no,no,no,yes,,30716,4082,13%,52%,79%
+50912,CREATININE,yes,yes,yes,yes,yes,25553,4154,16%,43%,80%
+51265,PLATELET COUNT,yes,yes,yes,yes,yes,29370,3817,13%,50%,74%
+50862,ALBUMIN,no,yes,yes,yes,,21664,4085,19%,37%,79%
+51275,PTT,no,no,yes,yes,,28550,3815,13%,48%,74%
+50820,PH,yes,no,no,yes,,26764,3763,14%,45%,73%
+51237,INR(PT),no,no,yes,yes,,25133,3847,15%,43%,74%
+51277,RDW,no,no,no,yes,,28286,3661,13%,48%,71%
+50818,PCO2,yes,no,no,yes,,26532,3736,14%,45%,72%
+50971,POTASSIUM,yes,no,no,no,,25830,3557,14%,44%,69%
+50813,LACTATE,no,yes,yes,yes,,19997,3584,18%,34%,69%
+51249,MCHC,,,,,,29647,3068,10%,50%,59%
+50983,Sodium,no,no,no,yes,,21868,3307,15%,37%,64%
+50804,Calculated Total CO2,no,no,no,yes,,18197,3253,18%,31%,63%
+51493,RBC,no,no,no,yes,,18316,3187,17%,31%,62%
+50960,MAGNESIUM,yes,no,no,no,,20197,3096,15%,34%,60%
+51248,MCH,no,no,no,yes,,28775,2663,9%,49%,51%
+50878,ASPARATE AMINOTRANSFERASE (AST),no,yes,yes,yes,,16360,2996,18%,28%,58%
+50808,FREE CALCIUM,yes,yes,no,no,,22593,2725,12%,38%,53%
+51459,Young Cells,,,,,,1,1,100%,0%,0%
+51113,Blasts,,,,,,1,1,100%,0%,0%
+50863,ALKALINE PHOSPHATASE,no,yes,no,yes,,13504,2820,21%,23%,54%
+51003,TROPONIN T,no,no,yes,yes,,14643,2729,19%,25%,53%
+50954,LACTATE DEHYDROGENASE (LD),no,yes,yes,no,,13603,2675,20%,23%,52%
+50809,GLUCOSE,no,yes,no,no,,24478,2296,9%,42%,44%
+51009,Vancomycin,,,,,,9490,2607,27%,16%,50%
+50910,Creatine Kinase (CK),,,,,,16973,2542,15%,29%,49%
+50868,ANION GAP,no,yes,no,no,,14443,2510,17%,24%,48%
+50861,ALANINE AMINOTRANSFERASE (ALT),no,no,yes,no,,12777,2381,19%,22%,46%
+51516,WBC,,,,,,11403,2318,20%,19%,45%
+50909,Cortisol,,,,,,4250,1786,42%,7%,34%
+51250,MCV,,,,,,18994,2063,11%,32%,40%
+51144,BANDS,no,yes,no,no,,5695,1966,35%,10%,38%
+50811,HEMOGLOBIN,yes,no,yes,no,,21414,1949,9%,36%,38%
+51251,Metamyelocytes,,,,,,6547,2010,31%,11%,39%
+51254,MONOCYTES,no,yes,no,no,,8920,2015,23%,15%,39%
+51214,"Fibrinogen, Functional",,,,,,8174,1744,21%,14%,34%
+51119,Metamyelocytes,,,,,,6,4,67%,0%,0%
+51377,Mesothelial Cells,,,,,,12,8,67%,0%,0%
+50885,"BILIRUBIN, TOTAL",no,yes,yes,no,,11367,1701,15%,19%,33%
+51255,Myelocytes,,,,,,4375,1376,31%,7%,27%
+50822,"POTASSIUM, WHOLE BLOOD",yes,no,no,no,,14555,1505,10%,25%,29%
+50998,Transferrin,,,,,,6554,1513,23%,11%,29%
+50953,"Iron Binding Capacity, Total",,,,,,6425,1469,23%,11%,28%
+51482,Hyaline Casts,,,,,,6889,1438,21%,12%,28%
+51143,ATYPICAL LYMPHOCYTES,no,yes,no,no,,6458,1406,22%,11%,27%
+51449,Metamyelocytes,,,,,,7,4,57%,0%,0%
+50924,FERRITIN,no,no,yes,no,,5018,1160,23%,9%,22%
+51213,Fibrin Degradation Products,,,,,,956,414,43%,2%,8%
+50956,Lipase,,,,,,5820,1146,20%,10%,22%
+50935,Haptoglobin,,,,,,3406,950,28%,6%,18%
+51479,Granular Casts,,,,,,2744,813,30%,5%,16%
+50952,Iron,,,,,,5214,1081,21%,9%,21%
+51430,Metamyelocytes,,,,,,8,4,50%,0%,0%
+50997,Tobramycin,,,,,,285,134,47%,0%,3%
+51376,Macrophage,,,,,,4,2,50%,0%,0%
+51366,Bands,,,,,,24,12,50%,0%,0%
+51210,Factor XII,,,,,,2,1,50%,0%,0%
+51443,Blasts,,,,,,2,1,50%,0%,0%
+51121,Myelocytes,,,,,,2,1,50%,0%,0%
+51380,NRBC,,,,,,8,4,50%,0%,0%
+50889,C-REACTIVE PROTEIN,no,no,yes,no,,2294,710,31%,4%,14%
+51111,Bands,,,,,,73,35,48%,0%,1%
+50883,"Bilirubin, Direct",,,,,,6321,1072,17%,11%,21%
+51515,Waxy Casts,,,,,,29,14,48%,0%,0%
+51381,Other,,,,,,17,8,47%,0%,0%
+50867,Amylase,,,,,,4834,945,20%,8%,18%
+51196,D-DIMER,no,no,yes,no,,1508,502,33%,3%,10%
+51257,Nucleated Red Cells,,,,,,6941,990,14%,12%,19%
+50824,"Sodium, Whole Blood",,,,,,8448,984,12%,14%,19%
+51517,WBC Casts,,,,,,66,29,44%,0%,1%
+51127,"RBC, Ascites",,,,,,1104,370,34%,2%,7%
+51125,Polys,,,,,,1080,363,34%,2%,7%
+51514,Urobilinogen,,,,,,5323,900,17%,9%,17%
+50806,"CHLORIDE, WHOLE BLOOD",yes,no,no,no,,7305,940,13%,12%,18%
+51128,"WBC, Ascites",,,,,,1144,378,33%,2%,7%
+50865,Amikacin,,,,,,26,11,42%,0%,0%
+51120,Monocytes,,,,,,880,299,34%,1%,6%
+51116,Lymphocytes,,,,,,1077,348,32%,2%,7%
+51433,NRBC,,,,,,32,13,41%,0%,0%
+51200,Eosinophils,,,,,,6553,843,13%,11%,16%
+51441,Bands,,,,,,72,28,39%,0%,1%
+50911,"Creatine Kinase, MB Isoenzyme",,,,,,6746,827,12%,11%,16%
+51436,Polys,,,,,,1243,374,30%,2%,7%
+51269,Promyelocytes,,,,,,908,286,31%,2%,6%
+50915,D-DIMER,no,no,yes,no,,587,198,34%,1%,4%
+51428,Macrophage,,,,,,786,248,32%,1%,5%
+51232,Hypersegmented Neutrophils,,,,,,151,56,37%,0%,1%
+51124,Plasma,,,,,,47,18,38%,0%,0%
+51117,Macrophage,,,,,,833,265,32%,1%,5%
+51288,Sedimentation Rate,,,,,,2231,513,23%,4%,10%
+51118,Mesothelial Cell,,,,,,767,239,31%,1%,5%
+51218,Granulocyte Count,,,,,,1061,305,29%,2%,6%
+51369,"Hematocrit, Joint Fluid",,,,,,43,16,37%,0%,0%
+51368,Eosinophils,,,,,,30,11,37%,0%,0%
+51427,Lymphocytes,,,,,,1144,330,29%,2%,6%
+51446,Lymphocytes,,,,,,1313,352,27%,2%,7%
+51458,"WBC, Pleural",,,,,,1384,369,27%,2%,7%
+51455,Polys,,,,,,1327,359,27%,2%,7%
+51110,Atypical Lymphocytes,,,,,,91,32,35%,0%,1%
+51454,Plasma Cells,,,,,,59,21,36%,0%,0%
+51385,Atypical Lymphocytes,,,,,,39,14,36%,0%,0%
+51431,Monos,,,,,,889,260,29%,2%,5%
+51263,Plasma Cells,,,,,,198,70,35%,0%,1%
+51114,Eosinophils,,,,,,269,89,33%,0%,2%
+51123,Other,,,,,,220,75,34%,0%,1%
+51457,"RBC, Pleural",,,,,,1278,338,26%,2%,7%
+51434,Other Cell,,,,,,395,128,32%,1%,2%
+51471,Cellular Cast,,,,,,102,35,34%,0%,1%
+51112,Basophils,,,,,,37,13,35%,0%,0%
+50963,NTproBNP,,,,,,3772,646,17%,6%,12%
+50976,"Protein, Total",,,,,,2529,528,21%,4%,10%
+51283,"Reticulocyte Count, Automated",,,,,,2478,525,21%,4%,10%
+50993,Thyroid Stimulating Hormone,,,,,,3360,586,17%,6%,11%
+51429,Mesothelial cells,,,,,,304,95,31%,1%,2%
+51099,Protein/Creatinine Ratio,,,,,,1895,435,23%,3%,8%
+51447,Macrophages,,,,,,877,242,28%,1%,5%
+51382,Polys,,,,,,253,81,32%,0%,2%
+51010,Vitamin B12,,,,,,2155,444,21%,4%,9%
+51383,"RBC, Joint Fluid",,,,,,251,78,31%,0%,2%
+51450,Monos,,,,,,990,260,26%,2%,5%
+50927,Gamma Glutamyltransferase,,,,,,943,249,26%,2%,5%
+51379,Monocytes,,,,,,3,1,33%,0%,0%
+51270,"Protein C, Antigen",,,,,,21,7,33%,0%,0%
+51224,HEMOGLOBIN C,yes,no,yes,no,,3,1,33%,0%,0%
+51149,Bleeding Time,,,,,,9,3,33%,0%,0%
+51456,Promyelocytes,,,,,,3,1,33%,0%,0%
+51432,Myelocytes,,,,,,3,1,33%,0%,0%
+51272,"Protein S, Antigen",,,,,,19,6,32%,0%,0%
+51419,Eosinophils,,,,,,420,121,29%,1%,2%
+50943,Hepatitis C Virus Antibody,,,,,,37,12,32%,0%,0%
+51122,Nucleated RBC,,,,,,34,11,32%,0%,0%
+51000,Triglycerides,,,,,,3210,511,16%,5%,10%
+51386,Bands,,,,,,81,25,31%,0%,0%
+51384,"WBC, Joint Fluid",,,,,,255,77,30%,0%,1%
+51440,Atypical Lymphocytes,,,,,,88,26,30%,0%,1%
+50853,25-OH Vitamin D,,,,,,55,17,31%,0%,0%
+50866,Ammonia,,,,,,946,232,25%,2%,4%
+50992,Thyroid Peroxidase Antibodies,,,,,,13,4,31%,0%,0%
+51448,Mesothelial Cells,,,,,,872,228,26%,1%,4%
+51438,"RBC, Other Fluid",,,,,,407,109,27%,1%,2%
+51365,Atypical Lymphocytes,,,,,,10,3,30%,0%,0%
+51115,"Hematocrit, Ascites",,,,,,105,30,29%,0%,1%
+51467,Broad Casts,,,,,,23,7,30%,0%,0%
+51148,Blasts,,,,,,258,74,29%,0%,1%
+50995,"Thyroxine (T4), Free",,,,,,947,230,24%,2%,4%
+50950,Immunoglobulin G,,,,,,698,175,25%,1%,3%
+50803,"CALCULATED BICARBONATE, WHOLE BLOOD",yes,no,yes,no,,2342,392,17%,4%,8%
+51445,"Hematocrit, Pleural",,,,,,166,46,28%,0%,1%
+50994,Thyroxine (T4),,,,,,470,121,26%,1%,2%
+51241,Leukocyte Alkaline Phosphatase,,,,,,31,9,29%,0%,0%
+51007,Uric Acid,,,,,,1873,343,18%,3%,7%
+50951,Immunoglobulin M,,,,,,375,94,25%,1%,2%
+50873,Anti-Nuclear Antibody,,,,,,18,5,28%,0%,0%
+51132,Absolute CD8 Count,,,,,,200,54,27%,0%,1%
+51444,Eosinophils,,,,,,421,106,25%,1%,2%
+50930,Globulin,,,,,,331,82,25%,1%,2%
+51139,Anticardiolipin Antibody IgM,,,,,,47,13,28%,0%,0%
+51245,"LYMPHOCYTES, PERCENT",no,yes,no,no,,270,70,26%,0%,1%
+50949,Immunoglobulin A,,,,,,380,92,24%,1%,2%
+50929,Gentamicin,,,,,,1586,293,18%,3%,6%
+51130,Absolute CD3 Count,,,,,,191,49,26%,0%,1%
+51080,Creatinine Clearance,,,,,,55,15,27%,0%,0%
+50896,Calculated Thyroxine (T4) Index,,,,,,93,24,26%,0%,0%
+50890,C3,,,,,,288,72,25%,0%,1%
+50973,Prolactin,,,,,,78,20,26%,0%,0%
+51259,Other Cells,,,,,,457,107,23%,1%,2%
+50965,Parathyroid Hormone,,,,,,1013,206,20%,2%,4%
+51001,Triiodothyronine (T3),,,,,,836,173,21%,1%,3%
+51375,Lymphocytes,,,,,,4,1,25%,0%,0%
+51453,Other,,,,,,362,79,22%,1%,2%
+50989,"Testosterone, Free",,,,,,8,2,25%,0%,0%
+51280,Reptilase Time,,,,,,4,1,25%,0%,0%
+50892,CA-125,,,,,,124,30,24%,0%,1%
+51181,CD4/CD8 Ratio,,,,,,290,71,24%,0%,1%
+51451,Myelocytes,,,,,,8,2,25%,0%,0%
+51300,WBC COUNT,yes,yes,yes,no,,211,49,23%,0%,1%
+51387,Basophils,,,,,,54,13,24%,0%,0%
+50917,Digoxin,,,,,,1783,280,16%,3%,5%
+51507,"Urine Casts, Other",,,,,,104,25,24%,0%,0%
+50895,Calculated TBG,,,,,,30,7,23%,0%,0%
+51005,Uptake Ratio,,,,,,30,7,23%,0%,0%
+50908,CK-MB Index,,,,,,3767,373,10%,6%,7%
+50964,"Osmolality, Measured",,,,,,2489,331,13%,4%,6%
+51276,Quantitative G6PD,,,,,,60,14,23%,0%,0%
+51131,Absolute CD4 Count,,,,,,325,67,21%,1%,1%
+50978,Rapamycin,,,,,,111,25,23%,0%,0%
+51439,"WBC, Other Fluid",,,,,,561,114,20%,1%,2%
+51297,Thrombin,,,,,,292,61,21%,0%,1%
+50876,Anti-Smooth Muscle Antibody,,,,,,9,2,22%,0%,0%
+51498,Specific Gravity,,,,,,2146,252,12%,4%,5%
+51362,"RBC, CSF",,,,,,1822,235,13%,3%,5%
+51146,Basophils,,,,,,491,89,18%,1%,2%
+51273,"Protein S, Functional",,,,,,38,8,21%,0%,0%
+51491,pH,,,,,,951,152,16%,2%,3%
+51435,Plasma,,,,,,5,1,20%,0%,0%
+50941,Hepatitis B Surface Antigen,,,,,,5,1,20%,0%,0%
+51223,HEMOGLOBIN A2,yes,no,yes,no,,25,5,20%,0%,0%
+50916,DHEA-Sulfate,,,,,,5,1,20%,0%,0%
+50894,Calculated Free Testosterone,,,,,,5,1,20%,0%,0%
+50969,"Phenytoin, Percent Free",,,,,,235,44,19%,0%,1%
+50914,Cyclosporin,,,,,,308,54,18%,1%,1%
+51452,NRBC,,,,,,49,10,20%,0%,0%
+50891,C4,,,,,,189,35,19%,0%,1%
+50900,Carcinoembyronic Antigen (CEA),,,,,,317,55,17%,1%,1%
+50986,tacroFK,,,,,,696,113,16%,1%,2%
+51289,Serum Viscosity,,,,,,21,4,19%,0%,0%
+51442,Basophils,,,,,,62,12,19%,0%,0%
+50898,Cancer Antigen 27.29,,,,,,31,6,19%,0%,0%
+50968,"Phenytoin, Free",,,,,,210,35,17%,0%,1%
+50980,Rheumatoid Factor,,,,,,127,22,17%,0%,0%
+51070,"Albumin/Creatinine, Urine",,,,,,341,50,15%,1%,1%
+50814,Methemoglobin,,,,,,54,9,17%,0%,0%
+50852,% HEMOGLOBIN A1C,yes,no,yes,no,,3632,213,6%,6%,4%
+50881,Beta-2 Microglobulin,,,,,,87,14,16%,0%,0%
+51422,"Hematocrit, Other Fluid",,,,,,207,30,14%,0%,1%
+51008,Valproic Acid,,,,,,471,59,13%,1%,1%
+51494,RBC Casts,,,,,,13,2,15%,0%,0%
+51227,Hemogloblin S,,,,,,13,2,15%,0%,0%
+51284,"Reticulocyte Count, Manual",,,,,,1062,121,11%,2%,2%
+51018,"Total Protein, CSF",,,,,,1643,140,9%,3%,3%
+51228,Heparin,,,,,,40,6,15%,0%,0%
+50967,Phenytoin,,,,,,3242,210,6%,5%,4%
+51302,Young Cells,,,,,,53,8,15%,0%,0%
+50856,Acetaminophen,,,,,,229,30,13%,0%,1%
+50972,Procainamide,,,,,,37,5,14%,0%,0%
+50966,Phenobarbital,,,,,,135,19,14%,0%,0%
+50926,Follicle Stimulating Hormone,,,,,,46,6,13%,0%,0%
+51529,ESTIMATED ACTUAL GLUCOSE,no,yes,no,no,,8,1,13%,0%,0%
+51199,Eosinophil Count,,,,,,32,4,13%,0%,0%
+51205,Factor VII,,,,,,32,4,13%,0%,0%
+50988,Testosterone,,,,,,34,4,12%,0%,0%
+50899,Carbamazepine,,,,,,112,13,12%,0%,0%
+51299,Von Willebrand Factor Antigen,,,,,,26,3,12%,0%,0%
+50864,Alpha-Fetoprotein,,,,,,149,17,11%,0%,0%
+51140,Antithrombin,,,,,,76,8,11%,0%,0%
+50974,Prostate Specific Antigen,,,,,,137,14,10%,0%,0%
+51271,"Protein C, Functional",,,,,,98,10,10%,0%,0%
+51225,HEMOGLOBIN F,yes,no,yes,no,,10,1,10%,0%,0%
+50958,Luteinizing Hormone,,,,,,32,3,9%,0%,0%
+50805,Carboxyhemoglobin,,,,,,78,6,8%,0%,0%
+51138,Anticardiolipin Antibody IgG,,,,,,26,2,8%,0%,0%
+50907,"Cholesterol, Total",,,,,,1093,36,3%,2%,1%
+50922,Ethanol,,,,,,1670,40,2%,3%,1%
+51204,Factor V,,,,,,16,1,6%,0%,0%
+50945,Homocysteine,,,,,,79,5,6%,0%,0%
+50928,Gastrin,,,,,,18,1,6%,0%,0%
+51298,Von Willebrand Factor Activity,,,,,,31,2,6%,0%,0%
+51206,Factor VIII,,,,,,122,7,6%,0%,0%
+51202,Factor II,,,,,,19,1,5%,0%,0%
+51208,Factor X,,,,,,19,1,5%,0%,0%
+50906,"Cholesterol, LDL, Measured",,,,,,83,3,4%,0%,0%
+50957,Lithium,,,,,,101,4,4%,0%,0%
+50905,"Cholesterol, LDL, Calculated",,,,,,726,18,2%,1%,0%
+50990,Theophylline,,,,,,100,3,3%,0%,0%
+51002,TROPONIN I,no,no,yes,no,,1388,3,0%,2%,0%
+50981,Salicylate,,,,,,62,1,2%,0%,0%
+51046,"ALBUMIN, PLEURAL",no,yes,yes,no,,,,0%,0%,0%
+50830,"PCO2, BODY FLUID",yes,no,no,no,,,,0%,0%,0%
+50833,POTASSIUM,yes,no,no,no,,,,0%,0%,0%
+50835,"ALBUMIN, ASCITES",no,yes,yes,no,,,,0%,0%,0%
+50847,"POTASSIUM, ASCITES",yes,no,no,no,,,,0%,0%,0%
+50855,ABSOLUTE HEMOGLOBIN,yes,no,yes,no,,,,0%,0%,0%
+50920,ESTIMATED GFR (MDRD EQUATION),no,yes,no,no,,,,0%,0%,0%
+51037,"MAGNESIUM, BODY FLUID",yes,no,no,no,,,,0%,0%,0%
+51040,"PHOSPHATE, BODY FLUID",yes,no,no,no,,,,0%,0%,0%
+51106,URINE CREATININE,yes,yes,yes,no,,,,0%,0%,0%
+51069,"ALBUMIN, URINE",no,yes,yes,no,,,,0%,0%,0%
+51078,"CHLORIDE, URINE",yes,no,no,no,,,,0%,0%,0%
+51081,"CREATININE, SERUM",yes,yes,yes,no,,,,0%,0%,0%
+51082,"CREATININE, URINE",yes,yes,yes,no,,,,0%,0%,0%
+51088,"MAGNESIUM, URINE",yes,no,no,no,,,,0%,0%,0%
+51095,"PHOSPHATE, URINE",yes,no,no,no,,,,0%,0%,0%
+50810,"HEMATOCRIT, CALCULATED",yes,no,no,no,,,,0%,0%,0%
+51133,ABSOLUTE LYMPHOCYTE COUNT,no,yes,no,no,,,,0%,0%,0%
+51253,MONOCYTE COUNT,no,yes,no,no,,,,0%,0%,0%
+50817,OXYGEN SATURATION,yes,no,no,no,,,,0%,0%,0%
+50802,BASE EXCESS,yes,no,no,no,,1,,0%,0%,0%
+51437,Promyelocytes,,,,,,1,,0%,0%,0%
+50816,Oxygen,,,,,,1,,0%,0%,0%
+51348,"Hematocrit, CSF",,,,,,44,,0%,0%,0%
+50991,Thyroglobulin,,,,,,14,,0%,0%,0%
+51203,Factor IX,,,,,,9,,0%,0%,0%
+50996,"Tissue Transglutaminase Ab, IgA",,,,,,9,,0%,0%,0%
+51209,Factor XI,,,,,,8,,0%,0%,0%
+50877,Anti-Thyroglobulin Antibodies,,,,,,8,,0%,0%,0%
+50977,Quinidine,,,,,,5,,0%,0%,0%
+50925,Folate,,,,,,4,,0%,0%,0%
+50921,Estradiol,,,,,,2,,0%,0%,0%
+50982,Sex Hormone Binding Globulin,,,,,,2,,0%,0%,0%
+51367,Basophils,,,,,,2,,0%,0%,0%
+51285,"Reticulocyte, Cellular Hemoglobin",,,,,,2,,0%,0%,0%
+50913,Cryoglobulin,,,,,,1,,0%,0%,0%
+51129,Young,,,,,,1,,0%,0%,0%
+50934,H,,,,,,1,,0%,0%,0%
+51532,PLASMGN,,,,,,1,,0%,0%,0%
+51282,"Reticulocyte Count, Absolute",,,,,,1,,0%,0%,0%
+51480,HEMATOCRIT,yes,no,no,no,,,,0%,0%,0%
