@@ -15,4 +15,6 @@ with open('NOTEEVENTS.csv') as f, open('updated-NOTEEVENTS.txt', 'w+') as f1:
 		i = i+1
 		print(i)
 
-# once I created this new updated text file, I used terminal to load this into pandas and save into a df
+# create new updated file
+# load this into pandas via terminal
+# save into a df
