@@ -4,26 +4,22 @@ from pathlib import Path
 
 
 # Requires the following from Chartevents:
-    # MAP (Mean arterial bloodpressure) 
-        # CHARTEVENTS['ITEMID'] == [220052,225312,224322]
 
     # Heart rate
         # CHARTEVENTS['ITEMID'] == [211, 220045]
 
-    # SBP (systolic blood pressure) (arterial blood pressure (systolic))
-        # CHARTEVENTS['ITEMID'] == [51, 220050, 225309]
 
-    # Respiratory Rate
-        # CHARTEVENTS['ITEMID'] == [618, 220210, 3603, 224689, 614, 651, 224422, 615, 224690]
-
-
+# PaO2 [779] chartevents
+# FiO2 [3420] chartevents
 
 
 def get_qsofa_score(df):
     """
     Parameters: 
     - df [CHARTEVENTS] containing Resp and SBP
-    
+        - SBP (systolic blood pressure): ITEMID == [51, 220050, 225309]
+        - Respiratory Rate: ITEMID == [618, 220210, 3603, 224689, 614, 651, 224422, 615, 224690]
+
     Returns: 
     - qsofa score. 1 point for each of the following:
         RR > 22/min
@@ -56,10 +52,10 @@ def get_sofa_score(df):
     
     Parameters:
     - df: A DataFrame containing: 
-        Platelet_count [51265]
-        Bilirubin_total [50885]
-        Creatinine [50912]
-        Mean Arterial Pressure     # Requires Chart Events
+        Platelet_count              [51265]
+        Bilirubin_total             [50885]
+        Creatinine                  [50912]
+        Mean Arterial Pressure      CHARTEVENTS[52, 220052,225312,224322]
     
     
     Returns:
@@ -92,6 +88,7 @@ def get_sofa_score(df):
     sofa['Creatinine'][df['50912'] == -999] = -999     # Set the value to 0 for rows == -999
 
     # todo: revise when chartevents are available
+    # df['52']
     # sofa['MAP'][df['MAP'] < 70] = 1
     
     sofa_score = sofa.sum(axis=1)
@@ -107,7 +104,7 @@ def get_sofa_score(df):
 def get_sirs_score(df):
     """
     Evaluate to see if they satisfy any 2 SIRS criteria:
-        1. Temp > 38degC  OR  Temp < 36degC
+        1. Temp > 38degC  OR  Temp < 36degC     # 
         2. HR > 90
         3. RespRate > 20  OR  PaCO2 < 32mmHg
         4. WBC > 12,000/mm^3  OR  WBC < 4,000/mm^3  OR  > 10% bands
