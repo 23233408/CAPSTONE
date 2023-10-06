@@ -482,7 +482,7 @@ class DataLoader:
       df_final = df_final.reset_index()
 
       # Create dataframe with Demographic data and Sepsis labels with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
-      all_hadm_data = a[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
+      all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
 
       # Merge this with df_final
       df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], how='left')
