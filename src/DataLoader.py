@@ -485,7 +485,7 @@ class DataLoader:
       all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
 
       # Merge this with df_final
-      df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], how='left')
+      df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID'], how='left')
 
       # fill all null VALUENUM by -999 and save to csv file
       df_full = df_full.fillna(-999)
