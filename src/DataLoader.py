@@ -443,3 +443,59 @@ class DataLoader:
     """
     plot_feats = {x: f'{df_desc_labitems[df_desc_labitems.ITEMID == int(x[7:])].LABEL.values[0]} ({x[7:]})' for x in itemid_array}
     return plot_feats
+  
+  def extract_full_data_by_features(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_filename='', feature_no = -1, output_filename=''):
+      """
+      Create the train data file.
+
+      Parameters:
+      - df_labevents: the labevents dataframe
+      - df_demographic: the demographic dataframe
+      - df_desc_labitems: the labitems description dataframe
+      - hours: first n hours to extract
+      - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+      - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
+    
+      Returns:
+      - The result dataframe is saved as csv file in data/Model input data/ folder.
+      """
+      # read the features list in the potential csv file and get top n features
+      feature_list = self.__read_features(feature_filename, feature_no)
+
+      # get the df_labevents filtered by hours and features
+      a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
+      a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], ascending = False, inplace=True)
+      
+      # get unique rows by SUBJECT_ID, HADM_ID, ITEMID
+      df_final = a.drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], ignore_index=True)[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'ITEMID']]
+      
+      # drop all rows having null in VALUENUM and keep only the firt duplicate rows
+      a = a.dropna(subset=['VALUENUM'], axis=0)
+      a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
+      
+      # merge the result back to the unique rows by SUBJECT_ID, HADM_ID, ITEMID and unpivot the table
+      df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
+      df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
+      
+      # rename the features column names
+      df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
+      df_final = df_final.reset_index()
+
+      # Create dataframe with Demographic data and Sepsis labels with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
+      all_hadm_data = a[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
+
+      # Merge this with df_final
+      df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], how='left')
+
+      # fill all null VALUENUM by -999 and save to csv file
+      df_full = df_full.fillna(-999)
+
+      # compute SOFA score
+      df_full['SOFA'] = ef.get_sofa_score(df=df_full)
+
+      try:
+        utils.save_csv(df_final, output_filename)
+      except:
+        utils.save_csv(df_full, self.ROOT_DIR / f'data/full_data/t{hours}.csv')
+
+      return df_full
