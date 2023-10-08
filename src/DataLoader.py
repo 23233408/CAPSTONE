@@ -476,7 +476,11 @@ class DataLoader:
       # If there is no NEW_ADMITTIME, use ADMITTIME
       if pd.isna(all_hadm_data['NEW_ADMITTIME']).all():
         all_hadm_data['NEW_ADMITTIME'] = all_hadm_data['ADMITTIME']
-
+      
+      print(all_hadm_data['NEW_ADMITTIME'].isna().sum())
+      print(all_hadm_data['ADMITTIME'].isna().sum())
+      print(all_hadm_data['DISCHTIME'].isna().sum())
+      
       # Compute the hospitalised duration for every admission
       all_hadm_data['HOSPITALISED_DURATION'] = ((all_hadm_data['DISCHTIME'] - all_hadm_data['NEW_ADMITTIME']).dt.total_seconds() / 3600 + 0.5).round().astype(int)
      
