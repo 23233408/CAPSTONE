@@ -459,30 +459,29 @@ class DataLoader:
       Returns:
       - The result dataframe is saved as csv file in data/Model input data/ folder.
       """
-      # read the features list in the potential csv file and get top n features
-      feature_list = self.__read_features(feature_filename, feature_no)
+      
+      df_final = self.extract_train_data_by_features(df_labevents, df_demographic, df_desc_labitems, hours, feature_filename, feature_no, output_filename)
+      
+      # Obtain the new admittime from lab_events
+      df_new_admittime = df_labevents[['SUBJECT_ID', 'HADM_ID', 'NEW_ADMITTIME']]
 
-      # get the df_labevents filtered by hours and features
-      a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
-      a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], ascending = False, inplace=True)
+      # Create dataframe with Demographic data with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
+      all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER', 'ADMITTIME', 'DISCHTIME']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
+      all_hadm_data['GENDER_NUM'] = all_hadm_data['GENDER'].replace({'M': 0, 'F': 1})
+      all_hadm_data.drop(columns=["GENDER"], inplace=True)
       
-      # get unique rows by SUBJECT_ID, HADM_ID, ITEMID
-      df_final = a.drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], ignore_index=True)[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'ITEMID']]
-      
-      # drop all rows having null in VALUENUM and keep only the firt duplicate rows
-      a = a.dropna(subset=['VALUENUM'], axis=0)
-      a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
-      
-      # merge the result back to the unique rows by SUBJECT_ID, HADM_ID, ITEMID and unpivot the table
-      df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
-      df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
-      
-      # rename the features column names
-      df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
-      df_final = df_final.reset_index()
+      # Add 'NEW_ADMITTIME' to all_hadm_data
+      all_hadm_data = pd.merge(all_hadm_data, df_new_admittime, on=['SUBJECT_ID', 'HADM_ID'], how='left')
 
-      # Create dataframe with Demographic data and Sepsis labels with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
-      all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
+      # If there is no NEW_ADMITTIME, use ADMITTIME
+      if pd.isna(all_hadm_data['NEW_ADMITTIME']).all():
+        all_hadm_data['NEW_ADMITTIME'] = all_hadm_data['ADMITTIME']
+
+      # Compute the hospitalised duration for every admission
+      all_hadm_data['HOSPITALISED_DURATION'] = ((all_hadm_data['DISCHTIME'] - all_hadm_data['NEW_ADMITTIME']).dt.total_seconds() / 3600 + 0.5).round().astype(int)
+     
+      # Filter rows with hospitalised duration > hours
+      all_hadm_data = all_hadm_data[all_hadm_data['HOSPITALISED_DURATION'] >= hours]
 
       # Merge this with df_final
       df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID'], how='left')
