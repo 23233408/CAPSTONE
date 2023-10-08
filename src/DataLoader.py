@@ -473,10 +473,9 @@ class DataLoader:
       # Add 'NEW_ADMITTIME' to all_hadm_data
       all_hadm_data = pd.merge(all_hadm_data, df_new_admittime, on=['SUBJECT_ID', 'HADM_ID'], how='left')
 
-      # If there is no NEW_ADMITTIME, use ADMITTIME
-      if pd.isna(all_hadm_data['NEW_ADMITTIME']).all():
-        all_hadm_data['NEW_ADMITTIME'] = all_hadm_data['ADMITTIME']
-      
+      # If there is any NaN in NEW_ADMITTIME, fill it with ADMITTIME
+      all_hadm_data['NEW_ADMITTIME'].fillna(all_hadm_data['ADMITTIME'], inplace=True)
+
       print(all_hadm_data['NEW_ADMITTIME'].isna().sum())
       print(all_hadm_data['ADMITTIME'].isna().sum())
       print(all_hadm_data['DISCHTIME'].isna().sum())
