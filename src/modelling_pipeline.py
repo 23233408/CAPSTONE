@@ -39,21 +39,21 @@ class ModelPipeline:
   def __init__(self, ROOT_DIR):
     self.ROOT_DIR = ROOT_DIR
 
-  def get_dfs(ROOT_DIR, tops, date):
+  def get_dfs(self, tops):
       dfs_dict = {}
       for top in tops:
-          dfs_dict[f"top{top}"] = get_model_input_dfs(ROOT_DIR, f'top{top}', date)
+          dfs_dict[f"top{top}"] = self.get_model_input_dfs(f'top{top}')
       return dfs_dict
 
 
-  def get_full_dfs(ROOT_DIR, tops, date):
+  def get_full_dfs(self, tops):
       dfs_dict = {}
       for top in tops:
-          dfs_dict[f"top{top}"] = get_model_full_dfs(ROOT_DIR, f'top{top}', date)
+          dfs_dict[f"top{top}"] = self.get_model_full_dfs(f'top{top}')
       return dfs_dict
 
 
-  def get_model_input_dfs(ROOT_DIR, top, version, timepoints=['t0', 't1', 't2', 't3', 't4']):
+  def get_model_input_dfs(self, top, timepoints=['t0', 't1', 't2', 't3', 't4']):
       
       """
       Function to read the model input dataframes based on provided prefixes and date string.
@@ -61,7 +61,6 @@ class ModelPipeline:
       Parameters:
       - ROOT_DIR: The root directory path.
       - prefix: The prefix (e.g. 'top20', 'top30', etc.)
-      - date_str: The date string in the filename (e.g. '20231005').
       - timepoints: A list of timepoints (default is ['t0', 't1', 't2', 't3', 't4']).
       
       Returns:
@@ -70,13 +69,13 @@ class ModelPipeline:
       
       dfs = {}
       for tp in timepoints:
-          path = ROOT_DIR / 'data' / 'Model input data' / f"{tp}_{top}_{version}.csv"
-          dfs[tp] = get_model_input_df(path)
+          path = self.ROOT_DIR / 'data' / 'Model input data' / f"{tp}_{top}.csv"
+          dfs[tp] = self.get_model_input_df(path)
       
       return dfs
 
 
-  def get_model_full_dfs(ROOT_DIR, top, version, timepoints=['t0', 't1', 't2', 't3', 't4']):
+  def get_model_full_dfs(self, top, timepoints=['t0', 't1', 't2', 't3', 't4']):
       
       """
       Function to read the model input dataframes based on provided prefixes and date string.
@@ -84,7 +83,6 @@ class ModelPipeline:
       Parameters:
       - ROOT_DIR: The root directory path.
       - prefix: The prefix (e.g. 'top20', 'top30', etc.)
-      - date_str: The date string in the filename (e.g. '20231005').
       - timepoints: A list of timepoints (default is ['t0', 't1', 't2', 't3', 't4']).
       
       Returns:
@@ -93,13 +91,13 @@ class ModelPipeline:
       
       dfs = {}
       for tp in timepoints:
-          path = ROOT_DIR / 'data' / 'Model input data' / f"{tp}_{top}_{version}.csv"
-          dfs[tp] = get_model_input_df(path)
+        path = self.ROOT_DIR / 'data' / 'full_data' / f"{tp}_{top}.csv"
+        dfs[tp] = self.get_model_input_df(path)
       
       return dfs
 
 
-  def get_model_input_df(model_input_path):
+  def get_model_input_df(self, model_input_path):
     """_summary_
     
     Args:
