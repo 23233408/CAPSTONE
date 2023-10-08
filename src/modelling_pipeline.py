@@ -31,7 +31,7 @@ class ModelPipeline:
 
   # Init the parameters
   ROOT_DIR = Path('')
-  model_input_path = ROOT_DIR / 'data' / 'model_input' / 't0_v3.csv'
+  
 
 
   ROOT_DIR = Path('../..')
