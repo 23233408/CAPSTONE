@@ -461,9 +461,9 @@ class DataLoader:
       """
       
       df_final = self.extract_train_data_by_features(df_labevents, df_demographic, df_desc_labitems, hours, feature_filename, feature_no, output_filename)
-      
+
       # Obtain the new admittime from lab_events
-      df_new_admittime = df_labevents[['SUBJECT_ID', 'HADM_ID', 'NEW_ADMITTIME']]
+      df_new_admittime = df_labevents[['SUBJECT_ID', 'HADM_ID', 'NEW_ADMITTIME']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
 
       # Create dataframe with Demographic data with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
       all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER', 'ADMITTIME', 'DISCHTIME']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
@@ -476,10 +476,6 @@ class DataLoader:
       # If there is any NaN in NEW_ADMITTIME, fill it with ADMITTIME
       all_hadm_data['NEW_ADMITTIME'].fillna(all_hadm_data['ADMITTIME'], inplace=True)
 
-      print(all_hadm_data['NEW_ADMITTIME'].isna().sum())
-      print(all_hadm_data['ADMITTIME'].isna().sum())
-      print(all_hadm_data['DISCHTIME'].isna().sum())
-      
       # Compute the hospitalised duration for every admission
       all_hadm_data['HOSPITALISED_DURATION'] = ((all_hadm_data['DISCHTIME'] - all_hadm_data['NEW_ADMITTIME']).dt.total_seconds() / 3600 + 0.5).round().astype(int)
      
