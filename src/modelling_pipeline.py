@@ -108,7 +108,7 @@ class ModelPipeline:
     return model_input_df
 
 
-  def count_missing_values(time_df):
+  def count_missing_values(self, time_df):
     """
     Get count of missing values.
     
@@ -123,7 +123,7 @@ class ModelPipeline:
         print(f"Number of missing values in {time_point}: {count_999} ({missing_proportions:.2f}%)")
 
 
-  def count_missing_SOFA(time_df):
+  def count_missing_SOFA(self, time_df):
       for time_point, df in time_df.items():
           total_SOFA = df.shape[0]
           count_SOFA_999 = (df['SOFA'] == -999).sum().sum()
@@ -131,7 +131,7 @@ class ModelPipeline:
           print(f"Number of missing SOFA in {time_point}: {count_SOFA_999} ({missing_SOFA_proportions:.2f}%)")
 
 
-  def split_data(df_train):
+  def split_data(self, df_train):
       """
       Split data into training and test sets.
       Standardise numerical features.
@@ -166,7 +166,7 @@ class ModelPipeline:
       return X_train, X_test, y_train, y_test
 
 
-  def get_class_weights(y_train):
+  def get_class_weights(self, y_train):
     """
         Compute class weights for balancing the classes in the target variable.
 
@@ -193,7 +193,7 @@ class ModelPipeline:
 
 
 
-  def static_models(candidate_models, class_weights, X_train, y_train, X_test, y_test, time):
+  def static_models(self, candidate_models, class_weights, X_train, y_train, X_test, y_test, time):
       '''
       Fit static models.
       
@@ -208,9 +208,9 @@ class ModelPipeline:
 
       for model_name, model in candidate_models.items():
 
-          y_pred_train, y_pred_test = fit_models(model, model_name, class_weights, X_train, y_train, X_test)
+          y_pred_train, y_pred_test = self.fit_models(model, model_name, class_weights, X_train, y_train, X_test)
 
-          performance_scores = get_performance_scores(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test)
+          performance_scores = self.get_performance_scores(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test)
 
           formatted_model_name = f"{model_name}_{time}"
           new_row = pd.DataFrame([[formatted_model_name] + performance_scores], columns=performance_df.columns)
@@ -222,7 +222,7 @@ class ModelPipeline:
       return performance_df
 
 
-  def cv_analysis(X_train, y_train, candidate_models, class_weights):
+  def cv_analysis(self, X_train, y_train, candidate_models, class_weights):
       """
       Perform cross-validation analysis on a set of candidate models and return their mean scores.
 
@@ -253,7 +253,7 @@ class ModelPipeline:
       
       return(df_model)
 
-  def fit_models(model, model_name, class_weights, X_train, y_train, X_test):
+  def fit_models(self, model, model_name, class_weights, X_train, y_train, X_test):
     """_summary_
     Model training function (inside models_fitting)
     
@@ -276,7 +276,7 @@ class ModelPipeline:
 
 
 
-  def get_performance_scores(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test):
+  def get_performance_scores(self, model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test):
     """
     Get performance measures on (i) ballanced accuracy (ii) precision, (iii) recall and (iv) F1 score.
     
@@ -319,7 +319,7 @@ class ModelPipeline:
     return performance_scores
 
 
-  def plot_results(candidate_models, class_weights, X_train, X_test, y_train, y_test):
+  def plot_results(self, candidate_models, class_weights, X_train, X_test, y_train, y_test):
     """
     Get model plots.
     
@@ -335,15 +335,15 @@ class ModelPipeline:
 
     for model_name, model in candidate_models.items():
 
-      y_pred_train, y_pred_test = fit_models(model, model_name, class_weights, X_train, y_train, X_test)
+      y_pred_train, y_pred_test = self.fit_models(model, model_name, class_weights, X_train, y_train, X_test)
       predicted_probabilities = model.predict_proba(X_test)
 
-      plot_confusion_matrix(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test)
-      plot_precision_recall(model, model_name, X_test, y_test)
-      plot_roc_curve(predicted_probabilities, model_name, y_test, label = None)
+      self.plot_confusion_matrix(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test)
+      self.plot_precision_recall(model, model_name, X_test, y_test)
+      self.plot_roc_curve(predicted_probabilities, model_name, y_test, label = None)
 
 
-  def plot_combined_roc_curves(candidate_models, X_test, y_test, title='ROC Curves'):
+  def plot_combined_roc_curves(self, candidate_models, X_test, y_test, title='ROC Curves'):
       """
       Plot the ROC curve for the candidate models.
       
@@ -378,7 +378,7 @@ class ModelPipeline:
       plt.show()
 
 
-  def plot_confusion_matrix(model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test):
+  def plot_confusion_matrix(self, model, model_name, X_train, X_test, y_train, y_test, y_pred_train, y_pred_test):
     '''
     Called by plot_results()
     '''
@@ -405,7 +405,7 @@ class ModelPipeline:
     plt.show()
 
 
-  def plot_precision_recall(model, model_name, X_test, y_test):
+  def plot_precision_recall(self, model, model_name, X_test, y_test):
     # Plot precision recall
     display = PrecisionRecallDisplay.from_estimator(
       model, X_test, y_test, name=model_name, plot_chance_level=True
@@ -417,7 +417,7 @@ class ModelPipeline:
     plt.show()
 
 
-  def plot_roc_curve(predicted_probabilities, model_name, y_test, label = None):
+  def plot_roc_curve(self, predicted_probabilities, model_name, y_test, label = None):
     """_summary_
     returns AUC score, ROC curve, precision recall
 
@@ -455,7 +455,7 @@ class ModelPipeline:
   # # 3. Tuning Hyperparameters
 
   # %%
-  def tune_hyperparameters(X_train, y_train, class_weights, candidate_models):
+  def tune_hyperparameters(self, X_train, y_train, class_weights, candidate_models):
       """    
       Tune hyperparameters for multiple classifiers using GridSearchCV.
 
@@ -518,10 +518,10 @@ class ModelPipeline:
           #return(hypertuned_model)  
 
   # %%
-  def train_models(X_train, X_test, y_train, y_test):
+  def train_models(self, X_train, X_test, y_train, y_test):
       
       # Get model performances
-      model_performance_df = static_models(candidate_models, class_weights, X_train, y_train, X_test, y_test)
+      model_performance_df = self.static_models(candidate_models, class_weights, X_train, y_train, X_test, y_test)
       
       # sort by model performance 
       sorted_model_performance_df = model_performance_df.sort_values(by=['average score'],ascending=False) 
@@ -531,7 +531,7 @@ class ModelPipeline:
       print("\n\n The best Performing model :", best_model_name)
       
       # tune hyperparameters of best performing model
-      tuned_model = tune_hyperparameters(X_train_scaled, y_train, best_model_name)
+      tuned_model = self.tune_hyperparameters(X_train_scaled, y_train, best_model_name)
           
       # Model performance for test data generated using train test split
       
@@ -542,7 +542,7 @@ class ModelPipeline:
   # # 4. Final Models
 
   # %%
-  def validate_test_groundtruth(final_model, X_test_scaled, y_test):
+  def validate_test_groundtruth(self, final_model, X_test_scaled, y_test):
       """
       Model Performance validation against test data
 
