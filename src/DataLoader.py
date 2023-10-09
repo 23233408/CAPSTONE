@@ -466,7 +466,7 @@ class DataLoader:
       df_new_admittime = df_labevents[['SUBJECT_ID', 'HADM_ID', 'NEW_ADMITTIME']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
 
       # Create dataframe with Demographic data with all unique combinations of ['SUBJECT_ID', 'HADM_ID']
-      all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER', 'ADMITTIME', 'DISCHTIME']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
+      all_hadm_data = df_demographic[['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER', 'ADMITTIME', 'DISCHTIME', 'IS_SEPSIS']].drop_duplicates(subset=['SUBJECT_ID', 'HADM_ID'])
       all_hadm_data['GENDER_NUM'] = all_hadm_data['GENDER'].replace({'M': 0, 'F': 1})
       all_hadm_data.drop(columns=["GENDER"], inplace=True)
       
@@ -481,6 +481,12 @@ class DataLoader:
      
       # Filter rows with hospitalised duration > hours
       all_hadm_data = all_hadm_data[all_hadm_data['HOSPITALISED_DURATION'] >= hours]
+
+      # Drop all the irrelevant columns
+      all_hadm_data = all_hadm_data.drop(['ADMITTIME', 'DISCHTIME', 'NEW_ADMITTIME', 'HOSPITALISED_DURATION'], axis=1)
+
+      # Drop the demographic columns from df_full
+      df_final = df_final.drop(['AGE', 'GENDER_NUM', 'IS_SEPSIS'], axis=1)
 
       # Merge this with df_final
       df_full = pd.merge(all_hadm_data, df_final, on=['SUBJECT_ID', 'HADM_ID'], how='left')
