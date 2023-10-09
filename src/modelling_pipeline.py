@@ -489,6 +489,7 @@ class ModelPipeline:
       
       # Create an empty dictionary to store the best parameters for each model
       best_params = {}
+      best_models = {}
 
       # Loop through the candidate_models dictionary to perform GridSearchCV for each model
       for model_name, model in candidate_models.items():
@@ -518,7 +519,7 @@ class ModelPipeline:
           #return(hypertuned_model)  
 
   # %%
-  def train_models(self, X_train, X_test, y_train, y_test):
+  def train_models(self, candidate_models, class_weights, X_train, X_test, y_train, y_test):
       
       # Get model performances
       model_performance_df = self.static_models(candidate_models, class_weights, X_train, y_train, X_test, y_test)
@@ -531,7 +532,7 @@ class ModelPipeline:
       print("\n\n The best Performing model :", best_model_name)
       
       # tune hyperparameters of best performing model
-      tuned_model = self.tune_hyperparameters(X_train_scaled, y_train, best_model_name)
+      tuned_model = self.tune_hyperparameters(X_train, y_train, best_model_name)
           
       # Model performance for test data generated using train test split
       
