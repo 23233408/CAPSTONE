@@ -222,7 +222,7 @@ class ModelPipeline:
       return performance_df
 
 
-  def cv_analysis(self, X_train, y_train, candidate_models, class_weights):
+  def cv_analysis(self, X_train, y_train, candidate_models, time):
       """
       Perform cross-validation analysis on a set of candidate models and return their mean scores.
 
@@ -251,6 +251,47 @@ class ModelPipeline:
           'average_balanced_acc': model_average_scores
       })
       
+      return(df_model)
+  
+  def cv_analysis_all(self, X_t0_train, y_t0_train, 
+                            X_t1_train, y_t1_train,
+                            X_t2_train, y_t2_train,
+                            X_t3_train, y_t3_train,
+                            X_t4_train, y_t4_train, candidate_models, hours_list, top_n_features):
+      """
+      Perform cross-validation analysis on a set of candidate models and return their mean scores.
+
+      Args:
+          X_train (pd.DataFrame): Scaled feature matrix for training.
+          y_train (pd.Series): Target labels for training.
+          candidate_models (Dict[str, Any]): A dictionary of static ML model names and their respective instantiated models.
+          class_weights (Dict[int, float]): A dictionary of class weights for handling sepsis class imbalance.
+          
+      Returns:
+          pd.DataFrame: A DataFrame containing model names and their average cross-validation scores.
+      """
+      
+      results = [] 
+    
+      for hour in hours_list:
+        X_train = eval(f"X_t{hour}_train")
+        y_train = eval(f"y_t{hour}_train")
+
+        for top_n in top_n_features:
+            # Calculate mean scores using cross validation
+            for model_name, model in candidate_models.items():
+                scores = cross_val_score(model, X_train, y_train, scoring = 'balanced_accuracy', cv=3)
+                average_score = scores.mean()
+                results.append({
+                    'model': f"{model_name}_{top_n}",
+                    f't{hour}': average_score
+                })
+                
+      df_model = pd.DataFrame(results)
+            
+      # Calculate overall average balanced accuracy for each model
+      df_model['overall_avg_balanced_acc'] = df_model[['t0', 't1', 't2', 't3', 't4']].mean(axis=1)
+
       return(df_model)
 
   def fit_models(self, model, model_name, class_weights, X_train, y_train, X_test):
