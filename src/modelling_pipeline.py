@@ -356,10 +356,10 @@ class ModelPipeline:
       # Iterate over classifiers and plot ROC curve for each
       for model_name, model in candidate_models.items():
           # Predict the probabilities of the positive class
-          y_prob = model.predict_proba(X_test)[:, 1] if hasattr(model, 'predict_proba') else model.decision_function(X_test)
+          predicted_probabilities = model.predict_proba(X_test)
           
           # Compute ROC curve and AUC
-          fpr, tpr, _ = roc_curve(y_test, y_prob)
+          fpr, tpr, thresholds_roc_test = roc_curve(y_test, predicted_probabilities[:, 1], pos_label=1)
           roc_auc = auc(fpr, tpr)
           
           # Plot ROC curve
