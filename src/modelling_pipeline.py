@@ -241,14 +241,14 @@ class ModelPipeline:
     
     # Calculate mean scores using cross validation
       for model_name, model in candidate_models.items():
-          scores = cross_val_score(model, X_train, y_train)
+          scores = cross_val_score(model, X_train, y_train, scoring = 'balanced_accuracy')
           model_names.append(model_name)
           model_average_scores.append(scores.mean())
           
       # Store mean scores for each model
       df_model = pd.DataFrame({
           'model': model_names,
-          'average_score': model_average_scores
+          'average_balanced_acc': model_average_scores
       })
       
       return(df_model)
