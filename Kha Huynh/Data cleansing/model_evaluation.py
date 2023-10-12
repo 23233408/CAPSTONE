@@ -6,6 +6,7 @@ import seaborn as sns
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import mean_squared_error, confusion_matrix, roc_auc_score, precision_score, recall_score, f1_score, auc, make_scorer
 from sklearn.metrics import precision_recall_curve, average_precision_score, roc_curve, balanced_accuracy_score
+import scipy.stats as stats
 
 def get_class_weights(y_train_df):
   label_counts = y_train_df.value_counts()
@@ -18,18 +19,17 @@ def get_class_weights(y_train_df):
   return class_weights
 
 def compute_sample_weights(y):
-    class_weights = compute_class_weight('balanced', classes=np.unique(y), y=y)
-    sample_weights = class_weights[y]
-    return sample_weights
+  class_weights = compute_class_weight('balanced', classes=np.unique(y), y=y)
+  sample_weights = class_weights[y]
+  return sample_weights
 
 # Plotting ROC curve to determine the threshold
-def plot_roc_curve(fpr, tpr, label = None):
-    plt.plot(fpr, tpr, linewidth=2, label = label)
-    plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
-    plt.axis([0, 1, 0, 1])
-    plt.xlabel('False Positive Rate (Fall-Out)', fontsize=11)
-    plt.ylabel('True Positive Rate (Recall)', fontsize=11)
-    plt.grid(True)
+def __plot_roc_curve(fpr, tpr, label = None):
+  plt.plot(fpr, tpr, linewidth=2, label = label)
+  plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
+  plt.axis([0, 1, 0, 1])
+  plt.xlabel('False Positive Rate (Fall-Out)', fontsize=11)
+  plt.ylabel('True Positive Rate (Recall)', fontsize=11)
 
 def plot_auc_roc_curve(model, x_test, y_test):
   # Predict the test set using the best random forest regressor
@@ -41,11 +41,57 @@ def plot_auc_roc_curve(model, x_test, y_test):
   auc_t0_rf = auc(fpr_rf_test, tpr_rf_test)
   print("AUC = {:.4f}".format(auc_t0_rf))
 
-  plt.figure(figsize=(6, 6))
-  plot_roc_curve(fpr_rf_test, tpr_rf_test)
+  # plt.figure(figsize=(6, 6))
+  __plot_roc_curve(fpr_rf_test, tpr_rf_test)
   plt.title("ROC Curve - LSTM")
   plt.grid(False)
   plt.show()
+
+def plot_combined_roc_curves(models, x_train, y_train, x_test, y_test):
+  y_train = np.argmax(y_train, axis=1)
+  y_test = np.argmax(y_test, axis=1)
+  plt.figure(figsize=(6, 6))
+  row_list = []
+  # Predict the test set using the best random forest regressor
+  for i, (model_name, model) in enumerate(models.items()):
+    preds_train = model.predict(x_train)
+    preds_test = model.predict(x_test)
+    # Plotting ROC curve
+    fpr, tpr, thresholds_roc_rf_test = roc_curve(y_test, preds_test[:, 1], pos_label=1)
+    roc_auc = auc(fpr, tpr)
+    plt.plot(fpr, tpr, linewidth=2, label = f'{model_name} (AUC = {roc_auc:.3f})')
+
+    # Computing f1 and acc
+    f1_train = f1_score(y_train, np.argmax(preds_train, axis=1))
+    f1_test = f1_score(y_test, np.argmax(preds_test, axis=1))
+    acc_train = balanced_accuracy_score(y_train, np.argmax(preds_train, axis=1))
+    acc_test = balanced_accuracy_score(y_test, np.argmax(preds_test, axis=1))
+    # Computing precision and recall
+    precision_train = precision_score(y_train, np.argmax(preds_train, axis=1))
+    precision_test = precision_score(y_test, np.argmax(preds_test, axis=1))
+    recall_train = recall_score(y_train, np.argmax(preds_train, axis=1))
+    recall_test = recall_score(y_test, np.argmax(preds_test, axis=1))
+
+    new_row = [model_name, acc_train, acc_test,
+                precision_train, precision_test,
+                recall_train, recall_test,
+                f1_train, f1_test]
+    row_list.append(new_row)
+  
+  plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
+  plt.axis([0, 1, 0, 1])
+  plt.xlabel('False Positive Rate', fontsize=11)
+  plt.ylabel('True Positive Rate', fontsize=11)
+  plt.legend(loc='lower right')
+  plt.title("ROC Curve")
+  plt.grid(False)
+  plt.show()
+  table = pd.DataFrame(row_list, columns= ['Model', 'Balanced acc Train', 'Balanced acc Test',
+                                         'Precision Train', 'Precision Test',
+                                         'Recall Train', 'Recall Test',
+                                         'F1 Train', 'F1 Test'])
+  
+  return table
 
 def print_results(M, X_train, Y_train, X_test, Y_test):
   Y_train = np.argmax(Y_train, axis=1)
@@ -92,3 +138,54 @@ def print_results(M, X_train, Y_train, X_test, Y_test):
   table = pd.DataFrame({'Train':[acc_train, precision_train, recall_train, f1_train], 'Test':[acc_test, precision_test, recall_test, f1_test]},
                         index=['Balanced Acc', 'Precision', 'Recall', 'F1-Score'])
   print(table)
+
+def calculate_mean_conf(m_hist, measure):
+  # Calculate mean and confidence intervals for training loss
+  train_losses = [hist.history[measure] for hist in m_hist]
+  max_len = max(len(loss) for loss in train_losses)
+
+  # Pad the sublists with NaN values to match the maximum length
+  train_losses = [loss + [np.nan] * (max_len - len(loss)) for loss in train_losses]
+  mean_train_loss = np.nanmean(train_losses, axis=0)
+
+  std_train_loss = np.nanstd(train_losses, axis=0)
+  confidence_interval = 0.95  # Adjust this value as needed
+
+  # Calculate margin of error
+  margin_of_error = stats.t.ppf((1 + confidence_interval) / 2, max_len - 1) * (std_train_loss / np.sqrt(max_len))
+
+  # Calculate confidence intervals
+  lower_bound_train_loss = mean_train_loss - margin_of_error
+  upper_bound_train_loss = mean_train_loss + margin_of_error
+
+  # Similarly, calculate mean and confidence intervals for validation loss
+  val_losses = [hist.history[f'val_{measure}'] for hist in m_hist]
+
+  # Pad the sublists with NaN values to match the maximum length
+  val_losses = [loss + [np.nan] * (max_len - len(loss)) for loss in val_losses]
+  mean_val_loss = np.nanmean(val_losses, axis=0)
+  std_val_loss = np.nanstd(val_losses, axis=0)
+  margin_of_error_val = stats.t.ppf((1 + confidence_interval) / 2, max_len - 1) * (std_val_loss / np.sqrt(max_len))
+  lower_bound_val_loss = mean_val_loss - margin_of_error_val
+  upper_bound_val_loss = mean_val_loss + margin_of_error_val
+
+  # Create plots
+  # plt.figure(figsize=(10, 5))
+
+  # Training loss
+  # plt.subplot(1, 2, 1)
+  plt.plot(mean_train_loss, label=f'mean train {measure}', color='blue')
+  # plt.fill_between(range(max_len), lower_bound_train_loss, upper_bound_train_loss, color='lightblue', alpha=0.5)
+  # plt.title(f'Model {measure}')
+  # plt.xlabel('epochs')
+  # plt.ylabel(measure)
+
+  # Validation loss
+  # plt.subplot(1, 2, 2)
+  plt.plot(mean_val_loss, label=f'mean val {measure}', color='red')
+  plt.fill_between(range(max_len), lower_bound_val_loss, upper_bound_val_loss, color='lightcoral', alpha=0.5)
+  plt.title(f'Model {measure}')
+  plt.xlabel('epochs')
+  plt.ylabel(measure)
+  plt.legend(loc='lower right')
+  plt.show()

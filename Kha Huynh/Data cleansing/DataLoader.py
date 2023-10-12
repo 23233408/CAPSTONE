@@ -98,7 +98,7 @@ class DataLoader:
     - df_labevents: the LABEVENTS dataframe
     """
     try:
-      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/output_csv/labevents_cleaned.csv')
+      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents_cleaned.csv')
     except:
       df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents.csv')
       # convert column type: CHARTTIME
@@ -222,9 +222,12 @@ class DataLoader:
     Returns:
     - df_labevents: the df_labevents dataframe with TIME column
     """
-    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME', 'DISCHTIME']], on=['SUBJECT_ID', 'HADM_ID'])
-    new_admittime = df_labevents.groupby(['SUBJECT_ID', 'HADM_ID']).apply(lambda x: self.__get_admittime(x)).reset_index(name='NEW_ADMITTIME')
-    df_labevents = df_labevents.merge(new_admittime, on=['SUBJECT_ID', 'HADM_ID'])
+    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME']], on=['SUBJECT_ID', 'HADM_ID'])
+    df_labevents.sort_values(['SUBJECT_ID', 'HADM_ID', 'CHARTTIME'], inplace=True)
+    new_admittime = df_labevents.drop_duplicates(['SUBJECT_ID', 'HADM_ID'])
+    new_admittime['NEW_ADMITTIME'] = np.where(new_admittime.CHARTTIME < new_admittime.ADMITTIME, new_admittime.CHARTTIME, new_admittime.ADMITTIME)
+    # new_admittime = df_labevents.groupby(['SUBJECT_ID', 'HADM_ID']).apply(lambda x: self.__get_admittime(x)).reset_index(name='NEW_ADMITTIME')
+    df_labevents = df_labevents.merge(new_admittime[['SUBJECT_ID', 'HADM_ID', 'NEW_ADMITTIME']], on=['SUBJECT_ID', 'HADM_ID'])
 
     df_labevents['TIME'] = np.ceil((df_labevents.CHARTTIME - df_labevents.NEW_ADMITTIME).dt.total_seconds() / 3600)
     return df_labevents
@@ -442,26 +445,42 @@ class DataLoader:
     Returns:
     - The result dataframe is saved as csv file in data/Model input data/ folder.
     """
+    # # read the features list in the potential csv file and get top n features
+    # potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
+    # potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
+    # if feature_no == -1:
+    #   # get all features
+    #   feature_list = potential_events['ITEMID']
+    # else:
+    #   feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    
     # read the features list in the potential csv file and get top n features
-    potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
-    potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
-    if feature_no == -1:
-      # get all features
-      feature_list = potential_events['ITEMID']
-    else:
-      feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    feature_list = self.__read_features(self.ROOT_DIR / 'data/potential_events.csv', feature_no)
     
     # get the df_labevents filtered by hours and features
     a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
     a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
-
-    df_final = a
-    df_final.VALUENUM.fillna(-999, inplace=True)
-    result = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
+    
+    a['VALUENUM'].replace(np.nan, -999, inplace=True)
+    result = a.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
     result.columns = ["ITEMID_" + str(i) for i in result.columns]
     result = result.reset_index()
     result.replace(-999, np.nan, inplace=True)
-    
+
+    item_cols = result.columns[result.columns.str.startswith('ITEMID_')]
+    mean_by_item = result.groupby(['SUBJECT_ID', 'HADM_ID'])[item_cols].mean().reset_index()
+    result = result.merge(mean_by_item, on=['SUBJECT_ID', 'HADM_ID'])
+
+    new_col = {f'{x}_x':x for x in item_cols}
+    remove_col = [f'{x}_y' for x in item_cols]
+    for itemx, itemy in zip(new_col, remove_col):
+      result[itemx] = np.where(result[itemx].isna(), result[itemy], result[itemx])
+
+    result = result.rename(columns=new_col)
+    result.drop(remove_col, axis=1, inplace=True)
+    # compute SOFA score
+    result['SOFA'] = ef.get_sofa_score(df=result)
+
     try:
       utils.save_csv(result, output_filename)
     except:
@@ -497,6 +516,67 @@ class DataLoader:
       raise
     return result
 
+  def create_train_data_sequence_padded(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_no = -1, output_filename=''):
+    """
+    Create the train data file.
+
+    Parameters:
+    - df_labevents: the labevents dataframe
+    - df_demographic: the demographic dataframe
+    - df_desc_labitems: the labitems description dataframe
+    - hours: first n hours to extract
+    - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+    - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
+  
+    Returns:
+    - The result dataframe is saved as csv file in data/Model input data/ folder.
+    """
+    # # read the features list in the potential csv file and get top n features
+    # potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
+    # potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
+    # if feature_no == -1:
+    #   # get all features
+    #   feature_list = potential_events['ITEMID']
+    # else:
+    #   feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    
+    # read the features list in the potential csv file and get top n features
+    feature_list = self.__read_features(self.ROOT_DIR / 'data/potential_events.csv', feature_no)
+
+    # get the df_labevents filtered by hours and features
+    a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
+    a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
+
+    df_final = a
+    df_final.VALUENUM.fillna(-999, inplace=True)
+    result = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
+    result.columns = ["ITEMID_" + str(i) for i in result.columns]
+    result = result.reset_index()
+    result.replace(-999, np.nan, inplace=True)
+    
+    max_rows = result.groupby(['HADM_ID']).size().max()
+    row_max_df = result[result.groupby(['SUBJECT_ID', 'HADM_ID']).transform('size') == max_rows]
+    row_less_df = result[~result.HADM_ID.isin(row_max_df.HADM_ID)]
+
+    first_row_df = row_less_df.drop_duplicates(['SUBJECT_ID', 'HADM_ID'])[['HADM_ID','IS_SEPSIS','SUBJECT_ID', 'AGE', 'GENDER_NUM']]
+    replicate_first_row = pd.DataFrame(np.repeat(first_row_df.values, max_rows-1, axis=0), columns=first_row_df.columns)
+    # Find columns with the prefix "ITEM_"
+    item_cols = list(set(row_less_df.columns)-set(['HADM_ID','IS_SEPSIS','SUBJECT_ID', 'AGE', 'GENDER_NUM']))
+    for col in item_cols:
+      replicate_first_row[col] = np.nan
+
+    row_less_df = pd.concat([replicate_first_row, row_less_df])
+    # row_less_df.sort_values(['SUBJECT_ID', 'HADM_ID', 'CHARTTIME'], inplace=True)
+    row_less_df = row_less_df.groupby(['SUBJECT_ID', 'HADM_ID']).tail(max_rows)
+    
+    result = pd.concat([row_max_df, row_less_df], ignore_index=True)
+    try:
+      utils.save_csv(result, output_filename)
+    except:
+      utils.save_csv(result, self.ROOT_DIR / f'data/Model input data/t{hours}_sequence.csv')
+
+    return result
+  
   def extract_train_data_by_features(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_filename='', feature_no = -1, output_filename=''):
     """
     Create the train data file.
