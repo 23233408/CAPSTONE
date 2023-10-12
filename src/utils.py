@@ -61,3 +61,36 @@ def get_sepsis_admissions(icd_sepsis, df):
     
     return df_sepsis_admissions
     
+def filter_missing_rows(df, proportion_to_return):
+    """
+    Filters rows in a DataFrame based on a threshold of missing or masked values.
+
+    This function checks each row in the input DataFrame for missing or masked values. 
+    Missing values are identified as NaN, while masked values are represented as -999. 
+    The function calculates the percentage of missing or masked values in each row. 
+    Rows with a percentage of missing or masked values less than or equal to the specified 
+    'proportion_to_return' are retained in the returned DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame with potential missing or masked values.
+    proportion_to_return (float): The threshold percentage (0-100) of allowable missing or 
+                                   masked values per row. Rows with a percentage of missing 
+                                   or masked values within this threshold are returned.
+
+    Returns:
+    pd.DataFrame: A DataFrame consisting of rows from the input DataFrame that have a 
+                  percentage of missing or masked values less than or equal to the 
+                  'proportion_to_return'. If no masking is present, the function checks 
+                  for NaN values instead.
+    """
+    # Check if masking has been applied
+    if (df == -999).any().any():  # Masking is present
+        count_missing = (df == -999).sum(axis=1)
+    else:  # No masking, check for NaN
+        count_missing = df.isna().sum(axis=1)
+
+    # Calculate the percentage of missing values for each row
+    p_missing = count_missing / df.shape[1] * 100
+
+    # Filter rows based on the allowed proportion of missing/masked values
+    return df[p_missing <= proportion_to_return]
