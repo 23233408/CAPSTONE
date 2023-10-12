@@ -12,3 +12,4 @@ psycopg2==2.9.7
 requests
 numpy==1.24.4
 shap
+xgboost
