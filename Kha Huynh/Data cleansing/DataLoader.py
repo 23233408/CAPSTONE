@@ -222,7 +222,7 @@ class DataLoader:
     Returns:
     - df_labevents: the df_labevents dataframe with TIME column
     """
-    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME']], on=['SUBJECT_ID', 'HADM_ID'])
+    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME', 'DISCHTIME']], on=['SUBJECT_ID', 'HADM_ID'])
     new_admittime = df_labevents.groupby(['SUBJECT_ID', 'HADM_ID']).apply(lambda x: self.__get_admittime(x)).reset_index(name='NEW_ADMITTIME')
     df_labevents = df_labevents.merge(new_admittime, on=['SUBJECT_ID', 'HADM_ID'])
 
@@ -289,6 +289,7 @@ class DataLoader:
     a = a.drop_duplicates(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])
     # merge the result back to the unique rows by SUBJECT_ID, HADM_ID, ITEMID and unpivot the table
     df_final = df_final.merge(a[['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'VALUENUM']], on=['SUBJECT_ID', 'HADM_ID', 'ITEMID'], how='left')
+    # df_final.fillna(-999, inplace=True)
     df_final = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS'], columns='ITEMID', aggfunc='first')
     # rename the features column names
     df_final.columns = ["ITEMID_" + str(i) for i in df_final.columns]
@@ -403,6 +404,7 @@ class DataLoader:
     # get the df_labevents filtered by hours and features
     a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
     a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
+
     row_mean = a.groupby(['SUBJECT_ID', 'HADM_ID', 'ITEMID'])['VALUENUM'].mean().reset_index(name='avg')
     row_mean.avg = row_mean.avg.astype(float)
     
@@ -417,6 +419,49 @@ class DataLoader:
     result = result.reset_index()
     result = result.fillna(-999)
     result.drop(['level'], axis=1, inplace=True)
+
+    try:
+      utils.save_csv(result, output_filename)
+    except:
+      utils.save_csv(result, self.ROOT_DIR / f'data/Model input data/t{hours}_sequence.csv')
+
+    return result
+  
+  def create_train_data_sequence_new(self, df_labevents, df_demographic, df_desc_labitems, hours, feature_no = -1, output_filename=''):
+    """
+    Create the train data file.
+
+    Parameters:
+    - df_labevents: the labevents dataframe
+    - df_demographic: the demographic dataframe
+    - df_desc_labitems: the labitems description dataframe
+    - hours: first n hours to extract
+    - feature_no: the number of features to extract. Default =-1 to get all features in potential_events file
+    - output_filename: the output filename. Default is stored in 'data/Model input data/t<hours>.csv
+  
+    Returns:
+    - The result dataframe is saved as csv file in data/Model input data/ folder.
+    """
+    # read the features list in the potential csv file and get top n features
+    potential_events = pd.read_csv(self.ROOT_DIR / 'data/potential_events.csv')
+    potential_events.sort_values(['abnormal_count'], ascending=False, inplace=True)
+    if feature_no == -1:
+      # get all features
+      feature_list = potential_events['ITEMID']
+    else:
+      feature_list = potential_events.iloc[:feature_no]['ITEMID']
+    
+    # get the df_labevents filtered by hours and features
+    a = self.__create_labevents_processed(df_labevents, df_demographic, df_desc_labitems, feature_list, hours)
+    a.sort_values(['SUBJECT_ID', 'HADM_ID', 'ITEMID', 'CHARTTIME'], inplace=True)
+
+    df_final = a
+    df_final.VALUENUM.fillna(-999, inplace=True)
+    result = df_final.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
+    result.columns = ["ITEMID_" + str(i) for i in result.columns]
+    result = result.reset_index()
+    result.replace(-999, np.nan, inplace=True)
+    
     try:
       utils.save_csv(result, output_filename)
     except:
