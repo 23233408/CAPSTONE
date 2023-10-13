@@ -189,3 +189,36 @@ def calculate_mean_conf(m_hist, measure):
   plt.ylabel(measure)
   plt.legend(loc='lower right')
   plt.show()
+
+def __cal_mean(max_len, m_hist, measure):
+  # Calculate mean and confidence intervals for training loss
+  hist_list = [hist.history[measure] for hist in m_hist]
+
+  # Pad the sublists with NaN values to match the maximum length
+  hist_list = [one_list + [np.nan] * (max_len - len(one_list)) for one_list in hist_list]
+  mean_measure = np.nanmean(hist_list, axis=0)
+
+  std_measure = np.nanstd(hist_list, axis=0)
+  confidence_interval = 0.95  # Adjust this value as needed
+
+  # Calculate margin of error
+  margin_of_error = stats.t.ppf((1 + confidence_interval) / 2, max_len - 1) * (std_measure / np.sqrt(max_len))
+
+  # Calculate confidence intervals
+  lower_bound_measure = mean_measure - margin_of_error
+  upper_bound_measure = mean_measure + margin_of_error
+  
+  return mean_measure, lower_bound_measure, upper_bound_measure
+
+def cal_model_mean(m_hist, kfold, measure_list):
+  result = []
+  max_len = max(len(one_list.history[measure_list[0]]) for one_list in m_hist)
+  model_no = int(len(m_hist) / kfold)
+  for i in range(0, model_no):
+    model_result = []
+    hist_list = m_hist[i*model_no : i*model_no+model_no]
+    for measure in measure_list:
+      mean_measure, lower_bound_measure, upper_bound_measure = __cal_mean(max_len, hist_list, measure)
+      model_result.append(mean_measure)
+    result.append(model_result)
+  return result
