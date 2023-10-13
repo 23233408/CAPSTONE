@@ -41,6 +41,9 @@ class ModelPipeline:
         
     def __init__(self, ROOT_DIR):
         self.ROOT_DIR = ROOT_DIR
+        # plot output
+        self.output_dir = self.ROOT_DIR / 'output' / 'plots'
+        self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def get_dfs(self, tops):
         dfs_dict = {}
@@ -629,3 +632,85 @@ class ModelPipeline:
 
 
         print(f"Cohen_kappa_score: {cohen_kappa_score(y_test, y_predicted)} ")
+        
+            
+    def generate_shap_bar_plot(self, shap_values, model_name, time_point, num_features):
+        """
+        Generates a bar plot of SHAP values to visualise the global feature importance. Saves it as a PNG file in the output directory with a name incorporating model name, time point, and feature count.
+
+        Args:
+            shap_values : The SHAP values computed from the model, indicating feature impacts.
+            model_name : str, The name of the model, used for constructing the file name.
+            time_point : str, An identifier for the dataset's time point, used in the file name.
+            num_features : int, The number of features in X_train, used for informative file naming.
+        """
+        plt.figure()
+        shap.plots.bar(shap_values, show=False)
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_bar_plot.png")
+        plt.close()
+
+    def generate_shap_summary_plot(self, shap_values, X_test, model_name, time_point, num_features):
+        """_summary_
+
+            Generates a SHAP summary plot to show the value distribution of features. Saves the image to the output directory, and then closes the matplotlib plot.
+        
+        Args:
+            shap_values : The SHAP values computed from the model, indicating feature impacts.
+            model_name : str, The name of the model, used for constructing the file name.
+            time_point : str, An identifier for the dataset's time point, used in the file name.
+            num_features : int, The number of features in X_train, used for informative file naming.
+
+        """
+        plt.figure()
+        shap.summary_plot(shap_values, X_test, show=False)
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_summary_plot.png")
+        plt.close()
+
+    def generate_shap_heatmap(self, shap_values, model_name, time_point, num_features):
+        """
+        Generates a heatmap from SHAP values.
+
+        Args:
+            shap_values : SHAP values for the model's output explanation.
+            X_test : DataFrame, The test dataset, showing value distribution of features.
+            model_name : str, Name of the model, used in file naming.
+            time_point : str, Dataset's time identifier, used for file naming.
+            num_features : int, Count of features, used in file naming for clarity.
+        """
+        plt.figure()
+        shap.plots.heatmap(shap_values[:2000], show=False)  # Adjust data points limit as needed
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_heatmap.png")
+        plt.close()
+
+    def generate_and_save_shap_plots(self, candidate_models, X_train, X_test, time_point):
+        """
+            Manages the generation and storage of SHAP plots for various models and datasets.
+
+        Args:
+            candidate_models : dict, Models to analyze, keyed by name with model objects as values.
+            X_train : DataFrame, Training dataset, used for background distribution in SHAP.
+            X_test : DataFrame, Test dataset, upon which SHAP values are calculated.
+            time_point : str, Data's time point, used for organizing saved plots.
+
+        Functionality:
+            Iterates through each model, determines the correct SHAP explainer, computes SHAP values, and invokes plotting functions to generate and save the SHAP plots. It incorporates the time point and feature count into file names for clarity.
+        """
+        
+        # get number of features
+        num_features = X_train.shape[1]
+        
+        for model_name, model in candidate_models.items():
+            # Determine the type of explainer based on the model
+            if model_name == 'Logistic_Regression':
+                explainer = shap.LinearExplainer(model, X_train)
+            else:
+                explainer = shap.TreeExplainer(model, X_train)
+            
+            shap_values = explainer(X_test)
+
+            # Generate and save plots
+            self.generate_shap_bar_plot(shap_values, model_name)
+            self.generate_shap_summary_plot(shap_values, X_test, model_name)
+            self.generate_shap_heatmap(shap_values, model_name)
+
+            print(f"Saved SHAP plots for {model_name} at time {time_point} with {num_features} features in {self.output_dir}")
