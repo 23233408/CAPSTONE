@@ -715,7 +715,7 @@ class ModelPipeline:
         plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_heatmap.png")
         plt.close()
 
-    def generate_and_save_shap_plots(self, candidate_models, X_train, X_test, time_point):
+    def generate_and_save_shap_plots_old(self, candidate_models, X_train, X_test, time_point):
         """
             Manages the generation and storage of SHAP plots for various models and datasets.
 
@@ -747,3 +747,117 @@ class ModelPipeline:
             self.generate_shap_heatmap(shap_values, model_name, time_point, num_features)
 
             print(f"Saved SHAP plots for {model_name} at time {time_point} with {num_features} features in {self.output_dir}")
+            
+    def generate_and_save_shap_plots(self, candidate_models, X_train, X_test, time_point):
+        """
+        Generate and save SHAP plots for given models, training data, and test data.
+
+        Parameters:
+            models (dict): Dictionary containing model objects.
+            X_train (DataFrame): Training data.
+            X_test (DataFrame): Testing data.
+            time_point (str): The time point label for the data.
+
+        Returns:
+            None
+        """
+        num_features = X_train.shape[1]  # Getting the number of features from X_train
+
+        for model_name, model in candidate_models.items():
+            # Check if the model is Logistic Regression
+            if model_name == 'Logistic_Regression':
+                explainer = shap.LinearExplainer(model, X_train)
+                shap_values = explainer(X_test)
+
+                # Save plots, but not heatmap
+                self.save_shap_plots(shap_values, X_test, model_name, time_point, num_features, include_heatmap=False)
+
+            else:
+                explainer = shap.TreeExplainer(model)
+                shap_values = explainer(X_test)
+
+                # Save all SHAP plots
+                self.save_shap_plots(shap_values, X_test, model_name, time_point, num_features, include_heatmap=True)
+                        
+    def save_shap_plots(self, shap_values, X_test, model_name, time_point, num_features, include_heatmap=True):
+        """
+        Save SHAP plots to the specified directory.
+
+        Parameters:
+            shap_values: The SHAP values for the model.
+            X_test (DataFrame): Testing data.
+            model_name (str): The name of the model.
+            time_point (str): The time point label for the data.
+            num_features (int): The number of features in the dataset.
+            include_heatmap (bool): Flag to include heatmap in the output.
+
+        Returns:
+            None
+        """
+        output_dir = os.path.join(self.ROOT_DIR, 'output', 'plots', model_name, time_point)
+
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # File name pattern including the number of features
+        file_name_pattern = f"{model_name}_{time_point}_{num_features}features"
+
+        # Save bar plot
+        plt.figure()
+        shap.plots.bar(shap_values)
+        plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_summary_bar.png'))
+
+        # Save summary plot
+        plt.figure()
+        shap.summary_plot(shap_values, X_test)
+        plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_summary.png'))
+
+        # Save heatmap if include_heatmap is True
+        if include_heatmap:
+            plt.figure()
+            shap.plots.heatmap(shap_values[:])
+            plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_heatmap.png'))
+
+        plt.close('all')  # Close all figures to free memory
+
+
+    def shap_global_lr(candidate_models, x_test_df, x_train_df):
+        explainer_lr = shap.LinearExplainer(candidate_models['Logistic_Regression'], x_train_df)
+        shap_values_lr = explainer_lr(x_test_df)
+
+        # set a display version of the data to use for plotting (has string values)
+        shap_values_lr.display_data = shap.datasets.adult(display=True)[0].values
+        
+        shap.plots.bar(shap_values_lr)
+        shap.summary_plot(shap_values_lr, x_test_df)
+        shap.plots.heatmap(shap_values_lr[:])
+    
+    def shap_global_rf(candidate_models, x_test_df):
+        """
+        Args:
+            x_test_df (dataframe): 
+        """
+        # compute SHAP values
+        explainer_rf = shap.TreeExplainer(candidate_models['Random_Forest']) 
+        shap_values_rf = explainer_rf.shap_values(x_test_df)
+        
+        # summary
+        shap.summary_plot(shap_values_rf, x_test_df)
+        
+        # summary 2
+        shap.summary_plot(shap_values_rf[0], x_test_df)
+        
+        # heatmap
+        shap_values_rf_subset = explainer_rf(x_test.iloc[:])
+        shap.plots.heatmap(shap_values_rf_subset[:, :, 1])
+        
+    def shap_global_gb(candidate_models, x_test_df):
+        # compute SHAP values
+        explainer_gb = shap.TreeExplainer(candidate_models['Gradient_Boosting'])
+        shap_values_gb = explainer_gb(x_test_df)
+        
+        shap.plots.bar(shap_values_gb)
+        
+        shap.summary_plot(shap_values_gb, x_test_df)
+        
+        shap.plots.heatmap(shap_values_gb[:])

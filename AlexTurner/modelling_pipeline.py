@@ -1,20 +1,3 @@
-# %%
-# Pipeline to automate the model fitting, tuning and evaluation process.
-
-# #todo:
-# * identify models to trial:
-#   KNN, decision tree, bagging, XGBoost?
-# * test train split: stratified sampling vs. SMOTE
-# * make hyperparameter tuning parameterised for all candidate models
-#   - establish grid paramater space
-#   - set final model parameters...
-# * (AUROCs) for performance evaluation of multiple models
-# * Calibration plots to visualise candidate model predictions
-# * SHAP plot - For best-performing model, identify & report significance of parameters
-
-# #todo: questions
-# * should we set up n folds for CV?
-
 # load libraries and modules - Amy
 import pandas as pd
 import numpy as np, warnings
@@ -29,8 +12,6 @@ from sklearn.model_selection import train_test_split, GridSearchCV, KFold, cross
 from sklearn.preprocessing import StandardScaler
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.feature_selection import SelectFromModel
-
-
 
 
 from sklearn.model_selection import train_test_split, cross_val_score,RandomizedSearchCV
@@ -51,7 +32,6 @@ from sklearn.metrics import cohen_kappa_score,classification_report
 import shap
 
 
-# %%
 # compare model performance
 def compare_models(X_train_scaled, y_train, candidate_models, class_weight_dict):
 
@@ -78,7 +58,6 @@ def compare_models(X_train_scaled, y_train, candidate_models, class_weight_dict)
         
     return(df_model)
 
-# %%
 def tune_hyperparameters(X_train_scaled, y_train, best_model_name):
     
     #todo: query the candidate_models var instead of using if else...
