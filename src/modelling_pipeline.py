@@ -742,8 +742,8 @@ class ModelPipeline:
             shap_values = explainer(X_test)
 
             # Generate and save plots
-            self.generate_shap_bar_plot(shap_values, model_name)
-            self.generate_shap_summary_plot(shap_values, X_test, model_name)
-            self.generate_shap_heatmap(shap_values, model_name)
+            self.generate_shap_bar_plot(shap_values, model_name, time_point, num_features)
+            self.generate_shap_summary_plot(shap_values, X_test, model_name, time_point, num_features)
+            self.generate_shap_heatmap(shap_values, model_name, time_point, num_features)
 
             print(f"Saved SHAP plots for {model_name} at time {time_point} with {num_features} features in {self.output_dir}")
