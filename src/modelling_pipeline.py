@@ -595,6 +595,39 @@ class ModelPipeline:
         return best_params
             #return(hypertuned_model)  
 
+    def tune_hyperparameters_rf(self, X_train, y_train, class_weights, model):
+        """    
+        Tune hyperparameters for Random Forest classifiers using GridSearchCV.
+
+        Args:
+            X_train (pd.DataFrame or np.array): Feature matrix for training.
+            y_train (pd.Series or np.array): Target labels for training.
+            class_weights (dict): Class weights for handling class imbalance.
+            candidate_models:
+
+        Returns:
+            dict: Best parameters for each classifier.
+        """  
+
+        # define hyperparameter grid
+        param_grid = {'n_estimators': [50, 100, 150], 
+                      'max_depth': [10, 20, 30, 40], 
+                      'min_samples_split': [2, 25, 50, 100, 250, 400],
+                      'min_samples_leaf': [2, 25, 50, 100, 250, 400]
+        }
+        
+        grid_search = GridSearchCV(estimator=model, param_grid=param_grid, scoring='balanced_accuracy', cv=3)
+        grid_search.fit(X_train, y_train)
+
+        best_params = grid_search.best_params_
+
+        # Get best score
+        print("Best parameters:", best_params)
+        print("Best cross-validation score: {:.4f}".format(grid_search.best_score_))
+            
+        return best_params
+
+
 
     def train_models(self, candidate_models, class_weights, X_train, X_test, y_train, y_test):
         
