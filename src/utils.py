@@ -1,5 +1,9 @@
 from pathlib import Path
 import pandas as pd
+import numpy as np
+
+import missingno as msno
+import matplotlib.pyplot as plt
 
 def get_project_root() -> Path:
     return Path(__file__).absolute().parent.parent
@@ -94,3 +98,35 @@ def filter_missing_rows(df, proportion_to_return):
 
     # Filter rows based on the allowed proportion of missing/masked values
     return df[p_missing <= proportion_to_return]
+
+def visualise_missing_data(df):
+    """
+    Convert non-standard missing values (-999) to NaN and visualize the missing data using missingno,
+    without altering the original DataFrame.
+
+    Parameters:
+        df (pd.DataFrame): The DataFrame containing the dataset.
+
+    Returns:
+        None
+    """
+
+    # Create a copy of the DataFrame to avoid changing the original
+    df_copy = df.copy()
+
+    # Replace -999 with NaN in the copy
+    df_copy.replace(-999, np.nan, inplace=True)
+
+    plt.figure(figsize=(15, 7)) 
+
+    # Create a matrix plot for missing values
+    msno.matrix(df_copy)
+    plt.show()
+
+    # Create a bar plot for missing values
+    msno.bar(df_copy)
+    plt.show()
+
+    # Create a heatmap for missing values
+    msno.heatmap(df_copy)
+    plt.show()
