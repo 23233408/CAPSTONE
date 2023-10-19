@@ -128,7 +128,7 @@ class ModelPipeline:
             missing_proportions = count_999 / total_values *100
             print(f"Number of missing values in {time_point}: {count_999} ({missing_proportions:.2f}%)")
 
-    def count_missing_values_all(self, dfs_dict, hours_list, top_n_features):
+    def count_missing_values_all(self, dfs_dict, hours_list, top_n_features, sepsis_only = False):
         """
         Get count of missing values for all DF in dictionary. 
                 
@@ -148,6 +148,9 @@ class ModelPipeline:
         # Iterate through input dictionary
         for top_n_key, time_dfs in dfs_dict.items():
             for time_point, df in time_dfs.items():
+                if sepsis_only == True:
+                    df = df[df['IS_SEPSIS'] == 1]
+                    
                 df_without_target = df.drop(columns=['IS_SEPSIS'])
                 total_values = df_without_target.size
             
