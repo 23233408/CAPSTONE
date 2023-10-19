@@ -142,8 +142,8 @@ class ModelPipeline:
             na_proportions (DataFrame): NA Proportions
         """
         # Initialise dataframes to store results
-        na_counts = pd.DataFrame(index=hours_list, columns=[f'top_{n}_features_NA_Count' for n in top_n_features])
-        na_proportions = pd.DataFrame(index=hours_list, columns=[f'top_{n}_features_NA_Proportion' for n in top_n_features])
+        na_counts = pd.DataFrame(index=hours_list, columns=[f'top{n}_features_NA_Count' for n in top_n_features])
+        na_proportions = pd.DataFrame(index=hours_list, columns=[f'top{n}_features_NA_%' for n in top_n_features])
 
         # Iterate through input dictionary
         for top_n_key, time_dfs in dfs_dict.items():
@@ -154,16 +154,28 @@ class ModelPipeline:
                 # count missing
                 count_999 = (df_without_target == -999).sum().sum()
                 missing_proportions = count_999 / total_values * 100
-                
+                formatted_missing_proportions = "{:.2f}%".format(missing_proportions)
+
                 # Extract the hour and top_n from the keys
                 hour = int(time_point.lstrip('t'))  # remove 't' and convert to int
                 top_n = int(top_n_key.lstrip('top'))  # remove 'top' and convert to int
                 
                 # Store results in dataframes
-                na_counts.loc[hour, f'top_{top_n}_features_NA_Count'] = count_999
-                na_proportions.loc[hour, f'top_{top_n}_features_NA_Proportion'] = missing_proportions
+                na_counts.loc[hour, f'top{top_n}_features_NA_Count'] = count_999
+                na_proportions.loc[hour, f'top{top_n}_features_NA_%'] = formatted_missing_proportions
 
-        return na_counts, na_proportions
+        result_df = pd.DataFrame(index=hours_list)
+
+        # Concatenate the data for each top_n features
+        for top_n in top_n_features:
+            na_count_col = f'top{top_n}_features_NA_Count'
+            na_prop_col = f'top{top_n}_features_NA_%'
+            result_df[na_count_col] = na_counts[na_count_col]
+            result_df[na_prop_col] = na_proportions[na_prop_col]
+
+        return result_df
+        
+        #return na_counts, na_proportions
 
     def count_missing_SOFA(self, time_df):
         """
