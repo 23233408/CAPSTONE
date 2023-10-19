@@ -173,6 +173,8 @@ class ModelPipeline:
             result_df[na_count_col] = na_counts[na_count_col]
             result_df[na_prop_col] = na_proportions[na_prop_col]
 
+        result_df.index = ['t' + str(i) for i in result_df.index]
+
         return result_df
         
         #return na_counts, na_proportions
