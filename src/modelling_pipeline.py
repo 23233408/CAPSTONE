@@ -136,10 +136,10 @@ class ModelPipeline:
             dfs_dict (Dict): Dictionary of data extractions at different time points.
             hours_list (_type_): _description_
             top_n_features (_type_): _description_
+            sepsis_only: Only account for Sepsis admissions or All admissions
 
         Returns:
-            na_counts (DataFrame): NA Counts
-            na_proportions (DataFrame): NA Proportions
+            result_df (DataFrame): NA Counts and NA Proportions
         """
         # Initialise dataframes to store results
         na_counts = pd.DataFrame(index=hours_list, columns=[f'top{n}_features_NA_Count' for n in top_n_features])
@@ -182,19 +182,48 @@ class ModelPipeline:
         
         #return na_counts, na_proportions
 
-    def count_missing_SOFA(self, time_df):
+    def count_missing_SOFA(self, dfs_dict, hours_list, sepsis_only=False):
         """
-        Get count and proportion of missing SOFA score values.
-        
+        Get count of missing SOFA for all DF in dictionary. 
+                
         Args:
-            time_df (_type_): Processed csv file path.
-        """
-        for time_point, df in time_df.items():
-            total_SOFA = df.shape[0]
-            count_SOFA_999 = (df['SOFA'] == -999).sum().sum()
-            missing_SOFA_proportions = count_SOFA_999 / total_SOFA *100
-            print(f"Number of missing SOFA in {time_point}: {count_SOFA_999} ({missing_SOFA_proportions:.2f}%)")
+            dfs_dict (Dict): Dictionary of data extractions at different time points.
+            hours_list (_type_): _description_
+            sepsis_only (bool): Only account for Sepsis admissions or All admissions
 
+        Returns:
+            result_df (DataFrame): NA Counts and NA Proportions
+        """
+        # Initialise dataframes to store results
+        na_counts = pd.DataFrame(index=hours_list, columns=['SOFA_NA_Count'])
+        na_proportions = pd.DataFrame(index=hours_list, columns=['SOFA_NA_%'])
+
+        # Iterate through input dictionary
+        for _, time_dfs in dfs_dict.items():
+            for time_point, df in time_dfs.items():
+                if sepsis_only:
+                    df = df[df['IS_SEPSIS'] == 1]
+                    
+                total_SOFA = df.shape[0]
+            
+                # count missing SOFA values
+                count_SOFA_999 = (df['SOFA'] == -999).sum()
+                missing_proportions = count_SOFA_999 / total_SOFA * 100
+                formatted_missing_proportions = "{:.2f}%".format(missing_proportions)
+
+                # Extract the hour
+                hour = int(time_point.lstrip('t'))  # remove 't' and convert to int
+                
+                # Store results in dataframes
+                na_counts.loc[hour, 'SOFA_NA_Count'] = count_SOFA_999
+                na_proportions.loc[hour, 'SOFA_NA_%'] = formatted_missing_proportions
+
+        result_df = pd.DataFrame(index=hours_list)
+        result_df['SOFA_NA_Count'] = na_counts['SOFA_NA_Count']
+        result_df['SOFA_NA_%'] = na_proportions['SOFA_NA_%']
+        result_df.index = ['t' + str(i) for i in result_df.index]
+
+        return result_df
 
     def split_data(self, df_train):
         """
