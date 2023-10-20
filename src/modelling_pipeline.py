@@ -955,7 +955,7 @@ class ModelPipeline:
         shap.summary_plot(shap_values_rf[0], x_test_df)
         
         # heatmap
-        shap_values_rf_subset = explainer_rf(x_test.iloc[:])
+        shap_values_rf_subset = explainer_rf(x_test_df.iloc[:])
         shap.plots.heatmap(shap_values_rf_subset[:, :, 1])
         
     def shap_global_gb(candidate_models, x_test_df):
