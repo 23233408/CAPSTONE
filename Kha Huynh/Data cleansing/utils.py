@@ -40,5 +40,8 @@ def categorise_age(df):
     
     # create age bins
     df['AGE_cat'] = pd.cut(df['AGE'], bins=age_bin_edges, labels=age_bin_labels, right=False)
+    df['AGE_NUM'] = pd.factorize(df['AGE_cat'], sort=True)[0]
     
     return df
+
+

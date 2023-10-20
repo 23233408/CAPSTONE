@@ -41,6 +41,9 @@ class ModelPipeline:
         
     def __init__(self, ROOT_DIR):
         self.ROOT_DIR = ROOT_DIR
+        # plot output
+        self.output_dir = self.ROOT_DIR / 'output' / 'plots'
+        self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def get_dfs(self, tops):
         dfs_dict = {}
@@ -125,7 +128,7 @@ class ModelPipeline:
             missing_proportions = count_999 / total_values *100
             print(f"Number of missing values in {time_point}: {count_999} ({missing_proportions:.2f}%)")
 
-    def count_missing_values_all(self, dfs_dict, hours_list, top_n_features):
+    def count_missing_values_all(self, dfs_dict, hours_list, top_n_features, sepsis_only = False):
         """
         Get count of missing values for all DF in dictionary. 
                 
@@ -133,48 +136,94 @@ class ModelPipeline:
             dfs_dict (Dict): Dictionary of data extractions at different time points.
             hours_list (_type_): _description_
             top_n_features (_type_): _description_
+            sepsis_only: Only account for Sepsis admissions or All admissions
 
         Returns:
-            na_counts (DataFrame): NA Counts
-            na_proportions (DataFrame): NA Proportions
+            result_df (DataFrame): NA Counts and NA Proportions
         """
         # Initialise dataframes to store results
-        na_counts = pd.DataFrame(index=hours_list, columns=[f'top_{n}_features_NA_Count' for n in top_n_features])
-        na_proportions = pd.DataFrame(index=hours_list, columns=[f'top_{n}_features_NA_Proportion' for n in top_n_features])
+        na_counts = pd.DataFrame(index=hours_list, columns=[f'top{n}_features_NA_Count' for n in top_n_features])
+        na_proportions = pd.DataFrame(index=hours_list, columns=[f'top{n}_features_NA_%' for n in top_n_features])
 
         # Iterate through input dictionary
         for top_n_key, time_dfs in dfs_dict.items():
             for time_point, df in time_dfs.items():
+                if sepsis_only == True:
+                    df = df[df['IS_SEPSIS'] == 1]
+                    
                 df_without_target = df.drop(columns=['IS_SEPSIS'])
                 total_values = df_without_target.size
             
                 # count missing
                 count_999 = (df_without_target == -999).sum().sum()
                 missing_proportions = count_999 / total_values * 100
-                
+                formatted_missing_proportions = "{:.2f}%".format(missing_proportions)
+
                 # Extract the hour and top_n from the keys
                 hour = int(time_point.lstrip('t'))  # remove 't' and convert to int
                 top_n = int(top_n_key.lstrip('top'))  # remove 'top' and convert to int
                 
                 # Store results in dataframes
-                na_counts.loc[hour, f'top_{top_n}_features_NA_Count'] = count_999
-                na_proportions.loc[hour, f'top_{top_n}_features_NA_Proportion'] = missing_proportions
+                na_counts.loc[hour, f'top{top_n}_features_NA_Count'] = count_999
+                na_proportions.loc[hour, f'top{top_n}_features_NA_%'] = formatted_missing_proportions
 
-        return na_counts, na_proportions
+        result_df = pd.DataFrame(index=hours_list)
 
-    def count_missing_SOFA(self, time_df):
-        """
-        Get count and proportion of missing SOFA score values.
+        # Concatenate the data for each top_n features
+        for top_n in top_n_features:
+            na_count_col = f'top{top_n}_features_NA_Count'
+            na_prop_col = f'top{top_n}_features_NA_%'
+            result_df[na_count_col] = na_counts[na_count_col]
+            result_df[na_prop_col] = na_proportions[na_prop_col]
+
+        result_df.index = ['t' + str(i) for i in result_df.index]
+
+        return result_df
         
-        Args:
-            time_df (_type_): Processed csv file path.
-        """
-        for time_point, df in time_df.items():
-            total_SOFA = df.shape[0]
-            count_SOFA_999 = (df['SOFA'] == -999).sum().sum()
-            missing_SOFA_proportions = count_SOFA_999 / total_SOFA *100
-            print(f"Number of missing SOFA in {time_point}: {count_SOFA_999} ({missing_SOFA_proportions:.2f}%)")
+        #return na_counts, na_proportions
 
+    def count_missing_SOFA(self, dfs_dict, hours_list, sepsis_only=False):
+        """
+        Get count of missing SOFA for all DF in dictionary. 
+                
+        Args:
+            dfs_dict (Dict): Dictionary of data extractions at different time points.
+            hours_list (_type_): _description_
+            sepsis_only (bool): Only account for Sepsis admissions or All admissions
+
+        Returns:
+            result_df (DataFrame): NA Counts and NA Proportions
+        """
+        # Initialise dataframes to store results
+        na_counts = pd.DataFrame(index=hours_list, columns=['SOFA_NA_Count'])
+        na_proportions = pd.DataFrame(index=hours_list, columns=['SOFA_NA_%'])
+
+        # Iterate through input dictionary
+        for _, time_dfs in dfs_dict.items():
+            for time_point, df in time_dfs.items():
+                if sepsis_only:
+                    df = df[df['IS_SEPSIS'] == 1]
+                    
+                total_SOFA = df.shape[0]
+            
+                # count missing SOFA values
+                count_SOFA_999 = (df['SOFA'] == -999).sum()
+                missing_proportions = count_SOFA_999 / total_SOFA * 100
+                formatted_missing_proportions = "{:.2f}%".format(missing_proportions)
+
+                # Extract the hour
+                hour = int(time_point.lstrip('t'))  # remove 't' and convert to int
+                
+                # Store results in dataframes
+                na_counts.loc[hour, 'SOFA_NA_Count'] = count_SOFA_999
+                na_proportions.loc[hour, 'SOFA_NA_%'] = formatted_missing_proportions
+
+        result_df = pd.DataFrame(index=hours_list)
+        result_df['SOFA_NA_Count'] = na_counts['SOFA_NA_Count']
+        result_df['SOFA_NA_%'] = na_proportions['SOFA_NA_%']
+        result_df.index = ['t' + str(i) for i in result_df.index]
+
+        return result_df
 
     def split_data(self, df_train):
         """
@@ -245,7 +294,7 @@ class ModelPipeline:
         
         model_names = list(candidate_models.keys())
         
-        performance_df = pd.DataFrame(columns=['Model', 'Balanced_Acc_Train', 'Balanced_Acc_Test', 'Precision_Train', 'Precision_Test', 'Recall_Train', 'Recall_Test', 'F1_Train', 'F1_Test'])
+        performance_df = pd.DataFrame(columns=['Model', 'Balanced_Acc_Train', 'Balanced_Acc_Test', 'Precision_Train', 'Precision_Test', 'Recall_Train', 'Recall_Test', 'F1_Train', 'F1_Test', 'AUROC_Train', 'AUROC_Test'])
 
         for model_name, model in candidate_models.items():
 
@@ -262,8 +311,37 @@ class ModelPipeline:
 
         return performance_df
 
+    def perform_cv_for_conditions(self, hours_list, top_n_features, split_data_dict, candidate_models, all_models=True, LR_only=False, RF_only=False, GB_only=False):
+        """
+        Performs cross-validation for given conditions and data.
+        
+        Args:
+            conditions (list of tuples): List of (top_features, time_window) conditions.
+            split_data_dict (dict): Dictionary with data splits corresponding to conditions.
+            models (dict): Candidate models to perform CV.
+            mp (Module): Module that contains the cv_analysis function.
+        
+        Returns:
+            pd.DataFrame: Consolidated results of CV for the conditions.
+        """
+        all_results = []
 
-    def cv_analysis(self, X_train, y_train, candidate_models, time):
+        for hour in hours_list:
+            for top_n in top_n_features:    
+                current_data = split_data_dict[(top_n, hour)]
+                X_train = current_data['X_train']
+                y_train = current_data['y_train']
+                
+                current_results = self.cv_analysis(X_train, y_train, candidate_models, all_models, LR_only, RF_only, GB_only)
+                
+                current_results['top_features'] = top_n
+                current_results['time_window'] = hour
+                
+                all_results.append(current_results)
+
+        return pd.concat(all_results, ignore_index=True)
+
+    def cv_analysis(self, X_train, y_train, candidate_models, all_models=True, LR_only=False, RF_only=False, GB_only=False):
         """
         Perform cross-validation analysis on a set of candidate models and return their mean scores.
 
@@ -271,28 +349,53 @@ class ModelPipeline:
             X_train (pd.DataFrame): Scaled feature matrix for training.
             y_train (pd.Series): Target labels for training.
             candidate_models (Dict[str, Any]): A dictionary of static ML model names and their respective instantiated models.
-            class_weights (Dict[int, float]): A dictionary of class weights for handling sepsis class imbalance.
             
         Returns:
-            pd.DataFrame: A DataFrame containing model names and their average cross-validation scores.
+            pd.DataFrame: A DataFrame containing model names and their training and cross-validation average balanced accuracy scores.
         """
         
         model_names = []
-        model_average_scores = [] 
+        model_average_scores_cv = [] 
+        model_average_scores_train = []
         
-        # Calculate mean scores using cross validation
-        for model_name, model in candidate_models.items():
-            scores = cross_val_score(model, X_train, y_train, scoring = 'balanced_accuracy')
-            model_names.append(model_name)
-            model_average_scores.append(scores.mean())
+        # Determine which models to evaluate
+        models_to_evaluate = []
+        if all_models:
+            models_to_evaluate = list(candidate_models.keys())
+        if LR_only:
+            models_to_evaluate.append('Logistic_Regression')
+        if RF_only:
+            models_to_evaluate.append('Random_Forest')
+        if GB_only:
+            models_to_evaluate.append('Gradient_Boosting')
+        
+        # Calculate mean scores using cross validation and training set
+        for model_name in models_to_evaluate:
+            model = candidate_models.get(model_name)
+            if not model:
+                continue  # Skip if the model is not in the candidate models
             
+            # Cross-validation score
+            scores_cv = cross_val_score(model, X_train, y_train, scoring='balanced_accuracy')
+            model_average_scores_cv.append(scores_cv.mean())
+            
+            # Training score
+            model.fit(X_train, y_train)
+            y_train_pred = model.predict(X_train)
+            score_train = balanced_accuracy_score(y_train, y_train_pred)
+            model_average_scores_train.append(score_train)
+            
+            model_names.append(model_name)
+                
         # Store mean scores for each model
         df_model = pd.DataFrame({
             'model': model_names,
-            'average_balanced_acc': model_average_scores
+            'train_balanced_acc': model_average_scores_train,
+            'cv_balanced_acc': model_average_scores_cv
         })
         
         return(df_model)
+
     
     def cv_analysis_all(self, X_t0_train, y_t0_train, 
                                 X_t1_train, y_t1_train,
@@ -388,9 +491,16 @@ class ModelPipeline:
         f1_train = f1_score(y_train, y_pred_train)
         f1_test = f1_score(y_test, y_pred_test)
 
+        # Compute the probability scores of the positive class
+        y_train_prob = model.predict_proba(X_train)[:, 1]
+        y_test_prob = model.predict_proba(X_test)[:, 1]
+
+        # Compute AUC
+        auc_train = roc_auc_score(y_train, y_train_prob)
+        auc_test = roc_auc_score(y_test, y_test_prob)
+
         # Format scores
-        performance_scores = [balanced_acc_train, balanced_acc_test, precision_train, precision_test, recall_train, recall_test, f1_train, f1_test]
-        
+        performance_scores = [balanced_acc_train, balanced_acc_test, precision_train, precision_test, recall_train, recall_test, f1_train, f1_test, auc_train, auc_test]
         
         # formatted_performance_scores = []
         # for i in range(len(performance_scores)):
@@ -592,6 +702,39 @@ class ModelPipeline:
         return best_params
             #return(hypertuned_model)  
 
+    def tune_hyperparameters_rf(self, X_train, y_train, class_weights, model):
+        """    
+        Tune hyperparameters for Random Forest classifiers using GridSearchCV.
+
+        Args:
+            X_train (pd.DataFrame or np.array): Feature matrix for training.
+            y_train (pd.Series or np.array): Target labels for training.
+            class_weights (dict): Class weights for handling class imbalance.
+            candidate_models:
+
+        Returns:
+            dict: Best parameters for each classifier.
+        """  
+
+        # define hyperparameter grid
+        param_grid = {'n_estimators': [50, 100, 150], 
+                      'max_depth': [10, 20, 30, 40], 
+                      'min_samples_split': [2, 25, 50, 100, 250, 400],
+                      'min_samples_leaf': [2, 25, 50, 100, 250, 400]
+        }
+        
+        grid_search = GridSearchCV(estimator=model, param_grid=param_grid, scoring='balanced_accuracy', cv=3)
+        grid_search.fit(X_train, y_train)
+
+        best_params = grid_search.best_params_
+
+        # Get best score
+        print("Best parameters:", best_params)
+        print("Best cross-validation score: {:.4f}".format(grid_search.best_score_))
+            
+        return best_params
+
+
 
     def train_models(self, candidate_models, class_weights, X_train, X_test, y_train, y_test):
         
@@ -629,3 +772,199 @@ class ModelPipeline:
 
 
         print(f"Cohen_kappa_score: {cohen_kappa_score(y_test, y_predicted)} ")
+        
+            
+    def generate_shap_bar_plot(self, shap_values, model_name, time_point, num_features):
+        """
+        Generates a bar plot of SHAP values to visualise the global feature importance. Saves it as a PNG file in the output directory with a name incorporating model name, time point, and feature count.
+
+        Args:
+            shap_values : The SHAP values computed from the model, indicating feature impacts.
+            model_name : str, The name of the model, used for constructing the file name.
+            time_point : str, An identifier for the dataset's time point, used in the file name.
+            num_features : int, The number of features in X_train, used for informative file naming.
+        """
+        plt.figure()
+        shap.plots.bar(shap_values, show=False)
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_bar_plot.png")
+        plt.close()
+
+    def generate_shap_summary_plot(self, shap_values, X_test, model_name, time_point, num_features):
+        """_summary_
+
+            Generates a SHAP summary plot to show the value distribution of features. Saves the image to the output directory, and then closes the matplotlib plot.
+        
+        Args:
+            shap_values : The SHAP values computed from the model, indicating feature impacts.
+            model_name : str, The name of the model, used for constructing the file name.
+            time_point : str, An identifier for the dataset's time point, used in the file name.
+            num_features : int, The number of features in X_train, used for informative file naming.
+
+        """
+        plt.figure()
+        shap.summary_plot(shap_values, X_test, show=False)
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_summary_plot.png")
+        plt.close()
+
+    def generate_shap_heatmap(self, shap_values, model_name, time_point, num_features):
+        """
+        Generates a heatmap from SHAP values.
+
+        Args:
+            shap_values : SHAP values for the model's output explanation.
+            X_test : DataFrame, The test dataset, showing value distribution of features.
+            model_name : str, Name of the model, used in file naming.
+            time_point : str, Dataset's time identifier, used for file naming.
+            num_features : int, Count of features, used in file naming for clarity.
+        """
+        plt.figure()
+        shap.plots.heatmap(shap_values[:2000], show=False)  # Adjust data points limit as needed
+        plt.savefig(self.output_dir / f"{model_name}_{time_point}_{num_features}_features_heatmap.png")
+        plt.close()
+
+    def generate_and_save_shap_plots_old(self, candidate_models, X_train, X_test, time_point):
+        """
+            Manages the generation and storage of SHAP plots for various models and datasets.
+
+        Args:
+            candidate_models : dict, Models to analyze, keyed by name with model objects as values.
+            X_train : DataFrame, Training dataset, used for background distribution in SHAP.
+            X_test : DataFrame, Test dataset, upon which SHAP values are calculated.
+            time_point : str, Data's time point, used for organizing saved plots.
+
+        Functionality:
+            Iterates through each model, determines the correct SHAP explainer, computes SHAP values, and invokes plotting functions to generate and save the SHAP plots. It incorporates the time point and feature count into file names for clarity.
+        """
+        
+        # get number of features
+        num_features = X_train.shape[1]
+        
+        for model_name, model in candidate_models.items():
+            # Determine the type of explainer based on the model
+            if model_name == 'Logistic_Regression':
+                explainer = shap.LinearExplainer(model, X_train)
+            else:
+                explainer = shap.TreeExplainer(model, X_train)
+            
+            shap_values = explainer(X_test)
+
+            # Generate and save plots
+            self.generate_shap_bar_plot(shap_values, model_name, time_point, num_features)
+            self.generate_shap_summary_plot(shap_values, X_test, model_name, time_point, num_features)
+            self.generate_shap_heatmap(shap_values, model_name, time_point, num_features)
+
+            print(f"Saved SHAP plots for {model_name} at time {time_point} with {num_features} features in {self.output_dir}")
+            
+    def generate_and_save_shap_plots(self, candidate_models, X_train, X_test, time_point):
+        """
+        Generate and save SHAP plots for given models, training data, and test data.
+
+        Parameters:
+            models (dict): Dictionary containing model objects.
+            X_train (DataFrame): Training data.
+            X_test (DataFrame): Testing data.
+            time_point (str): The time point label for the data.
+
+        Returns:
+            None
+        """
+        num_features = X_train.shape[1]  # Getting the number of features from X_train
+
+        for model_name, model in candidate_models.items():
+            # Check if the model is Logistic Regression
+            if model_name == 'Logistic_Regression':
+                explainer = shap.LinearExplainer(model, X_train)
+                shap_values = explainer(X_test)
+
+                # Save plots, but not heatmap
+                self.save_shap_plots(shap_values, X_test, model_name, time_point, num_features, include_heatmap=False)
+
+            else:
+                explainer = shap.TreeExplainer(model)
+                shap_values = explainer(X_test)
+
+                # Save all SHAP plots
+                self.save_shap_plots(shap_values, X_test, model_name, time_point, num_features, include_heatmap=True)
+                        
+    def save_shap_plots(self, shap_values, X_test, model_name, time_point, num_features, include_heatmap=True):
+        """
+        Save SHAP plots to the specified directory.
+
+        Parameters:
+            shap_values: The SHAP values for the model.
+            X_test (DataFrame): Testing data.
+            model_name (str): The name of the model.
+            time_point (str): The time point label for the data.
+            num_features (int): The number of features in the dataset.
+            include_heatmap (bool): Flag to include heatmap in the output.
+
+        Returns:
+            None
+        """
+        output_dir = os.path.join(self.ROOT_DIR, 'output', 'plots', model_name, time_point)
+
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # File name pattern including the number of features
+        file_name_pattern = f"{model_name}_{time_point}_{num_features}features"
+
+        # Save bar plot
+        plt.figure()
+        shap.plots.bar(shap_values)
+        plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_summary_bar.png'))
+
+        # Save summary plot
+        plt.figure()
+        shap.summary_plot(shap_values, X_test)
+        plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_summary.png'))
+
+        # Save heatmap if include_heatmap is True
+        if include_heatmap:
+            plt.figure()
+            shap.plots.heatmap(shap_values[:])
+            plt.savefig(os.path.join(output_dir, f'shap_{file_name_pattern}_heatmap.png'))
+
+        plt.close('all')  # Close all figures to free memory
+
+
+    def shap_global_lr(candidate_models, x_test_df, x_train_df):
+        explainer_lr = shap.LinearExplainer(candidate_models['Logistic_Regression'], x_train_df)
+        shap_values_lr = explainer_lr(x_test_df)
+
+        # set a display version of the data to use for plotting (has string values)
+        shap_values_lr.display_data = shap.datasets.adult(display=True)[0].values
+        
+        shap.plots.bar(shap_values_lr)
+        shap.summary_plot(shap_values_lr, x_test_df)
+        shap.plots.heatmap(shap_values_lr[:])
+    
+    def shap_global_rf(candidate_models, x_test_df):
+        """
+        Args:
+            x_test_df (dataframe): 
+        """
+        # compute SHAP values
+        explainer_rf = shap.TreeExplainer(candidate_models['Random_Forest']) 
+        shap_values_rf = explainer_rf.shap_values(x_test_df)
+        
+        # summary
+        shap.summary_plot(shap_values_rf, x_test_df)
+        
+        # summary 2
+        shap.summary_plot(shap_values_rf[0], x_test_df)
+        
+        # heatmap
+        shap_values_rf_subset = explainer_rf(x_test_df.iloc[:])
+        shap.plots.heatmap(shap_values_rf_subset[:, :, 1])
+        
+    def shap_global_gb(candidate_models, x_test_df):
+        # compute SHAP values
+        explainer_gb = shap.TreeExplainer(candidate_models['Gradient_Boosting'])
+        shap_values_gb = explainer_gb(x_test_df)
+        
+        shap.plots.bar(shap_values_gb)
+        
+        shap.summary_plot(shap_values_gb, x_test_df)
+        
+        shap.plots.heatmap(shap_values_gb[:])
