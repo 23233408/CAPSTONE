@@ -294,7 +294,7 @@ class ModelPipeline:
         
         model_names = list(candidate_models.keys())
         
-        performance_df = pd.DataFrame(columns=['Model', 'Balanced_Acc_Train', 'Balanced_Acc_Test', 'Precision_Train', 'Precision_Test', 'Recall_Train', 'Recall_Test', 'F1_Train', 'F1_Test'])
+        performance_df = pd.DataFrame(columns=['Model', 'Balanced_Acc_Train', 'Balanced_Acc_Test', 'Precision_Train', 'Precision_Test', 'Recall_Train', 'Recall_Test', 'F1_Train', 'F1_Test', 'AUROC_Train', 'AUROC_Test'])
 
         for model_name, model in candidate_models.items():
 
@@ -311,8 +311,37 @@ class ModelPipeline:
 
         return performance_df
 
+    def perform_cv_for_conditions(self, hours_list, top_n_features, split_data_dict, candidate_models, all_models=True, LR_only=False, RF_only=False, GB_only=False):
+        """
+        Performs cross-validation for given conditions and data.
+        
+        Args:
+            conditions (list of tuples): List of (top_features, time_window) conditions.
+            split_data_dict (dict): Dictionary with data splits corresponding to conditions.
+            models (dict): Candidate models to perform CV.
+            mp (Module): Module that contains the cv_analysis function.
+        
+        Returns:
+            pd.DataFrame: Consolidated results of CV for the conditions.
+        """
+        all_results = []
 
-    def cv_analysis(self, X_train, y_train, candidate_models, time):
+        for hour in hours_list:
+            for top_n in top_n_features:    
+                current_data = split_data_dict[(top_n, hour)]
+                X_train = current_data['X_train']
+                y_train = current_data['y_train']
+                
+                current_results = self.cv_analysis(X_train, y_train, candidate_models, all_models, LR_only, RF_only, GB_only)
+                
+                current_results['top_features'] = top_n
+                current_results['time_window'] = hour
+                
+                all_results.append(current_results)
+
+        return pd.concat(all_results, ignore_index=True)
+
+    def cv_analysis(self, X_train, y_train, candidate_models, all_models=True, LR_only=False, RF_only=False, GB_only=False):
         """
         Perform cross-validation analysis on a set of candidate models and return their mean scores.
 
@@ -320,28 +349,53 @@ class ModelPipeline:
             X_train (pd.DataFrame): Scaled feature matrix for training.
             y_train (pd.Series): Target labels for training.
             candidate_models (Dict[str, Any]): A dictionary of static ML model names and their respective instantiated models.
-            class_weights (Dict[int, float]): A dictionary of class weights for handling sepsis class imbalance.
             
         Returns:
-            pd.DataFrame: A DataFrame containing model names and their average cross-validation scores.
+            pd.DataFrame: A DataFrame containing model names and their training and cross-validation average balanced accuracy scores.
         """
         
         model_names = []
-        model_average_scores = [] 
+        model_average_scores_cv = [] 
+        model_average_scores_train = []
         
-        # Calculate mean scores using cross validation
-        for model_name, model in candidate_models.items():
-            scores = cross_val_score(model, X_train, y_train, scoring = 'balanced_accuracy')
-            model_names.append(model_name)
-            model_average_scores.append(scores.mean())
+        # Determine which models to evaluate
+        models_to_evaluate = []
+        if all_models:
+            models_to_evaluate = list(candidate_models.keys())
+        if LR_only:
+            models_to_evaluate.append('Logistic_Regression')
+        if RF_only:
+            models_to_evaluate.append('Random_Forest')
+        if GB_only:
+            models_to_evaluate.append('Gradient_Boosting')
+        
+        # Calculate mean scores using cross validation and training set
+        for model_name in models_to_evaluate:
+            model = candidate_models.get(model_name)
+            if not model:
+                continue  # Skip if the model is not in the candidate models
             
+            # Cross-validation score
+            scores_cv = cross_val_score(model, X_train, y_train, scoring='balanced_accuracy')
+            model_average_scores_cv.append(scores_cv.mean())
+            
+            # Training score
+            model.fit(X_train, y_train)
+            y_train_pred = model.predict(X_train)
+            score_train = balanced_accuracy_score(y_train, y_train_pred)
+            model_average_scores_train.append(score_train)
+            
+            model_names.append(model_name)
+                
         # Store mean scores for each model
         df_model = pd.DataFrame({
             'model': model_names,
-            'average_balanced_acc': model_average_scores
+            'train_balanced_acc': model_average_scores_train,
+            'cv_balanced_acc': model_average_scores_cv
         })
         
         return(df_model)
+
     
     def cv_analysis_all(self, X_t0_train, y_t0_train, 
                                 X_t1_train, y_t1_train,
@@ -437,9 +491,16 @@ class ModelPipeline:
         f1_train = f1_score(y_train, y_pred_train)
         f1_test = f1_score(y_test, y_pred_test)
 
+        # Compute the probability scores of the positive class
+        y_train_prob = model.predict_proba(X_train)[:, 1]
+        y_test_prob = model.predict_proba(X_test)[:, 1]
+
+        # Compute AUC
+        auc_train = roc_auc_score(y_train, y_train_prob)
+        auc_test = roc_auc_score(y_test, y_test_prob)
+
         # Format scores
-        performance_scores = [balanced_acc_train, balanced_acc_test, precision_train, precision_test, recall_train, recall_test, f1_train, f1_test]
-        
+        performance_scores = [balanced_acc_train, balanced_acc_test, precision_train, precision_test, recall_train, recall_test, f1_train, f1_test, auc_train, auc_test]
         
         # formatted_performance_scores = []
         # for i in range(len(performance_scores)):
