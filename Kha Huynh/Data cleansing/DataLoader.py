@@ -100,7 +100,7 @@ class DataLoader:
     try:
       df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents_cleaned.csv')
     except:
-      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents.csv')
+      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/LABEVENTS.csv')
       # convert column type: CHARTTIME
       df_labevents = self.__labevents_cleanup_hadm_id(df_demographic, df_labevents)
       # utils.save_csv(df_labevents, self.ROOT_DIR / 'data/labevents_cleaned.csv')
@@ -466,19 +466,19 @@ class DataLoader:
     result = a.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
     result.columns = ["ITEMID_" + str(i) for i in result.columns]
     result = result.reset_index()
-    result.replace(-999, np.nan, inplace=True)
+    # result.replace(-999, np.nan, inplace=True)
 
-    item_cols = result.columns[result.columns.str.startswith('ITEMID_')]
-    mean_by_item = result.groupby(['SUBJECT_ID', 'HADM_ID'])[item_cols].mean().reset_index()
-    result = result.merge(mean_by_item, on=['SUBJECT_ID', 'HADM_ID'])
+    # item_cols = result.columns[result.columns.str.startswith('ITEMID_')]
+    # mean_by_item = result.groupby(['SUBJECT_ID', 'HADM_ID'])[item_cols].mean().reset_index()
+    # result = result.merge(mean_by_item, on=['SUBJECT_ID', 'HADM_ID'])
 
-    new_col = {f'{x}_x':x for x in item_cols}
-    remove_col = [f'{x}_y' for x in item_cols]
-    for itemx, itemy in zip(new_col, remove_col):
-      result[itemx] = np.where(result[itemx].isna(), result[itemy], result[itemx])
+    # new_col = {f'{x}_x':x for x in item_cols}
+    # remove_col = [f'{x}_y' for x in item_cols]
+    # for itemx, itemy in zip(new_col, remove_col):
+    #   result[itemx] = np.where(result[itemx].isna(), result[itemy], result[itemx])
 
-    result = result.rename(columns=new_col)
-    result.drop(remove_col, axis=1, inplace=True)
+    # result = result.rename(columns=new_col)
+    # result.drop(remove_col, axis=1, inplace=True)
     # compute SOFA score
     result['SOFA'] = ef.get_sofa_score(df=result)
 
