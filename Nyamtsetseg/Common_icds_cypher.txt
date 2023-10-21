@@ -5,7 +5,7 @@ MERGE (icdcode:ICD9{id:row.ICD9_CODE})
 MERGE (person)-[:HAS]-> (disease)
 MERGE (disease)-[:HAS_ICD9_CODE]-> (icdcode)
 
-MATCH (d:DIAG) WHERE d.id IN ['NB septicemia [sepsis]','Severe sepsis','Sepsis'] 
+MATCH (d:DIAG) WHERE d.id IN ['Severe sepsis','Sepsis'] 
 MATCH (d)<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
 WHERE d <> id
 WITH icd, id,COUNT(distinct p) as Count
