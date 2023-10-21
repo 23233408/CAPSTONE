@@ -118,6 +118,7 @@ class DataLoader:
     """
     df_microbiologyevents = pd.read_csv(self.ROOT_DIR / 'data/MICROBIOLOGYEVENTS.csv')
     df_microbiologyevents['CHARTTIME'] = pd.to_datetime(df_microbiologyevents['CHARTTIME'], format='%Y-%m-%d %H:%M:%S')
+    df_microbiologyevents['AB_ITEMID'] = df_microbiologyevents.AB_ITEMID.astype(int)
     return df_microbiologyevents
 
   def load_demographic(self, df_diagnoses_icd):
@@ -222,7 +223,7 @@ class DataLoader:
     Returns:
     - df_labevents: the df_labevents dataframe with TIME column
     """
-    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME']], on=['SUBJECT_ID', 'HADM_ID'])
+    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME', 'DISCHTIME', 'DEATHTIME']], on=['SUBJECT_ID', 'HADM_ID'])
     df_labevents.sort_values(['SUBJECT_ID', 'HADM_ID', 'CHARTTIME'], inplace=True)
     new_admittime = df_labevents.drop_duplicates(['SUBJECT_ID', 'HADM_ID'])
     new_admittime['NEW_ADMITTIME'] = np.where(new_admittime.CHARTTIME < new_admittime.ADMITTIME, new_admittime.CHARTTIME, new_admittime.ADMITTIME)
