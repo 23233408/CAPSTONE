@@ -21,12 +21,6 @@ WITH icd, id, COUNT(distinct p) as Count
 ORDER BY Count DESC
 RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
 
-MATCH (d:DIAG{id:'NB septicemia [sepsis]'})<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
-WHERE d <> id
-WITH icd, id, COUNT(distinct p) as Count
-ORDER BY Count DESC
-RETURN icd.id as ICD9_CODE, id.id as SHORT_TITLE, Count
-
 MATCH (d:DIAG{id:'Severe sepsis'})<-[:HAS]-(p:Admission)-[:HAS]->(id:DIAG)-[:HAS_ICD9_CODE]-> (icd:ICD9)
 WHERE d <> id
 WITH icd, id, COUNT(distinct p) as Count
