@@ -174,6 +174,8 @@ class DataLoader:
     Returns:
     - df_labevents: the cleaned df_labevents dataframe
     """
+    print(f"Initial count of lab events with missing HADM_ID: {df_labevents['HADM_ID'].isnull().sum()}")
+    
     # get all labevent records with HADM_ID null and merge with the demographic table to have the HADM_ID, ADMITTIME, DISCHTIME
     df_empty_hadm_labevents = df_labevents[df_labevents['HADM_ID'].isnull()]
     df_empty_hadm_labevents = df_empty_hadm_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME', 'DISCHTIME']], on='SUBJECT_ID')
@@ -192,6 +194,9 @@ class DataLoader:
     df_not_empty_hadm = df_labevents[~df_labevents.HADM_ID.isnull()]
     combined_df_hasHADM = pd.concat([df_not_empty_hadm, df_empty_hadm_labevents], ignore_index=True)
     combined_df_hasHADM['HADM_ID'] = combined_df_hasHADM['HADM_ID'].astype(int)
+    
+    print(f"Final length of lab events, with HADM_ID: {len(combined_df_hasHADM)}")
+    
     return combined_df_hasHADM
 
   def __get_admittime(self, x):
