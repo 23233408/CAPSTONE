@@ -15,3 +15,4 @@ shap
 xgboost
 seaborn
 tensorflow
+python-dotenv
