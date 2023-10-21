@@ -100,7 +100,7 @@ class DataLoader:
     try:
       df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents_cleaned.csv')
     except:
-      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents.csv')
+      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/LABEVENTS.csv')
       # convert column type: CHARTTIME
       df_labevents = self.__labevents_cleanup_hadm_id(df_demographic, df_labevents)
       utils.save_csv(df_labevents, self.ROOT_DIR / 'data/labevents_cleaned.csv')

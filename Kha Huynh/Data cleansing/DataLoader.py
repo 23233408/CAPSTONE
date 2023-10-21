@@ -100,7 +100,7 @@ class DataLoader:
     try:
       df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents_cleaned.csv')
     except:
-      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/labevents.csv')
+      df_labevents = pd.read_csv(self.ROOT_DIR / 'data/LABEVENTS.csv')
       # convert column type: CHARTTIME
       df_labevents = self.__labevents_cleanup_hadm_id(df_demographic, df_labevents)
       # utils.save_csv(df_labevents, self.ROOT_DIR / 'data/labevents_cleaned.csv')
@@ -118,6 +118,7 @@ class DataLoader:
     """
     df_microbiologyevents = pd.read_csv(self.ROOT_DIR / 'data/MICROBIOLOGYEVENTS.csv')
     df_microbiologyevents['CHARTTIME'] = pd.to_datetime(df_microbiologyevents['CHARTTIME'], format='%Y-%m-%d %H:%M:%S')
+    df_microbiologyevents['AB_ITEMID'] = df_microbiologyevents.AB_ITEMID.astype(int)
     return df_microbiologyevents
 
   def load_demographic(self, df_diagnoses_icd):
@@ -222,7 +223,7 @@ class DataLoader:
     Returns:
     - df_labevents: the df_labevents dataframe with TIME column
     """
-    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME']], on=['SUBJECT_ID', 'HADM_ID'])
+    df_labevents = df_labevents.merge(df_demographic[['SUBJECT_ID', 'HADM_ID', 'ADMITTIME', 'DISCHTIME', 'DEATHTIME']], on=['SUBJECT_ID', 'HADM_ID'])
     df_labevents.sort_values(['SUBJECT_ID', 'HADM_ID', 'CHARTTIME'], inplace=True)
     new_admittime = df_labevents.drop_duplicates(['SUBJECT_ID', 'HADM_ID'])
     new_admittime['NEW_ADMITTIME'] = np.where(new_admittime.CHARTTIME < new_admittime.ADMITTIME, new_admittime.CHARTTIME, new_admittime.ADMITTIME)
@@ -465,19 +466,19 @@ class DataLoader:
     result = a.pivot_table(values='VALUENUM', index=['SUBJECT_ID', 'HADM_ID', 'AGE', 'GENDER_NUM', 'IS_SEPSIS', 'CHARTTIME'], columns='ITEMID', aggfunc='first')
     result.columns = ["ITEMID_" + str(i) for i in result.columns]
     result = result.reset_index()
-    result.replace(-999, np.nan, inplace=True)
+    # result.replace(-999, np.nan, inplace=True)
 
-    item_cols = result.columns[result.columns.str.startswith('ITEMID_')]
-    mean_by_item = result.groupby(['SUBJECT_ID', 'HADM_ID'])[item_cols].mean().reset_index()
-    result = result.merge(mean_by_item, on=['SUBJECT_ID', 'HADM_ID'])
+    # item_cols = result.columns[result.columns.str.startswith('ITEMID_')]
+    # mean_by_item = result.groupby(['SUBJECT_ID', 'HADM_ID'])[item_cols].mean().reset_index()
+    # result = result.merge(mean_by_item, on=['SUBJECT_ID', 'HADM_ID'])
 
-    new_col = {f'{x}_x':x for x in item_cols}
-    remove_col = [f'{x}_y' for x in item_cols]
-    for itemx, itemy in zip(new_col, remove_col):
-      result[itemx] = np.where(result[itemx].isna(), result[itemy], result[itemx])
+    # new_col = {f'{x}_x':x for x in item_cols}
+    # remove_col = [f'{x}_y' for x in item_cols]
+    # for itemx, itemy in zip(new_col, remove_col):
+    #   result[itemx] = np.where(result[itemx].isna(), result[itemy], result[itemx])
 
-    result = result.rename(columns=new_col)
-    result.drop(remove_col, axis=1, inplace=True)
+    # result = result.rename(columns=new_col)
+    # result.drop(remove_col, axis=1, inplace=True)
     # compute SOFA score
     result['SOFA'] = ef.get_sofa_score(df=result)
 
