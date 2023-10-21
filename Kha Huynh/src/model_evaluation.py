@@ -71,11 +71,12 @@ def plot_combined_roc_curves(models, x_train, y_train, x_test, y_test):
     precision_test = precision_score(y_test, np.argmax(preds_test, axis=1))
     recall_train = recall_score(y_train, np.argmax(preds_train, axis=1))
     recall_test = recall_score(y_test, np.argmax(preds_test, axis=1))
-
-    new_row = [model_name, acc_train, acc_test,
-                precision_train, precision_test,
-                recall_train, recall_test,
-                f1_train, f1_test]
+    
+    new_row = [model_name, round(acc_train, 3), round(acc_test, 3),
+                round(precision_train, 3), round(precision_test, 3),
+                round(recall_train, 3), round(recall_test, 3),
+                round(f1_train, 3), round(f1_test, 3),
+                round(roc_auc, 3)]
     row_list.append(new_row)
   
   plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
@@ -89,8 +90,72 @@ def plot_combined_roc_curves(models, x_train, y_train, x_test, y_test):
   table = pd.DataFrame(row_list, columns= ['Model', 'Balanced acc Train', 'Balanced acc Test',
                                          'Precision Train', 'Precision Test',
                                          'Recall Train', 'Recall Test',
-                                         'F1 Train', 'F1 Test'])
+                                         'F1 Train', 'F1 Test', 'AUC'])
+  return table
+
+def plot_combined_roc_curves_t(models, split_data_dict, top_features, time_windows):
+  plt.figure(figsize=(6, 6))
+  row_list = []
+  # Predict the test set using the best random forest regressor
+  for top in top_features:
+    for time in time_windows:
+      model = models[top][time]
+      x_train = split_data_dict[(top, time)]['x_train']
+      y_train = split_data_dict[(top, time)]['y_train']
+      x_test = split_data_dict[(top, time)]['x_test']
+      y_test = split_data_dict[(top, time)]['y_test']
+      
+      y_train = np.argmax(y_train, axis=1)
+      y_test = np.argmax(y_test, axis=1)
+
+      preds_train = model.predict(x_train)
+      preds_test = model.predict(x_test)
+      # Plotting ROC curve
+      fpr, tpr, thresholds_roc_rf_test = roc_curve(y_test, preds_test[:, 1], pos_label=1)
+      roc_auc = auc(fpr, tpr)
+      plt.plot(fpr, tpr, linewidth=2, label = f'{time} (AUC = {roc_auc:.3f})')
+
+      # Computing f1 and acc
+      f1_train = f1_score(y_train, np.argmax(preds_train, axis=1))
+      f1_test = f1_score(y_test, np.argmax(preds_test, axis=1))
+      acc_train = balanced_accuracy_score(y_train, np.argmax(preds_train, axis=1))
+      acc_test = balanced_accuracy_score(y_test, np.argmax(preds_test, axis=1))
+      # Computing precision and recall
+      precision_train = precision_score(y_train, np.argmax(preds_train, axis=1))
+      precision_test = precision_score(y_test, np.argmax(preds_test, axis=1))
+      recall_train = recall_score(y_train, np.argmax(preds_train, axis=1))
+      recall_test = recall_score(y_test, np.argmax(preds_test, axis=1))
+      
+      new_row = [time, round(acc_train, 3), round(acc_test, 3),
+                  round(precision_train, 3), round(precision_test, 3),
+                  round(recall_train, 3), round(recall_test, 3),
+                  round(f1_train, 3), round(f1_test, 3),
+                  round(roc_auc, 3)]
+      row_list.append(new_row)
   
+  plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
+  plt.axis([0, 1, 0, 1])
+  plt.xlabel('False Positive Rate', fontsize=11)
+  plt.ylabel('True Positive Rate', fontsize=11)
+  plt.legend(loc='lower right')
+  plt.title("ROC Curve")
+  plt.grid(False)
+  plt.show()
+  table = pd.DataFrame(row_list, columns= ['Model', 'Balanced acc Train', 'Balanced acc Test',
+                                         'Precision Train', 'Precision Test',
+                                         'Recall Train', 'Recall Test',
+                                         'F1 Train', 'F1 Test', 'AUC'])
+  test_table = __get_test_performance(table)
+  return table, test_table
+
+def __get_test_performance(table):
+  table = table[['Model', 'Balanced acc Test',
+                                         'Precision Test',
+                                         'Recall Test',
+                                         'F1 Test', 'AUC']]
+  table = table.T
+  table.columns = table.iloc[0]
+  table = table[1:]
   return table
 
 def print_results(M, X_train, Y_train, X_test, Y_test):
