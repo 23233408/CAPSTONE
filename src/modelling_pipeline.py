@@ -535,7 +535,7 @@ class ModelPipeline:
             self.plot_roc_curve(predicted_probabilities, model_name, y_test, label = None)
 
 
-    def plot_combined_roc_curves(self, candidate_models, X_test, y_test, title='ROC Curves'):
+    def plot_combined_roc_curves(self, candidate_models, X_test, y_test, X_test_lstm = [], y_test_lstm = [], title='ROC Curves'):
         """
         Plot the ROC curve for the candidate models.
         
@@ -547,15 +547,26 @@ class ModelPipeline:
         
         # Iterate over classifiers and plot ROC curve for each
         for model_name, model in candidate_models.items():
-            # Predict the probabilities of the positive class
-            predicted_probabilities = model.predict_proba(X_test)
+            if model_name == 'LSTM':
+                # Predict the probabilities of the positive class
+                predicted_probabilities_lstm = model.predict(X_test_lstm)
+                
+                # Compute ROC curve and AUC
+                fpr_lstm, tpr_lstm, thresholds_roc_test_lstm = roc_curve(y_test_lstm[:, 1], predicted_probabilities_lstm[:, 1], pos_label=1)
+                roc_auc_lstm = auc(fpr, tpr)# Plot ROC curve
+                
+                # Plot ROC curve
+                plt.plot(fpr_lstm, tpr_lstm, label=f'{model_name} (AUC = {roc_auc_lstm:.2f})')
+            else:
+                # Predict the probabilities of the positive class
+                predicted_probabilities = model.predict_proba(X_test)
             
-            # Compute ROC curve and AUC
-            fpr, tpr, thresholds_roc_test = roc_curve(y_test, predicted_probabilities[:, 1], pos_label=1)
-            roc_auc = auc(fpr, tpr)
+                # Compute ROC curve and AUC
+                fpr, tpr, thresholds_roc_test = roc_curve(y_test, predicted_probabilities[:, 1], pos_label=1)
+                roc_auc = auc(fpr, tpr)
             
-            # Plot ROC curve
-            plt.plot(fpr, tpr, label=f'{model_name} (AUC = {roc_auc:.2f})')
+                # Plot ROC curve
+                plt.plot(fpr, tpr, label=f'{model_name} (AUC = {roc_auc:.2f})')
         
         # Plot the random classifier
         plt.plot([0, 1], [0, 1], linestyle='--', color='gray', label='Random Classifier (AUC = 0.50)')
@@ -968,3 +979,132 @@ class ModelPipeline:
         shap.summary_plot(shap_values_gb, x_test_df)
         
         shap.plots.heatmap(shap_values_gb[:])
+    
+    def plot_combined_roc_curves_lstm(self, models, split_data_dict, top_features, time_windows):
+        plt.figure(figsize=(6, 6))
+        row_list = []
+        # Predict the test set using the best random forest regressor
+        for top in top_features:
+            for time in time_windows:
+                model = models[top][time]
+                x_train = split_data_dict[(top, time)]['x_train']
+                y_train = split_data_dict[(top, time)]['y_train']
+                x_test = split_data_dict[(top, time)]['x_test']
+                y_test = split_data_dict[(top, time)]['y_test']
+                
+                y_train = np.argmax(y_train, axis=1)
+                y_test = np.argmax(y_test, axis=1)
+
+                preds_train = model.predict(x_train)
+                preds_test = model.predict(x_test)
+                # Plotting ROC curve
+                fpr, tpr, thresholds_roc_rf_test = roc_curve(y_test, preds_test[:, 1], pos_label=1)
+                roc_auc = auc(fpr, tpr)
+                plt.plot(fpr, tpr, linewidth=2, label = f'{time} (AUC = {roc_auc:.3f})')
+
+                # Computing f1 and acc
+                f1_train = f1_score(y_train, np.argmax(preds_train, axis=1))
+                f1_test = f1_score(y_test, np.argmax(preds_test, axis=1))
+                acc_train = balanced_accuracy_score(y_train, np.argmax(preds_train, axis=1))
+                acc_test = balanced_accuracy_score(y_test, np.argmax(preds_test, axis=1))
+                # Computing precision and recall
+                precision_train = precision_score(y_train, np.argmax(preds_train, axis=1))
+                precision_test = precision_score(y_test, np.argmax(preds_test, axis=1))
+                recall_train = recall_score(y_train, np.argmax(preds_train, axis=1))
+                recall_test = recall_score(y_test, np.argmax(preds_test, axis=1))
+                
+                new_row = [time, round(acc_train, 3), round(acc_test, 3),
+                            round(precision_train, 3), round(precision_test, 3),
+                            round(recall_train, 3), round(recall_test, 3),
+                            round(f1_train, 3), round(f1_test, 3),
+                            round(roc_auc, 3)]
+                row_list.append(new_row)
+        
+        plt.plot([0, 1], [0, 1], 'k--') # dashed diagonal
+        plt.axis([0, 1, 0, 1])
+        plt.xlabel('False Positive Rate', fontsize=11)
+        plt.ylabel('True Positive Rate', fontsize=11)
+        plt.legend(loc='lower right')
+        plt.title("ROC Curve")
+        plt.grid(False)
+        plt.show()
+        table = pd.DataFrame(row_list, columns= ['Model', 'Balanced acc Train', 'Balanced acc Test',
+                                                'Precision Train', 'Precision Test',
+                                                'Recall Train', 'Recall Test',
+                                                'F1 Train', 'F1 Test', 'AUC'])
+        return table
+    
+    def compute_sample_weights(self, y):
+        class_weights = compute_class_weight('balanced', classes=np.unique(y), y=y)
+        sample_weights = class_weights[y]
+        return sample_weights
+    
+    def print_results(self, M, X_train, Y_train, X_test, Y_test):
+        Y_train = np.argmax(Y_train, axis=1)
+        Y_test = np.argmax(Y_test, axis=1)
+
+        preds_train = M.predict(X_train)
+        preds_train = np.argmax(preds_train, axis=1)
+        conf_mat_train = confusion_matrix(Y_train, preds_train)
+        # conf_mat = conf_mat.astype('float') / conf_mat.sum(axis=1)[:, np.newaxis]
+
+        preds_test = M.predict(X_test)
+        preds_test = np.argmax(preds_test, axis=1)
+        conf_mat_test = confusion_matrix(Y_test, preds_test)
+        # conf_mat = conf_mat.astype('float') / conf_mat.sum(axis=1)[:, np.newaxis]
+
+        print("***[RESULT]*** ACT  Confusion Matrix")
+        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10,4))
+
+        x_labels = ["Predicted\nNon-Sepsis", "Predicted\nSepsis"]
+        y_labels = ["Actual Non-Sepsis", "Actual Sepsis"]
+        sns.heatmap(conf_mat_train, fmt='d', annot=True, xticklabels=x_labels, yticklabels=y_labels, ax=axes[0])
+        sns.heatmap(conf_mat_test, fmt='d', annot=True, xticklabels=x_labels, yticklabels=y_labels, ax=axes[1])
+
+        axes[0].set_title("CM in training set", fontsize = 10)
+        axes[1].set_title("CM in test set", fontsize = 10)
+        axes[0].tick_params(labelsize=9)
+        axes[1].tick_params(labelsize=9)
+        plt.tight_layout()
+        plt.show()
+
+        f1_train = f1_score(Y_train, preds_train)
+        f1_test = f1_score(Y_test, preds_test)
+        acc_train = balanced_accuracy_score(Y_train, preds_train)
+        acc_test = balanced_accuracy_score(Y_test, preds_test)
+        # Computing precision and recall
+        precision_train = precision_score(Y_train, preds_train)
+        precision_test = precision_score(Y_test, preds_test)
+        recall_train = recall_score(Y_train, preds_train)
+        recall_test = recall_score(Y_test, preds_test)
+        table = pd.DataFrame({'F1-Score':[f1_train, f1_test], 'Balanced Acc':[acc_train, acc_test],
+                             'Precision':[precision_train, precision_test], 'Recall':[recall_train, recall_test]},
+                             index=['Train', 'Test'])
+        return table
+
+    def plot_precision_recall_lstm(self, model, model_name, X_test, y_test):
+        # Assuming you have predicted probabilities (change this to your actual predictions)
+        y_pred_prob = model.predict(X_test)
+        y_pred_prob = y_pred_prob[:, 1]
+
+        # Assuming y_test contains the true labels
+        y_true = y_test[:, 1]
+
+        # Calculate the AP value
+        ap = round(average_precision_score(y_true, y_pred_prob), 2)
+
+        # Print the AP value
+        print(f'Average Precision (AP): {ap:.4f}')
+
+        precision, recall, thresholds = precision_recall_curve(y_true, y_pred_prob)
+
+        # Create the Precision-Recall curve
+        plt.figure(figsize=(6, 4))
+        plt.plot(recall, precision, marker='.', label=f'LSTM (AP = {ap})')
+        plt.axhline(y=0.12, color='black', linestyle='--', label='Chance level (AP = 0.12)', xmin=0, xmax=1)
+        plt.xlabel('Recall (Positive label: 1)')
+        plt.ylabel('Precision (Positive label: 1)')
+        plt.legend(loc='upper right')
+        plt.title('Precision-Recall Curve')
+        plt.grid(False)
+        plt.show()

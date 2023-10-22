@@ -287,3 +287,30 @@ def cal_model_mean(m_hist, kfold, measure_list):
       model_result.append(mean_measure)
     result.append(model_result)
   return result
+
+def plot_precision_recall(model, model_name, X_test, y_test):
+  # Assuming you have predicted probabilities (change this to your actual predictions)
+  y_pred_prob = model.predict(X_test)
+  y_pred_prob = y_pred_prob[:, 1]
+
+  # Assuming y_test contains the true labels
+  y_true = y_test[:, 1]
+
+  # Calculate the AP value
+  ap = round(average_precision_score(y_true, y_pred_prob), 2)
+
+  # Print the AP value
+  print(f'Average Precision (AP): {ap:.4f}')
+
+  precision, recall, thresholds = precision_recall_curve(y_true, y_pred_prob)
+
+  # Create the Precision-Recall curve
+  plt.figure(figsize=(6, 4))
+  plt.plot(recall, precision, marker='.', label=f'LSTM (AP = {ap})')
+  plt.axhline(y=0.12, color='black', linestyle='--', label='Chance level (AP = 0.12)', xmin=0, xmax=1)
+  plt.xlabel('Recall (Positive label: 1)')
+  plt.ylabel('Precision (Positive label: 1)')
+  plt.legend(loc='upper right')
+  plt.title('Precision-Recall Curve')
+  plt.grid(False)
+  plt.show()
