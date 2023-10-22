@@ -1,0 +1,1 @@
+`As a medical expert specializing in identifying causal relationships for the development of sepsis, your task is to determine the primary causative agent responsible for sepsis. Please provide your findings in a concise list format, prioritizing accuracy and brevity`
