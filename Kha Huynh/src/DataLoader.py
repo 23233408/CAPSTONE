@@ -118,7 +118,8 @@ class DataLoader:
     """
     df_microbiologyevents = pd.read_csv(self.ROOT_DIR / 'data/MICROBIOLOGYEVENTS.csv')
     df_microbiologyevents['CHARTTIME'] = pd.to_datetime(df_microbiologyevents['CHARTTIME'], format='%Y-%m-%d %H:%M:%S')
-    df_microbiologyevents['AB_ITEMID'] = df_microbiologyevents.AB_ITEMID.astype(int)
+    df_microbiologyevents['AB_ITEMID'] = pd.to_numeric(df_microbiologyevents['AB_ITEMID'], errors='coerce').fillna(pd.NA).astype('Int64')
+    # df_microbiologyevents['AB_ITEMID'] = df_microbiologyevents.AB_ITEMID.astype(int)
     return df_microbiologyevents
 
   def load_demographic(self, df_diagnoses_icd):
