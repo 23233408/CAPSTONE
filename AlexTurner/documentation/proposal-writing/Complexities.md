@@ -11,7 +11,7 @@ The model operates on time series data and predicts the probability of a patient
 
 
 
-* The aim is to create a continuous, non-hierarchical sepsis score for hour-to-hour assessment using the same sepsis definition as the hierarchical scores commonly used [4,14,15] in a less continuous more intermittent fashion [29].” (Parente et al., 2020, p. 2)
+* The aim is to create a continuous, non-hierarchical sepsis score for hour-to-hour assessment using the same sepsis definition as the hierarchical scores commonly used [4,14,15] in a less continuous more intermittent fashion [29].” 
 
 ## Background
 

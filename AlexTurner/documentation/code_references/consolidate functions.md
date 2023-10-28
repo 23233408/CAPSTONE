@@ -15,10 +15,6 @@ _____
 
 na_counts, na_proportions = mp.count_missing_values_all(dfs_dict, hours_list, top_n_features)
 
-na_counts
-na_proportions
-
-
 
 Stacking classifier - improves on the errors
 Adaboost 

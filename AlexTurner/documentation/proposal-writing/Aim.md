@@ -18,8 +18,6 @@ _____
 * This study addressed whether a machine learning model could predict a risk score for sepsis identification that outperformed existing screening tools.
 
 
-
-
 _____________
 
 

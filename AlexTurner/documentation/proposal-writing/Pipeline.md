@@ -1,7 +1,7 @@
 
 **Identify sepsis occurrences**
 
-1. **establish the criteria for identifying patients with sepsis**
+Establish the criteria for identifying patients with sepsis
 - Which score and why?
 	- We chose qSOFA over SOFA because of the non-disponibility of laboratory data in a systematic form, while qSOFA considers only measures taken from physical examination and the occurrence of infections. However, due to the missing values Glasgow coma scale, we did not consider it in our study for the qSOFA criteria.
 

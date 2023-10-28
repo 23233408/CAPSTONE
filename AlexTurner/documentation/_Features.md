@@ -1,4 +1,4 @@
-Features engineering and included features of each study
+## Feature engineering and included features of each study:
 
 |Study|Number of initial features|Number of final features|Including features|
 |---|---|---|---|
@@ -15,4 +15,37 @@ Features engineering and included features of each study
 |[Hou et al. (2020)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8741489/#bib16)|22|11|urine output, lactate, Bun, sysbp, INR, age, cancer, SpO2, sodium, AG, creatinine|
 
 
-Abbreviation: WBC count: white blood cell count; BUN: blood urea nitrogen; RDW: Red blood cell distribution width; AST: aspartate transaminase; ED: emergency department; ECG: electrocardiogram; SOFA: Sequential Organ Failure Assessment; qSOFA: quick Sequential Organ Failure Assessment; RRSTD: standard deviation of respiratory rate intervals; MAPSTD: standard deviation of mean arterial pressure; HRV1: average multiscale entropy of respiratory rate; BPV1:averagemultiscale entropy of mean arterial pressure; HRV2:average multiscale conditional entropy of respiratory rate; HRV2:average multiscale conditional entropy of respiratory rate; MAP: Mean Arterial Blood Pressure; HR: Heart Rate; O2Sat: Oxygen Saturation; SBP: Systolic Blood Pressure; DBP: Diastolic Blood Pressure; RESP: Respiratory Rate; Temp: Temperature; GCS: Glasgow Coma Scale; PaO2: Partial Pressure of Arterial Oxygen; FIO2: Fraction of Inspired O2; INR: International Normalized Ratio, PTT: Partial Prothrombin Time, AST: Aspartate Aminotransferase, BNP:B-type Natriuretic Peptide; CCI: Charleston Comorbidity Index; sysbp: systolic blood pressure; AG: anion gap.
+## Table of Abbreviations:
+
+| Term   | Definition                                            |
+|--------|-------------------------------------------------------|
+| WBC    | White Blood Cell Count                                |
+| BUN    | Blood Urea Nitrogen                                   |
+| RDW    | Red Blood Cell Distribution Width                     |
+| AST    | Aspartate Transaminase                                |
+| ED     | Emergency Department                                  |
+| ECG    | Electrocardiogram                                     |
+| SOFA   | Sequential Organ Failure Assessment                   |
+| qSOFA  | Quick Sequential Organ Failure Assessment             |
+| RRSTD  | Standard Deviation of Respiratory Rate Intervals      |
+| MAPSTD | Standard Deviation of Mean Arterial Pressure          |
+| HRV1   | Average Multiscale Entropy of Respiratory Rate        |
+| BPV1   | Average Multiscale Entropy of Mean Arterial Pressure  |
+| HRV2   | Average Multiscale Conditional Entropy of Respiratory Rate |
+| MAP    | Mean Arterial Blood Pressure                          |
+| HR     | Heart Rate                                            |
+| O2Sat  | Oxygen Saturation                                     |
+| SBP    | Systolic Blood Pressure                               |
+| DBP    | Diastolic Blood Pressure                              |
+| RESP   | Respiratory Rate                                      |
+| Temp   | Temperature                                           |
+| GCS    | Glasgow Coma Scale                                    |
+| PaO2   | Partial Pressure of Arterial Oxygen                   |
+| FIO2   | Fraction of Inspired O2                               |
+| INR    | International Normalized Ratio                        |
+| PTT    | Partial Prothrombin Time                              |
+| BNP    | B-type Natriuretic Peptide                            |
+| CCI    | Charleston Comorbidity Index                          |
+| sysbp  | Systolic Blood Pressure                               |
+| AG     | Anion Gap                                             |
+
