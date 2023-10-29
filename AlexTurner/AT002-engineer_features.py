@@ -1,16 +1,17 @@
-import numpy as np
-import pandas as pd
+"""
+This script is used to engineer the qSOFA, SIRS and SOFA scores. 
+
+It should be noted that the SOFA score is incomplete.
+
+Specifically, features from the chartevents table are unaccessible:
+Heart rate      CHARTEVENTS['ITEMID'] == [211, 220045]
+PaO2            CHARTEVENTS['ITEMID'] == [779]
+FiO2            CHARTEVENTS['ITEMID'] == [3420]
+"""
 from pathlib import Path
 
-
-# Requires the following from Chartevents:
-
-    # Heart rate
-        # CHARTEVENTS['ITEMID'] == [211, 220045]
-
-
-# PaO2 [779] chartevents
-# FiO2 [3420] chartevents
+import numpy as np
+import pandas as pd
 
 
 def get_qsofa_score(df):
