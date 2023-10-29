@@ -1,0 +1,90 @@
+[
+  {
+    "conditions": {
+      "A": "Septicemia NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "Yes",
+    "risk_factor": "No"
+  },
+  {
+    "conditions": {
+      "A": "Septic shock",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "No"
+  },
+  {
+    "conditions": {
+      "A": "Acute kidney failure NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "Yes"
+  },
+  {
+    "conditions": {
+      "A": "Acute respiratory failure",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "Yes"
+  },
+  {
+    "conditions": {
+      "A": "Hypertension NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "No"
+  },
+  {
+    "conditions": {
+      "A": "CHF NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "Yes"
+  },
+  {
+    "conditions": {
+      "A": "Atrial fibrillation",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "No"
+  },
+  {
+    "conditions": {
+      "A": "Urin tract infection NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "Yes",
+    "risk_factor": "No"
+  },
+  {
+    "conditions": {
+      "A": "Acidosis",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "Yes"
+  },
+  {
+    "conditions": {
+      "A": "DMII wo cmp nt st uncntr",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "No",
+    "risk_factor": "Yes"
+  },
+  {
+    "conditions": {
+      "A": "Pneumonia, organism NOS",
+      "B": "Sepsis"
+    },
+    "causal_relationship": "Yes",
+    "risk_factor": "No"
+  }
+]

@@ -1,0 +1,1 @@
+[PyTorch Deep Explainer MNIST](https://shap.readthedocs.io/en/latest/example_notebooks/image_examples/image_classification/PyTorch%20Deep%20Explainer%20MNIST%20example.html#PyTorch-Deep-Explainer-MNIST-example "Permalink to this heading")

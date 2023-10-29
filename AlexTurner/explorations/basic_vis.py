@@ -32,7 +32,7 @@ def plot_variable_histograms(col_names, df):
         plt.plot([], label='Skew: {}'.format(format(skew,'.2f')),
                  color='lightgray')
 
-        # add title, labels etc.
+        # add title
         plt.title('{} measurements in ICU '.format(str(c)))
         plt.xlabel(str(c))
         plt.legend(loc="upper left", bbox_to_anchor=(1,1),fontsize=12)
