@@ -4,7 +4,6 @@ Contents:
 
 - [Literature review annotations](https://github.com/23233408/CAPSTONE/tree/main/AlexTurner/documentation)
 - [Key research findings](https://github.com/23233408/CAPSTONE/tree/main/AlexTurner/documentation/literature-summary)
-- Key features, data summary
 - [Project meeting documentation and questions](https://github.com/23233408/CAPSTONE/tree/main/AlexTurner/documentation/project-log)
 - [Prompt engineering documentation](https://github.com/23233408/CAPSTONE/tree/main/AlexTurner/documentation/prompts)
 
