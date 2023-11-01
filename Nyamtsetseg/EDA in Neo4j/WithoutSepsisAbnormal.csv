@@ -1,0 +1,410 @@
+SUBJECT_ID,HADM_ID,GENDER,AGE,IS_SEPSIS,ITEMID,FLAG,LABEL
+22,165315,F,64,0,50931,abnormal,Glucose
+22,165315,F,64,0,50971,abnormal,Potassium
+22,165315,F,64,0,51221,abnormal,Hematocrit
+22,165315,F,64,0,51279,abnormal,Red Blood Cells
+23,152223,M,71,0,50893,abnormal,"Calcium, Total"
+23,152223,M,71,0,50902,abnormal,Chloride
+23,152223,M,71,0,50931,abnormal,Glucose
+23,152223,M,71,0,51221,abnormal,Hematocrit
+23,152223,M,71,0,51222,abnormal,Hemoglobin
+23,152223,M,71,0,51248,abnormal,MCH
+23,152223,M,71,0,51249,abnormal,MCHC
+23,152223,M,71,0,51265,abnormal,Platelet Count
+23,152223,M,71,0,51279,abnormal,Red Blood Cells
+23,152223,M,71,0,51275,abnormal,PTT
+23,152223,M,71,0,50808,abnormal,Free Calcium
+23,152223,M,71,0,50818,abnormal,pCO2
+23,152223,M,71,0,50820,abnormal,pH
+23,152223,M,71,0,50821,abnormal,pO2
+23,152223,M,71,0,50811,abnormal,Hemoglobin
+23,152223,M,71,0,51274,abnormal,PT
+23,152223,M,71,0,51214,abnormal,"Fibrinogen, Functional"
+23,152223,M,71,0,50809,abnormal,Glucose
+23,124321,M,75,0,50893,abnormal,"Calcium, Total"
+23,124321,M,75,0,50931,abnormal,Glucose
+23,124321,M,75,0,50970,abnormal,Phosphate
+23,124321,M,75,0,51006,abnormal,Urea Nitrogen
+23,124321,M,75,0,51221,abnormal,Hematocrit
+23,124321,M,75,0,51222,abnormal,Hemoglobin
+23,124321,M,75,0,51244,abnormal,Lymphocytes
+23,124321,M,75,0,51248,abnormal,MCH
+23,124321,M,75,0,51249,abnormal,MCHC
+23,124321,M,75,0,51256,abnormal,Neutrophils
+23,124321,M,75,0,51265,abnormal,Platelet Count
+23,124321,M,75,0,51279,abnormal,Red Blood Cells
+23,124321,M,75,0,51301,abnormal,White Blood Cells
+23,124321,M,75,0,50808,abnormal,Free Calcium
+23,124321,M,75,0,50813,abnormal,Lactate
+23,124321,M,75,0,50821,abnormal,pO2
+23,124321,M,75,0,50811,abnormal,Hemoglobin
+23,124321,M,75,0,50809,abnormal,Glucose
+23,124321,M,75,0,50822,abnormal,"Potassium, Whole Blood"
+23,124321,M,75,0,50824,abnormal,"Sodium, Whole Blood"
+23,124321,M,75,0,50806,abnormal,"Chloride, Whole Blood"
+23,124321,M,75,0,51009,abnormal,Vancomycin
+23,124321,M,75,0,50967,abnormal,Phenytoin
+24,161859,M,39,0,50931,abnormal,Glucose
+24,161859,M,39,0,50878,abnormal,Asparate Aminotransferase (AST)
+24,161859,M,39,0,51248,abnormal,MCH
+24,161859,M,39,0,51249,abnormal,MCHC
+24,161859,M,39,0,51279,abnormal,Red Blood Cells
+24,161859,M,39,0,50821,abnormal,pO2
+24,161859,M,39,0,50861,abnormal,Alanine Aminotransferase (ALT)
+24,161859,M,39,0,51003,abnormal,Troponin T
+24,161859,M,39,0,50852,abnormal,% Hemoglobin A1c
+25,129635,M,58,0,50868,abnormal,Anion Gap
+25,129635,M,58,0,50882,abnormal,Bicarbonate
+25,129635,M,58,0,50893,abnormal,"Calcium, Total"
+25,129635,M,58,0,50902,abnormal,Chloride
+25,129635,M,58,0,50910,abnormal,Creatine Kinase (CK)
+25,129635,M,58,0,50911,abnormal,"Creatine Kinase, MB Isoenzyme"
+25,129635,M,58,0,50912,abnormal,Creatinine
+25,129635,M,58,0,50931,abnormal,Glucose
+25,129635,M,58,0,50970,abnormal,Phosphate
+25,129635,M,58,0,50971,abnormal,Potassium
+25,129635,M,58,0,50863,abnormal,Alkaline Phosphatase
+25,129635,M,58,0,50878,abnormal,Asparate Aminotransferase (AST)
+25,129635,M,58,0,51006,abnormal,Urea Nitrogen
+25,129635,M,58,0,51221,abnormal,Hematocrit
+25,129635,M,58,0,51222,abnormal,Hemoglobin
+25,129635,M,58,0,51244,abnormal,Lymphocytes
+25,129635,M,58,0,51249,abnormal,MCHC
+25,129635,M,58,0,51256,abnormal,Neutrophils
+25,129635,M,58,0,51265,abnormal,Platelet Count
+25,129635,M,58,0,51279,abnormal,Red Blood Cells
+25,129635,M,58,0,51301,abnormal,White Blood Cells
+25,129635,M,58,0,51275,abnormal,PTT
+25,129635,M,58,0,50808,abnormal,Free Calcium
+25,129635,M,58,0,50818,abnormal,pCO2
+25,129635,M,58,0,50820,abnormal,pH
+25,129635,M,58,0,50821,abnormal,pO2
+25,129635,M,58,0,50811,abnormal,Hemoglobin
+25,129635,M,58,0,50862,abnormal,Albumin
+25,129635,M,58,0,50908,abnormal,CK-MB Index
+25,129635,M,58,0,51003,abnormal,Troponin T
+26,197661,M,72,0,50893,abnormal,"Calcium, Total"
+26,197661,M,72,0,50912,abnormal,Creatinine
+26,197661,M,72,0,50931,abnormal,Glucose
+26,197661,M,72,0,50970,abnormal,Phosphate
+26,197661,M,72,0,50885,abnormal,"Bilirubin, Total"
+26,197661,M,72,0,51006,abnormal,Urea Nitrogen
+26,197661,M,72,0,51221,abnormal,Hematocrit
+26,197661,M,72,0,51222,abnormal,Hemoglobin
+26,197661,M,72,0,51248,abnormal,MCH
+26,197661,M,72,0,51279,abnormal,Red Blood Cells
+26,197661,M,72,0,51274,abnormal,PT
+26,197661,M,72,0,51007,abnormal,Uric Acid
+26,197661,M,72,0,51493,abnormal,RBC
+26,197661,M,72,0,51514,abnormal,Urobilinogen
+26,197661,M,72,0,51482,abnormal,Hyaline Casts
+27,134931,F,0,0,51221,abnormal,Hematocrit
+27,134931,F,0,0,51222,abnormal,Hemoglobin
+27,134931,F,0,0,51244,abnormal,Lymphocytes
+27,134931,F,0,0,51248,abnormal,MCH
+27,134931,F,0,0,51250,abnormal,MCV
+27,134931,F,0,0,51277,abnormal,RDW
+27,134931,F,0,0,51279,abnormal,Red Blood Cells
+27,134931,F,0,0,51144,abnormal,Bands
+27,134931,F,0,0,51251,abnormal,Metamyelocytes
+27,134931,F,0,0,51257,abnormal,Nucleated Red Cells
+27,134931,F,0,0,50883,abnormal,"Bilirubin, Direct"
+28,162569,M,74,0,50893,abnormal,"Calcium, Total"
+28,162569,M,74,0,50902,abnormal,Chloride
+28,162569,M,74,0,50931,abnormal,Glucose
+28,162569,M,74,0,51006,abnormal,Urea Nitrogen
+28,162569,M,74,0,51221,abnormal,Hematocrit
+28,162569,M,74,0,51222,abnormal,Hemoglobin
+28,162569,M,74,0,51248,abnormal,MCH
+28,162569,M,74,0,51249,abnormal,MCHC
+28,162569,M,74,0,51265,abnormal,Platelet Count
+28,162569,M,74,0,51279,abnormal,Red Blood Cells
+28,162569,M,74,0,50808,abnormal,Free Calcium
+28,162569,M,74,0,50818,abnormal,pCO2
+28,162569,M,74,0,50820,abnormal,pH
+28,162569,M,74,0,50821,abnormal,pO2
+28,162569,M,74,0,50811,abnormal,Hemoglobin
+28,162569,M,74,0,51274,abnormal,PT
+28,162569,M,74,0,50809,abnormal,Glucose
+30,104557,M,300,0,50882,abnormal,Bicarbonate
+30,104557,M,300,0,50902,abnormal,Chloride
+30,104557,M,300,0,50910,abnormal,Creatine Kinase (CK)
+30,104557,M,300,0,50911,abnormal,"Creatine Kinase, MB Isoenzyme"
+30,104557,M,300,0,50912,abnormal,Creatinine
+30,104557,M,300,0,50931,abnormal,Glucose
+30,104557,M,300,0,50983,abnormal,Sodium
+30,104557,M,300,0,50878,abnormal,Asparate Aminotransferase (AST)
+30,104557,M,300,0,51006,abnormal,Urea Nitrogen
+30,104557,M,300,0,51221,abnormal,Hematocrit
+30,104557,M,300,0,51222,abnormal,Hemoglobin
+30,104557,M,300,0,51244,abnormal,Lymphocytes
+30,104557,M,300,0,51249,abnormal,MCHC
+30,104557,M,300,0,51256,abnormal,Neutrophils
+30,104557,M,300,0,51279,abnormal,Red Blood Cells
+30,104557,M,300,0,51301,abnormal,White Blood Cells
+30,104557,M,300,0,51275,abnormal,PTT
+30,104557,M,300,0,50811,abnormal,Hemoglobin
+30,104557,M,300,0,50862,abnormal,Albumin
+30,104557,M,300,0,51493,abnormal,RBC
+30,104557,M,300,0,51516,abnormal,WBC
+30,104557,M,300,0,50908,abnormal,CK-MB Index
+30,104557,M,300,0,50964,abnormal,"Osmolality, Measured"
+30,104557,M,300,0,50952,abnormal,Iron
+30,104557,M,300,0,50852,abnormal,% Hemoglobin A1c
+31,128652,M,72,0,50882,abnormal,Bicarbonate
+31,128652,M,72,0,50893,abnormal,"Calcium, Total"
+31,128652,M,72,0,50902,abnormal,Chloride
+31,128652,M,72,0,50912,abnormal,Creatinine
+31,128652,M,72,0,50931,abnormal,Glucose
+31,128652,M,72,0,50970,abnormal,Phosphate
+31,128652,M,72,0,50983,abnormal,Sodium
+31,128652,M,72,0,50863,abnormal,Alkaline Phosphatase
+31,128652,M,72,0,50878,abnormal,Asparate Aminotransferase (AST)
+31,128652,M,72,0,51006,abnormal,Urea Nitrogen
+31,128652,M,72,0,51221,abnormal,Hematocrit
+31,128652,M,72,0,51222,abnormal,Hemoglobin
+31,128652,M,72,0,51244,abnormal,Lymphocytes
+31,128652,M,72,0,51248,abnormal,MCH
+31,128652,M,72,0,51249,abnormal,MCHC
+31,128652,M,72,0,51250,abnormal,MCV
+31,128652,M,72,0,51256,abnormal,Neutrophils
+31,128652,M,72,0,51265,abnormal,Platelet Count
+31,128652,M,72,0,51277,abnormal,RDW
+31,128652,M,72,0,51279,abnormal,Red Blood Cells
+31,128652,M,72,0,51301,abnormal,White Blood Cells
+31,128652,M,72,0,50804,abnormal,Calculated Total CO2
+31,128652,M,72,0,50808,abnormal,Free Calcium
+31,128652,M,72,0,50818,abnormal,pCO2
+31,128652,M,72,0,50820,abnormal,pH
+31,128652,M,72,0,50821,abnormal,pO2
+31,128652,M,72,0,51274,abnormal,PT
+31,128652,M,72,0,50862,abnormal,Albumin
+31,128652,M,72,0,51214,abnormal,"Fibrinogen, Functional"
+31,128652,M,72,0,50809,abnormal,Glucose
+31,128652,M,72,0,51493,abnormal,RBC
+31,128652,M,72,0,51514,abnormal,Urobilinogen
+31,128652,M,72,0,51516,abnormal,WBC
+31,128652,M,72,0,51018,abnormal,"Total Protein, CSF"
+31,128652,M,72,0,51362,abnormal,"RBC, CSF"
+31,128652,M,72,0,51070,abnormal,"Albumin/Creatinine, Urine"
+32,175413,M,45,0,50882,abnormal,Bicarbonate
+32,175413,M,45,0,50893,abnormal,"Calcium, Total"
+32,175413,M,45,0,50902,abnormal,Chloride
+32,175413,M,45,0,50931,abnormal,Glucose
+32,175413,M,45,0,50960,abnormal,Magnesium
+32,175413,M,45,0,50983,abnormal,Sodium
+32,175413,M,45,0,51221,abnormal,Hematocrit
+32,175413,M,45,0,51222,abnormal,Hemoglobin
+32,175413,M,45,0,51248,abnormal,MCH
+32,175413,M,45,0,51250,abnormal,MCV
+32,175413,M,45,0,51265,abnormal,Platelet Count
+32,175413,M,45,0,51277,abnormal,RDW
+32,175413,M,45,0,51279,abnormal,Red Blood Cells
+32,175413,M,45,0,51301,abnormal,White Blood Cells
+32,175413,M,45,0,51275,abnormal,PTT
+32,175413,M,45,0,50808,abnormal,Free Calcium
+32,175413,M,45,0,50811,abnormal,Hemoglobin
+32,175413,M,45,0,51274,abnormal,PT
+32,175413,M,45,0,50809,abnormal,Glucose
+32,175413,M,45,0,50803,abnormal,"Calculated Bicarbonate, Whole Blood"
+32,175413,M,45,0,51009,abnormal,Vancomycin
+33,176176,M,82,0,50893,abnormal,"Calcium, Total"
+33,176176,M,82,0,50931,abnormal,Glucose
+33,176176,M,82,0,50960,abnormal,Magnesium
+33,176176,M,82,0,50970,abnormal,Phosphate
+33,176176,M,82,0,51006,abnormal,Urea Nitrogen
+33,176176,M,82,0,51200,abnormal,Eosinophils
+33,176176,M,82,0,51221,abnormal,Hematocrit
+33,176176,M,82,0,51222,abnormal,Hemoglobin
+33,176176,M,82,0,51244,abnormal,Lymphocytes
+33,176176,M,82,0,51254,abnormal,Monocytes
+33,176176,M,82,0,51256,abnormal,Neutrophils
+33,176176,M,82,0,51265,abnormal,Platelet Count
+33,176176,M,82,0,51279,abnormal,Red Blood Cells
+33,176176,M,82,0,51301,abnormal,White Blood Cells
+33,176176,M,82,0,50813,abnormal,Lactate
+33,176176,M,82,0,50818,abnormal,pCO2
+33,176176,M,82,0,50821,abnormal,pO2
+33,176176,M,82,0,50811,abnormal,Hemoglobin
+33,176176,M,82,0,51144,abnormal,Bands
+33,176176,M,82,0,50954,abnormal,Lactate Dehydrogenase (LD)
+33,176176,M,82,0,50889,abnormal,C-Reactive Protein
+33,176176,M,82,0,50909,abnormal,Cortisol
+34,115799,M,300,0,50911,abnormal,"Creatine Kinase, MB Isoenzyme"
+34,115799,M,300,0,50931,abnormal,Glucose
+34,115799,M,300,0,50970,abnormal,Phosphate
+34,115799,M,300,0,51006,abnormal,Urea Nitrogen
+34,115799,M,300,0,51146,abnormal,Basophils
+34,115799,M,300,0,51221,abnormal,Hematocrit
+34,115799,M,300,0,51222,abnormal,Hemoglobin
+34,115799,M,300,0,51244,abnormal,Lymphocytes
+34,115799,M,300,0,51256,abnormal,Neutrophils
+34,115799,M,300,0,51279,abnormal,Red Blood Cells
+34,115799,M,300,0,51301,abnormal,White Blood Cells
+34,115799,M,300,0,50818,abnormal,pCO2
+34,115799,M,300,0,50821,abnormal,pO2
+34,115799,M,300,0,50861,abnormal,Alanine Aminotransferase (ALT)
+34,115799,M,300,0,50908,abnormal,CK-MB Index
+34,115799,M,300,0,51000,abnormal,Triglycerides
+34,115799,M,300,0,51003,abnormal,Troponin T
+34,144319,M,304,0,50902,abnormal,Chloride
+34,144319,M,304,0,50912,abnormal,Creatinine
+34,144319,M,304,0,50931,abnormal,Glucose
+34,144319,M,304,0,51006,abnormal,Urea Nitrogen
+34,144319,M,304,0,51221,abnormal,Hematocrit
+34,144319,M,304,0,51222,abnormal,Hemoglobin
+34,144319,M,304,0,51244,abnormal,Lymphocytes
+34,144319,M,304,0,51256,abnormal,Neutrophils
+34,144319,M,304,0,51279,abnormal,Red Blood Cells
+34,144319,M,304,0,50808,abnormal,Free Calcium
+34,144319,M,304,0,50811,abnormal,Hemoglobin
+34,144319,M,304,0,51237,abnormal,INR(PT)
+34,144319,M,304,0,51274,abnormal,PT
+34,144319,M,304,0,50956,abnormal,Lipase
+34,144319,M,304,0,50809,abnormal,Glucose
+34,144319,M,304,0,50993,abnormal,Thyroid Stimulating Hormone
+34,144319,M,304,0,51000,abnormal,Triglycerides
+34,144319,M,304,0,51003,abnormal,Troponin T
+34,144319,M,304,0,51482,abnormal,Hyaline Casts
+35,166707,F,69,0,50902,abnormal,Chloride
+35,166707,F,69,0,50931,abnormal,Glucose
+35,166707,F,69,0,50970,abnormal,Phosphate
+35,166707,F,69,0,50971,abnormal,Potassium
+35,166707,F,69,0,51221,abnormal,Hematocrit
+35,166707,F,69,0,51222,abnormal,Hemoglobin
+35,166707,F,69,0,51249,abnormal,MCHC
+35,166707,F,69,0,51265,abnormal,Platelet Count
+35,166707,F,69,0,51279,abnormal,Red Blood Cells
+35,166707,F,69,0,51301,abnormal,White Blood Cells
+35,166707,F,69,0,51275,abnormal,PTT
+35,166707,F,69,0,50804,abnormal,Calculated Total CO2
+35,166707,F,69,0,50808,abnormal,Free Calcium
+35,166707,F,69,0,50818,abnormal,pCO2
+35,166707,F,69,0,50820,abnormal,pH
+35,166707,F,69,0,50821,abnormal,pO2
+35,166707,F,69,0,50811,abnormal,Hemoglobin
+35,166707,F,69,0,51237,abnormal,INR(PT)
+35,166707,F,69,0,51274,abnormal,PT
+35,166707,F,69,0,50809,abnormal,Glucose
+35,166707,F,69,0,50822,abnormal,"Potassium, Whole Blood"
+36,182104,M,69,0,50893,abnormal,"Calcium, Total"
+36,182104,M,69,0,50902,abnormal,Chloride
+36,182104,M,69,0,50912,abnormal,Creatinine
+36,182104,M,69,0,50931,abnormal,Glucose
+36,182104,M,69,0,51006,abnormal,Urea Nitrogen
+36,182104,M,69,0,51221,abnormal,Hematocrit
+36,182104,M,69,0,51222,abnormal,Hemoglobin
+36,182104,M,69,0,51249,abnormal,MCHC
+36,182104,M,69,0,51250,abnormal,MCV
+36,182104,M,69,0,51265,abnormal,Platelet Count
+36,182104,M,69,0,51279,abnormal,Red Blood Cells
+36,182104,M,69,0,51301,abnormal,White Blood Cells
+36,182104,M,69,0,51275,abnormal,PTT
+36,182104,M,69,0,50808,abnormal,Free Calcium
+36,182104,M,69,0,50818,abnormal,pCO2
+36,182104,M,69,0,50820,abnormal,pH
+36,182104,M,69,0,50821,abnormal,pO2
+36,182104,M,69,0,50811,abnormal,Hemoglobin
+36,182104,M,69,0,51237,abnormal,INR(PT)
+36,182104,M,69,0,51274,abnormal,PT
+36,182104,M,69,0,50809,abnormal,Glucose
+36,182104,M,69,0,50822,abnormal,"Potassium, Whole Blood"
+36,122659,M,69,0,50882,abnormal,Bicarbonate
+36,122659,M,69,0,50893,abnormal,"Calcium, Total"
+36,122659,M,69,0,50902,abnormal,Chloride
+36,122659,M,69,0,50910,abnormal,Creatine Kinase (CK)
+36,122659,M,69,0,50912,abnormal,Creatinine
+36,122659,M,69,0,50931,abnormal,Glucose
+36,122659,M,69,0,50970,abnormal,Phosphate
+36,122659,M,69,0,50971,abnormal,Potassium
+36,122659,M,69,0,50983,abnormal,Sodium
+36,122659,M,69,0,50863,abnormal,Alkaline Phosphatase
+36,122659,M,69,0,51006,abnormal,Urea Nitrogen
+36,122659,M,69,0,51200,abnormal,Eosinophils
+36,122659,M,69,0,51221,abnormal,Hematocrit
+36,122659,M,69,0,51222,abnormal,Hemoglobin
+36,122659,M,69,0,51244,abnormal,Lymphocytes
+36,122659,M,69,0,51249,abnormal,MCHC
+36,122659,M,69,0,51256,abnormal,Neutrophils
+36,122659,M,69,0,51265,abnormal,Platelet Count
+36,122659,M,69,0,51277,abnormal,RDW
+36,122659,M,69,0,51279,abnormal,Red Blood Cells
+36,122659,M,69,0,51301,abnormal,White Blood Cells
+36,122659,M,69,0,51275,abnormal,PTT
+36,122659,M,69,0,50804,abnormal,Calculated Total CO2
+36,122659,M,69,0,50808,abnormal,Free Calcium
+36,122659,M,69,0,50813,abnormal,Lactate
+36,122659,M,69,0,50818,abnormal,pCO2
+36,122659,M,69,0,50820,abnormal,pH
+36,122659,M,69,0,50821,abnormal,pO2
+36,122659,M,69,0,50811,abnormal,Hemoglobin
+36,122659,M,69,0,51237,abnormal,INR(PT)
+36,122659,M,69,0,51274,abnormal,PT
+36,122659,M,69,0,50862,abnormal,Albumin
+36,122659,M,69,0,51214,abnormal,"Fibrinogen, Functional"
+36,122659,M,69,0,50809,abnormal,Glucose
+36,122659,M,69,0,50822,abnormal,"Potassium, Whole Blood"
+36,122659,M,69,0,50824,abnormal,"Sodium, Whole Blood"
+36,122659,M,69,0,50954,abnormal,Lactate Dehydrogenase (LD)
+36,122659,M,69,0,50889,abnormal,C-Reactive Protein
+36,122659,M,69,0,51003,abnormal,Troponin T
+36,122659,M,69,0,51288,abnormal,Sedimentation Rate
+36,122659,M,69,0,50963,abnormal,NTproBNP
+36,165660,M,72,0,50882,abnormal,Bicarbonate
+36,165660,M,72,0,50893,abnormal,"Calcium, Total"
+36,165660,M,72,0,50902,abnormal,Chloride
+36,165660,M,72,0,50910,abnormal,Creatine Kinase (CK)
+36,165660,M,72,0,50931,abnormal,Glucose
+36,165660,M,72,0,50970,abnormal,Phosphate
+36,165660,M,72,0,50971,abnormal,Potassium
+36,165660,M,72,0,51006,abnormal,Urea Nitrogen
+36,165660,M,72,0,51221,abnormal,Hematocrit
+36,165660,M,72,0,51222,abnormal,Hemoglobin
+36,165660,M,72,0,51249,abnormal,MCHC
+36,165660,M,72,0,51265,abnormal,Platelet Count
+36,165660,M,72,0,51279,abnormal,Red Blood Cells
+36,165660,M,72,0,51301,abnormal,White Blood Cells
+36,165660,M,72,0,51275,abnormal,PTT
+36,165660,M,72,0,50804,abnormal,Calculated Total CO2
+36,165660,M,72,0,50818,abnormal,pCO2
+36,165660,M,72,0,50820,abnormal,pH
+36,165660,M,72,0,50821,abnormal,pO2
+36,165660,M,72,0,51237,abnormal,INR(PT)
+36,165660,M,72,0,51274,abnormal,PT
+36,165660,M,72,0,50862,abnormal,Albumin
+36,165660,M,72,0,51003,abnormal,Troponin T
+36,165660,M,72,0,50945,abnormal,Homocysteine
+37,188670,M,68,0,50882,abnormal,Bicarbonate
+37,188670,M,68,0,50910,abnormal,Creatine Kinase (CK)
+37,188670,M,68,0,50911,abnormal,"Creatine Kinase, MB Isoenzyme"
+37,188670,M,68,0,50931,abnormal,Glucose
+37,188670,M,68,0,51006,abnormal,Urea Nitrogen
+37,188670,M,68,0,51221,abnormal,Hematocrit
+37,188670,M,68,0,51222,abnormal,Hemoglobin
+37,188670,M,68,0,51244,abnormal,Lymphocytes
+37,188670,M,68,0,51256,abnormal,Neutrophils
+37,188670,M,68,0,51279,abnormal,Red Blood Cells
+37,188670,M,68,0,51301,abnormal,White Blood Cells
+37,188670,M,68,0,50804,abnormal,Calculated Total CO2
+37,188670,M,68,0,50818,abnormal,pCO2
+37,188670,M,68,0,50820,abnormal,pH
+37,188670,M,68,0,50811,abnormal,Hemoglobin
+37,188670,M,68,0,51274,abnormal,PT
+37,188670,M,68,0,50809,abnormal,Glucose
+37,188670,M,68,0,51493,abnormal,RBC
+37,188670,M,68,0,50924,abnormal,Ferritin
+37,188670,M,68,0,50952,abnormal,Iron
+37,188670,M,68,0,50953,abnormal,"Iron Binding Capacity, Total"
+37,188670,M,68,0,50998,abnormal,Transferrin
+37,188670,M,68,0,50954,abnormal,Lactate Dehydrogenase (LD)
+37,188670,M,68,0,51003,abnormal,Troponin T
+37,188670,M,68,0,50935,abnormal,Haptoglobin
+37,188670,M,68,0,50950,abnormal,Immunoglobulin G
+39,106266,F,0,0,50882,abnormal,Bicarbonate
+39,106266,F,0,0,50902,abnormal,Chloride
+39,106266,F,0,0,50971,abnormal,Potassium
+39,106266,F,0,0,50885,abnormal,"Bilirubin, Total"
+39,106266,F,0,0,51248,abnormal,MCH
+39,106266,F,0,0,51250,abnormal,MCV
+39,106266,F,0,0,51277,abnormal,RDW
+39,106266,F,0,0,50883,abnormal,"Bilirubin, Direct"
