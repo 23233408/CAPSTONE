@@ -1,0 +1,35 @@
+LOAD CSV WITH HEADERS FROM 'file:///WithoutSepsisAbnormal.csv' AS row
+MERGE (p:Patient {subject_id: row.SUBJECT_ID, age: row.AGE, gender: row.GENDER})
+MERGE (a:Admission0 {hadm_id: row.HADM_ID})
+MERGE (s:Sepsis0 {type: row.IS_SEPSIS})
+CREATE (id:ItemID1 {ITEMID: row.ITEMID, l:row.LABEL, flag:row.FLAG})
+MERGE (a)-[:DIAGNOSED]->(s)
+MERGE (p)-[:ADMITTED]->(a)
+MERGE (a)-[:HAS_ITEMID]->(id)
+
+LOAD CSV WITH HEADERS FROM 'file:///WithoutSepsisNormal.csv' AS row
+MERGE (p:Patient {subject_id: row.SUBJECT_ID, age: row.AGE, gender: row.GENDER})
+MERGE (a:Admission0 {hadm_id: row.HADM_ID})
+MERGE (s:Sepsis0 {type: row.IS_SEPSIS})
+CREATE (id:ItemID {ITEMID: row.ITEMID, l:row.LABEL, flag:row.FLAG})
+MERGE (a)-[:DIAGNOSED]->(s)
+MERGE (p)-[:ADMITTED]->(a)
+MERGE (a)-[:HAS_ITEMID]->(id)
+
+LOAD CSV WITH HEADERS FROM 'file:///WithSepsisAbnormal.csv' AS row
+MERGE (p:Patient {subject_id: row.SUBJECT_ID, age: row.AGE, gender: row.GENDER})
+MERGE (a:Admission1 {hadm_id: row.HADM_ID})
+MERGE (s:Sepsis1 {type: row.IS_SEPSIS})
+CREATE (id:ItemID1 {ITEMID: row.ITEMID, l:row.LABEL, flag:row.FLAG})
+MERGE (a)-[:DIAGNOSED_SEPSIS]->(s)
+MERGE (p)-[:ADMITTED]->(a)
+MERGE (a)-[:HAS_ITEMID]->(id)
+
+LOAD CSV WITH HEADERS FROM 'file:///WithSepsisNormal.csv' AS row
+MERGE (p:Patient {subject_id: row.SUBJECT_ID, age: row.AGE, gender: row.GENDER})
+MERGE (a:Admission1 {hadm_id: row.HADM_ID})
+MERGE (s:Sepsis1 {type: row.IS_SEPSIS})
+CREATE (id:ItemID {ITEMID: row.ITEMID, l:row.LABEL,flag:row.FLAG})
+MERGE (a)-[:DIAGNOSED_SEPSIS]->(s)
+MERGE (p)-[:ADMITTED]->(a)
+MERGE (a)-[:HAS_ITEMID]->(id)
